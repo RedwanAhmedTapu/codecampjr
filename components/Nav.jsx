@@ -36,7 +36,7 @@ const Nav = () => {
         ></Image> */}
           <ImSpinner9 className=" w-16 h-8 animate" />
           <p className=" orange_gradient max-[420px]:text-[0.97rem]">
-            CodecampJR
+            CodecampJr.
           </p>
         </Link>
         <FcMenu
