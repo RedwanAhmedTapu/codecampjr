@@ -16,7 +16,7 @@ const Rootlayout = ({ children }) => {
           <div className="gradient"></div>
         </div>
         <Nav/>
-        <hr className="  max-w-ful"/>
+        <hr className="  max-w-ful  "/>
       
         <main className="app">{children}</main>
        

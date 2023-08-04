@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import Menubar from "./Menubar";
 import { useState, useEffect } from "react";
 // import { useSession, signIn, signOut, getProviders } from "next-auth/react";
 import { ImSpinner9 } from "react-icons/im";
@@ -10,6 +11,7 @@ import { RxCross2 } from "react-icons/rx";
 const Nav = () => {
   const [providers, setProviders] = useState(null);
   const [toggle, setToggle] = useState(true);
+  console.log(toggle);
 
   const isLoggedIn = true;
 
@@ -23,7 +25,7 @@ const Nav = () => {
 
   return (
     <>
-      <nav className="flex justify-evenly  items-center w-full h-16 shadow-lg  p-8 bg_color">
+      <nav className="flex justify-around sm:justify-evenly  items-center w-full h-16 shadow-lg  p-8 bg_color overflow-x-hidden sticky top-0 z-10">
         <Link
           href="/"
           className="flex justify-center items-center gap-2 text-white"
@@ -39,12 +41,15 @@ const Nav = () => {
             CodecampJr.
           </p>
         </Link>
-        <FcMenu
-          className="w-16 h-8 min-[900px]:hidden text-white opacity-[200%]"
+        <div
+          className="relative -top-6 -right-2 text-white w-4 h-4 min-[900px]:hidden"
           onClick={() => {
             setToggle(!toggle);
           }}
-        />
+        >
+          <Menubar />
+        </div>
+
         <ul className="w-[30rem] h-2 flex justify-evenly items-center max-[900px]:hidden ">
           <li className="navlist list">Home</li>
           <li className="navlist list">About</li>
@@ -53,23 +58,20 @@ const Nav = () => {
 
         <input
           type="text"
-          className="input max-[900px]:hidden w-96 px-4 py-2 bg-black rounded-md shadow-sm border border-gray-300 focus:ring-indigo-500 focus:border-indigo-500"
+          className="input max-[900px]:hidden w-96 px-4 py-2 bg-black rounded-md shadow-sm border border-gray-800 focus:ring-indigo-500 focus:border-indigo-500"
           placeholder="Search..."
         />
       </nav>
       {/* mobile responsive */}
+
       {toggle && (
-        <ul className="absolute top-[0rem] min-[900px]:hidden w-full h-64 z-20 bg-slate-900 flex flex-col justify-evenly items-center ">
-          <RxCross2
-            className="relative -top-4 -right-32 text-white w-16 h-16"
-            onClick={() => {
-              setToggle(!toggle);
-            }}
-          />
-          <li className="navlist list">Home</li>
-          <li className="navlist list">About</li>
-          <li className="navlist list">Contact</li>
-        </ul>
+        <>
+          <ul className="absolute top-[4.2rem] min-[900px]:hidden w-full h-64 z-20 bg-slate-900 flex flex-col justify-evenly items-center ">
+            <li className="navlist list">Home</li>
+            <li className="navlist list">About</li>
+            <li className="navlist list">Contact</li>
+          </ul>
+        </>
       )}
     </>
   );
