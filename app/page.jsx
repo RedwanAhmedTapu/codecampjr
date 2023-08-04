@@ -45,7 +45,7 @@ const Home = () => {
       <br className="" />
       <br className="" />
       <br className="sm:hidden" />
-      <div className="relative -top-[2rem] min-[1000px]:-top-[10rem]">
+      <div className="relative -top-[2rem] min-[1000px]:-top-[10rem] bg-transparent">
       <Videofx className=" "/>
       </div>
      
