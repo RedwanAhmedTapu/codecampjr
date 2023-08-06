@@ -1,4 +1,4 @@
-
+"use client"
 const SectionHeadingText = () => {
   return (
     <div className="w-full h-64 flex flex-col justify-center items-center gap-0">
