@@ -25,7 +25,7 @@ const Nav = () => {
 
   return (
     <>
-      <nav className="flex justify-around sm:justify-evenly  items-center w-full h-16 shadow-lg  p-8 bg_color overflow-x-hidden sticky top-0 z-10">
+      <nav className="flex justify-around sm:justify-evenly  items-center w-full h-16 shadow-lg  p-8 bg_color  overflow-x-hidden sticky top-0 z-10">
         <Link
           href="/"
           className="flex justify-center items-center gap-2 text-white"
@@ -42,7 +42,7 @@ const Nav = () => {
           </p>
         </Link>
         <div
-          className="relative -top-6 -right-2 text-white w-4 h-4 min-[900px]:hidden"
+          className="relative -top-6 -right-0 text-white w-4 h-4 min-[900px]:hidden"
           onClick={() => {
             setToggle(!toggle);
           }}
@@ -66,7 +66,7 @@ const Nav = () => {
 
       {toggle && (
         <>
-          <ul className="absolute top-[4.2rem] min-[900px]:hidden w-full h-64 z-20 bg-slate-900 flex flex-col justify-evenly items-center ">
+          <ul className="fixed top-[4.2rem] min-[900px]:hidden w-full h-64 z-20 bg-slate-900 flex flex-col justify-evenly items-center ">
             <li className="navlist list">Home</li>
             <li className="navlist list">About</li>
             <li className="navlist list">Contact</li>

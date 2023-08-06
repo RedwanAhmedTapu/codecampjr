@@ -14,11 +14,13 @@ const Videofx = () => {
   return (
     <>
     {
+      
       <video
         autoPlay
         loop
         ref={videoRef}
         src="/circuit1.mp4"
+        poster="/assets/images/fullBlackDiv.png"
         className="bg_color"
       ></video>
     }
