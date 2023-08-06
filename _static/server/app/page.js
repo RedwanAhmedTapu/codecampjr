@@ -954,7 +954,7 @@ const SlidingComponent = ()=>{
 /* harmony default export */ const components_SlidingComponent = (SlidingComponent);
 
 ;// CONCATENATED MODULE: ./components/SectionHeadingText.jsx
-
+/* __next_internal_client_entry_do_not_use__ default auto */ 
 const SectionHeadingText = ()=>{
     return /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
         className: "w-full h-64 flex flex-col justify-center items-center gap-0",
