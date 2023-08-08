@@ -32,9 +32,8 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  
   .head_text {
-    @apply mt-5 text-3xl font-extrabold leading-[1.15] bg-gradient-to-br from-slate-400 to-slate-50 bg-clip-text text-transparent text-center text-[3rem] min-[1000px]:text-[6rem] ;
+    @apply mt-5 text-3xl font-extrabold leading-[1.15] bg-gradient-to-br from-slate-400 to-slate-50 bg-clip-text text-transparent text-center text-[3rem] min-[1000px]:text-[6rem];
   }
   /* .bg_color {
   @apply   bg-black opacity-[0.98] ;
@@ -51,34 +50,54 @@
   .list {
     @apply border min-[900px]:border-none border-dashed w-full flex justify-center items-center;
   }
-  .card_color {
-    @apply bg-black opacity-70;
-  }
+  /* .card_color {
+    @apply bg-black opacity-10;
+  } */
   .card {
     @apply hover:bg-gradient-to-r hover:bg-slate-900 hover:via-slate-100 hover:to-slate-300 hover:shadow-gray-900 hover:shadow-xl;
   }
   .animate {
     @apply animate-spin;
   }
-  .slide_item{
-    @apply  w-[18rem] h-[15rem] px-3 flex flex-col justify-normal items-center  rounded-md bg-slate-300 shadow-2xl shadow-slate-400;
+
+  /* styling for SlidingComponent.jsx */
+  .slide_item {
+    @apply w-[18rem] h-[15rem] px-3 flex flex-col justify-normal items-center  rounded-md bg-[#171616] shadow-2xl ;
   }
-  .slide_icon{
-   @apply min-[900px]:w-28 min-[900px]:h-48 w-24 h-48 text-orange-600;
+  .slide_icon {
+    @apply min-[900px]:w-28 min-[900px]:h-48 w-24 h-48 text-orange-600;
   }
-  .slide_text{
-   @apply  text-xl text-clip text-slate-900 font-semibold  opacity-100;
+  .slide_text {
+    @apply text-xl text-clip text-slate-50 font-semibold  opacity-100;
   }
   /* for mobile */
-  .slide_itemM{
+  .slide_itemM {
     @apply w-[18rem] h-[15rem]   px-3 flex flex-col justify-center items-center  rounded-md bg-slate-300 shadow-2xl shadow-slate-400;
   }
-  .slide_iconM{
-   @apply w-28 h-48 ;
+  .slide_iconM {
+    @apply w-28 h-48;
   }
-  .slide_textM{
-   @apply  text-xl text-clip text-slate-900 font-semibold  opacity-100;
+  .slide_textM {
+    @apply text-xl text-clip text-slate-900 font-semibold  opacity-100;
   }
+  /* end of styling SlidingComponent.jsx */
+  /* .card1 {
+    @apply w-[30rem] h-[23rem]  bg-slate-200  rounded-md;
+  } */
+  /* .card2 {
+    @apply w-[30rem] h-[20rem] relative -top-2 -left-4 bg-cyan-400 rounded-md;
+  } */
+  /* styling for Card.jsx */
+  .inner_div{
+    @apply max-[500px]:w-[19rem] max-[500px]:h-[12rem] w-[25rem] h-[18rem] bg-[#181717]  relative shadow-lg rounded-lg transition-all duration-300 ease-in max-[500px]:hover:h-[14rem] hover:h-[20rem];
+  }
+  .inner_image{
+    @apply max-[500px]:w-[19rem] max-[500px]:h-[10rem] w-[25rem] h-[16rem] absolute -top-4 -left-4 max-[500px]:hover:w-[17rem] hover:w-[23rem] hover:top-2 hover:left-4 transition-all duration-300 ease-in shadow-lg rounded-lg;
+  }
+  .inner_text{
+    @apply text-4xl  bg-gradient-to-br from-slate-400 to-slate-50 bg-clip-text text-transparent  font-semibold absolute bottom-3 left-4;
+  }
+  /* end of styling Card.jsx */
   hr {
     height: 1px;
     background-color: gray;
@@ -146,21 +165,71 @@
   .font_family {
     font-family: "Crimson Text", serif;
   }
-  .ripple {
+  /* .ripple {
     background: rgba(25, 25, 26, 0.27);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5.4px);
     -webkit-backdrop-filter: blur(5.4px);
     border: 1px solid rgba(25, 25, 26, 0.2);
-  }
+  } */
   .scrolling1::-webkit-scrollbar {
     display: none;
   }
-  
+
   /* Hide scrollbar for IE, Edge and Firefox */
   .scrolling2 {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  /* Apply the styles to the scrollbar track (background) */
+  body {
+    background: #000;
+  }
+  body::-webkit-scrollbar {
+    width: 0.25em;
+  }
+  body::-webkit-scrollbar-track {
+    background-color: #000;
+  }
+
+  /* Apply the styles to the scrollbar thumb (handle) */
+  body::-webkit-scrollbar-thumb {
+    background-color: #d3c0c07f;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 100%;
+  }
+  /* after-before selector card component */
+ 
+  /* for designing custom curve of a div */
+  
+  .custom_shape{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+  }
+
+  .custom_shape svg {
+    position: relative;
+    display: block;
+    width: calc(130% + 1.3px);
+    height: 198px;
+  }
+
+  .custom_shape .shape-fill {
+    fill: #100f0f;
+  }
+
+  /* for responsive */
+  /* responsiveness of curved shape */
+  @media only screen and (max-width: 1400px) {
+    .custom_shape svg{
+      height: 100px;
+    }
   }
 }
