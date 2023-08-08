@@ -95,7 +95,7 @@
     @apply max-[500px]:w-[19rem] max-[500px]:h-[10rem] w-[25rem] h-[16rem] absolute -top-4 -left-4 max-[500px]:hover:w-[17rem] hover:w-[23rem] hover:top-2 hover:left-4 transition-all duration-300 ease-in shadow-lg rounded-lg;
   }
   .inner_text{
-    @apply text-4xl  bg-gradient-to-br from-slate-400 to-slate-50 bg-clip-text text-transparent  font-semibold absolute bottom-3 left-4;
+    @apply max-[500px]:text-2xl text-3xl  bg-gradient-to-br from-slate-400 to-slate-50 bg-clip-text text-transparent  font-semibold absolute bottom-3 left-4;
   }
   /* end of styling Card.jsx */
   hr {
