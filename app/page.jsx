@@ -10,6 +10,7 @@ import SlidingComponent from "@components/SlidingComponent";
 import SectionHeadingText from "@components/SectionHeadingText";
 import InlineHr from "@components/InlineHr";
 import Card from "@components/Card";
+import HoverableDropdown from "@components/HoverableDropdown";
 
 const Home = () => {
   // const router=useRouter();
@@ -34,6 +35,7 @@ const Home = () => {
             Get Started
           </button>
           <InlineHr />
+          
           <div className="flex gap-x-6">
             <button className="bg-orange-500 opacity-90 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition-colors duration-300">
               Google
@@ -44,6 +46,7 @@ const Home = () => {
             <button className="bg-blue-500 hover:bg-blue-400 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition-colors duration-300">
               Facebook
             </button>
+            
           </div>
         </div>
        
@@ -57,11 +60,15 @@ const Home = () => {
 </div>
 
       </section>
-      <section className="relative max-[1200px]:-top-[3.2rem] max-[1400px]:-top-[3.3rem]">
+      <section className="relative max-[1200px]:-top-[3.2rem] max-[1400px]:-top-[3.3rem] h-[30rem]">
+     
       <SlidingComponent/>
       <Card/>
+     
       </section>
      
+
+      
     </>
   );
 };

@@ -38,6 +38,11 @@
   /* .bg_color {
   @apply   bg-black opacity-[0.98] ;
 } */
+
+/* some custom code for alignment of the object */
+.flex_center{
+  @apply flex justify-center items-center;
+}
   .orange_gradient {
     @apply bg-gradient-to-r from-amber-100 via-orange-600 to-violet-600 bg-clip-text text-transparent font-bold text-4xl;
   }
@@ -98,6 +103,11 @@
     @apply max-[500px]:text-2xl text-3xl  bg-gradient-to-br from-slate-400 to-slate-50 bg-clip-text text-transparent  font-semibold absolute bottom-3 left-4;
   }
   /* end of styling Card.jsx */
+
+  /* style for HoveringMenu.jsx */
+  .dropdownMenu{
+    @apply flex_center px-4 py-2 text-lg text-white hover:bg-black hover:opacity-50 transition duration-300;
+  }
   hr {
     height: 1px;
     background-color: gray;

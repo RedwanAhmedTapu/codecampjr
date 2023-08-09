@@ -8,6 +8,7 @@ import { useState, useEffect } from "react";
 import { ImSpinner9 } from "react-icons/im";
 import { FcMenu } from "react-icons/fc";
 import { RxCross2 } from "react-icons/rx";
+import HoverableDropdown from "./HoverableDropdown";
 const Nav = () => {
   const [providers, setProviders] = useState(null);
   const [toggle, setToggle] = useState(true);
@@ -25,7 +26,7 @@ const Nav = () => {
 
   return (
     <>
-      <nav className="flex justify-around sm:justify-evenly  items-center w-full h-16 shadow-lg  p-8 bg_color   overflow-hidden sticky top-0 z-10">
+      <nav className="flex justify-around sm:justify-evenly  items-center w-full h-16 shadow-lg  p-8 bg_color sticky top-0 z-10">
         <Link
           href="/"
           className="flex justify-center items-center gap-2 text-white"
@@ -52,7 +53,8 @@ const Nav = () => {
 
         <ul className="w-[30rem] h-2 flex justify-evenly items-center max-[900px]:hidden ">
           <li className="navlist list">Home</li>
-          <li className="navlist list">About</li>
+          <HoverableDropdown className="z-10 h-76" />
+
           <li className="navlist list">Contact</li>
         </ul>
 
@@ -68,7 +70,7 @@ const Nav = () => {
         <>
           <ul className="fixed top-[4.2rem] min-[900px]:hidden w-full h-64 z-20 bg-slate-900 flex flex-col justify-evenly items-center ">
             <li className="navlist list">Home</li>
-            <li className="navlist list">About</li>
+            <HoverableDropdown className="navlist list" />
             <li className="navlist list">Contact</li>
           </ul>
         </>
