@@ -26,7 +26,7 @@ const Nav = () => {
 
   return (
     <>
-      <nav className="flex justify-around sm:justify-evenly  items-center w-full h-16 shadow-lg  p-8 bg_color sticky top-0 z-10">
+      <nav className="flex justify-around sm:justify-evenly  items-center w-full h-16 shadow-lg  p-8 bg_color fixed top-0 z-10">
         <Link
           href="/"
           className="flex justify-center items-center gap-2 text-white"
@@ -75,6 +75,7 @@ const Nav = () => {
           </ul>
         </>
       )}
+       <hr  className="" />
     </>
   );
 };

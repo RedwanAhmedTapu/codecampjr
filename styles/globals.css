@@ -39,10 +39,10 @@
   @apply   bg-black opacity-[0.98] ;
 } */
 
-/* some custom code for alignment of the object */
-.flex_center{
-  @apply flex justify-center items-center;
-}
+  /* some custom code for alignment of the object */
+  .flex_center {
+    @apply flex justify-center items-center;
+  }
   .orange_gradient {
     @apply bg-gradient-to-r from-amber-100 via-orange-600 to-violet-600 bg-clip-text text-transparent font-bold text-4xl;
   }
@@ -67,7 +67,7 @@
 
   /* styling for SlidingComponent.jsx */
   .slide_item {
-    @apply w-[18rem] h-[15rem] px-3 flex flex-col justify-normal items-center  rounded-md bg-[#171616] shadow-2xl ;
+    @apply w-[18rem] h-[15rem] px-3 flex flex-col justify-normal items-center  rounded-md bg-[#171616] shadow-2xl;
   }
   .slide_icon {
     @apply min-[900px]:w-28 min-[900px]:h-48 w-24 h-48 text-orange-600;
@@ -93,21 +93,42 @@
     @apply w-[30rem] h-[20rem] relative -top-2 -left-4 bg-cyan-400 rounded-md;
   } */
   /* styling for Card.jsx */
-  .inner_div{
-    @apply max-[500px]:w-[19rem] max-[500px]:h-[12rem] w-[25rem] h-[18rem] bg-[#181717]  relative shadow-lg rounded-lg transition-all duration-300 ease-in max-[500px]:hover:h-[14rem] hover:h-[20rem];
+  .inner_div {
+    @apply max-[500px]:w-[19rem] max-[500px]:h-[14rem] w-[25rem] h-[18rem] bg-[#181717]  relative shadow-lg rounded-lg transition-all duration-300 ease-in max-[500px]:hover:h-[16rem] hover:h-[20rem];
   }
-  .inner_image{
-    @apply max-[500px]:w-[19rem] max-[500px]:h-[10rem] w-[25rem] h-[16rem] absolute -top-4 -left-4 max-[500px]:hover:w-[17rem] hover:w-[23rem] hover:top-2 hover:left-4 transition-all duration-300 ease-in shadow-lg rounded-lg;
+  .inner_image {
+    @apply max-[500px]:w-[19rem] max-[500px]:h-[12rem] w-[25rem] h-[16rem] absolute -top-4 -left-4 max-[500px]:hover:w-[17rem] hover:w-[23rem] hover:top-2 hover:left-4 transition-all duration-300 ease-in shadow-lg rounded-lg;
   }
-  .inner_text{
+  .inner_text {
     @apply max-[500px]:text-2xl text-3xl  bg-gradient-to-br from-slate-400 to-slate-50 bg-clip-text text-transparent  font-semibold absolute bottom-3 left-4;
   }
   /* end of styling Card.jsx */
 
   /* style for HoveringMenu.jsx */
-  .dropdownMenu{
+  .dropdownMenu {
     @apply flex_center px-4 py-2 text-lg text-white hover:bg-black hover:opacity-50 transition duration-300;
   }
+
+  /* style for activeStudentComponent div */
+  .activeStudentContainer {
+    @apply flex justify-evenly items-center flex-shrink w-[100%] h-[55rem] max-[930px]:hidden;
+  }
+  .activeStudentItemDiv {
+    @apply w-[25%] h-[55rem] max-[930px]:hidden bg-[#000000] border-none relative box-content bottom-0 p-4;
+  }
+  .activeStudentTextDiv {
+    @apply w-[50%] h-[57rem] max-[930px]:hidden bg-[#000000] border-none  flex_center flex-col  pt-24  relative border-0 p-4;
+  }
+  /* end of  style for activeStudentComponent div */
+
+  /* style for codeEditor.jsx */
+  .codeContainerDiv {
+    @apply w-[25rem] h-[25rem] bg-gradient-to-r from-[#393636] to-[#413f3f] flex flex-col justify-center items-center gap-1 shadow-xl rounded-xl;
+  }
+  .codeItemDiv {
+    @apply w-72 h-56 bg-[#121111] shadow-xl shadow-gray-900 rounded-lg;
+  }
+
   hr {
     height: 1px;
     background-color: gray;
@@ -211,10 +232,10 @@
     border-radius: 100%;
   }
   /* after-before selector card component */
- 
+
   /* for designing custom curve of a div */
-  
-  .custom_shape{
+
+  .custom_shape {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -238,7 +259,7 @@
   /* for responsive */
   /* responsiveness of curved shape */
   @media only screen and (max-width: 1400px) {
-    .custom_shape svg{
+    .custom_shape svg {
       height: 100px;
     }
   }

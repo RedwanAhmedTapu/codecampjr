@@ -8,11 +8,11 @@ const Card = () => {
     img:"/assets/images/graduation.avif",
     text:"lorem"
   },{
-    img:"/assets/images/light.webp",
+    img:"/assets/images/goldenwire.jpeg",
     text:"lorem"
   }]
   return (
-    <div className="    w-full  h-[35rem] bg-[#100f0f] flex flex-wrap justify-center items-center rounded-md shadow-md  relative gap-10">
+    <div className="    w-full max-[1300px]:h-[50rem]  h-[30rem] bg-[#000000] flex flex-wrap justify-center items-center rounded-md shadow-md    gap-10">
     {
       data.map((curElem,index)=>{
         return(<>
@@ -23,7 +23,7 @@ const Card = () => {
           height={300}
           className="inner_image"
         />
-        <p className="inner_text">Card title</p>
+        <p className="inner_text">{curElem.text}</p>
       </div>
         </>)
       })

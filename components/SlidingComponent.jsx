@@ -32,7 +32,7 @@ const SlidingComponent = () => {
 
   return (
     <>
-      <div className=" max-[900px]:hidden w-full h-[20rem] bg-[#100f0f]   box-border   flex justify-center items-center ">
+      <div className=" max-[900px]:hidden w-full h-[20rem] bg-[#000000]   box-border   flex justify-center items-center ">
         <div className="w-[54rem] h-[15rem] bg-transparent  flex justify-center items-center  gap-4 ">
           <Swiper
             modules={[Navigation, Pagination, Scrollbar, A11y]}
@@ -119,7 +119,7 @@ const SlidingComponent = () => {
         </div>
       </div>
       {/* for tablet */}
-      <div className=" min-[900px]:hidden max-[615px]:hidden  w-full h-[20rem] bg-[#100f0f]   box-border   flex justify-center items-center shadow-3xl ">
+      <div className=" min-[900px]:hidden max-[615px]:hidden  w-full h-[20rem] bg-[#000000]   box-border   flex justify-center items-center shadow-3xl ">
         <div className="w-[36rem] h-[15rem]   flex justify-center items-center  gap-4 ">
           <Swiper
             modules={[Navigation, Pagination, Scrollbar, A11y]}
@@ -200,7 +200,7 @@ const SlidingComponent = () => {
         </div>
       </div>
       {/* for mobile */}
-      <div className=" min-[614px]:hidden   w-full h-[25rem] bg-[#100f0f]   box-border   flex justify-center items-center shadow-3xl ">
+      <div className=" min-[614px]:hidden   w-full h-[25rem] bg-[#000000]   box-border   flex justify-center items-center shadow-3xl ">
         <div className="w-[18rem] h-[15rem]   flex justify-center items-center    gap-4 ">
           <Swiper
             modules={[Navigation, Pagination, Scrollbar, A11y]}
