@@ -156,9 +156,11 @@ const ActiveStudent = () => {
             layout="fixed"
             className="relative min-[663px]:w-[10rem] object-fit  min-[663px]:h-[10rem] w-[6rem] h-[6rem] rounded-full -top-24 min-[663px]:-right-[75%] right-10% "
           />
+           
         </div>
    
       </div>
+    
     </>
   );
 };

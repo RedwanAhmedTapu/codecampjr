@@ -129,6 +129,31 @@
     @apply w-72 h-56 bg-[#121111] shadow-xl shadow-gray-900 rounded-lg;
   }
 
+  /* style for footer */
+  .containerFooter {
+    @apply grid grid-cols-4 max-[850px]:grid-cols-2 max-[850px]:place-items-center max-[450px]:grid-cols-1 max-[850px]:pb-20 w-screen h-screen pt-20 pb-20 min-[1300px]:pl-32 min-[1300px]:pr-32 pl-10 pr-10 max-[850px]:gap-y-4;
+  }
+  .ItemFooter {
+    @apply flex flex-col h-full gap-y-4 text-slate-400 hover:text-slate-50;
+  }
+  .iconFooter{
+    @apply w-8 h-8 text-slate-400;
+  }
+  .textColor{
+    @apply text-slate-400 hover:text-slate-50;
+  }
+  .globe-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to bottom, #000, #333); /* Gradient background */
+  }
+  
+  .globe-canvas {
+    border: 8px solid rgba(0, 0, 0, 0.5); /* Slightly black border */
+  }
+  
   hr {
     height: 1px;
     background-color: gray;

@@ -1,13 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import Menubar from "./Menubar";
 import { useState, useEffect } from "react";
-// import { useSession, signIn, signOut, getProviders } from "next-auth/react";
 import { ImSpinner9 } from "react-icons/im";
-import { FcMenu } from "react-icons/fc";
-import { RxCross2 } from "react-icons/rx";
+
 import HoverableDropdown from "./HoverableDropdown";
 const Nav = () => {
   const [providers, setProviders] = useState(null);
@@ -52,7 +49,14 @@ const Nav = () => {
         </div>
 
         <ul className="w-[30rem] h-2 flex justify-evenly items-center max-[900px]:hidden ">
-          <li className="navlist list">Home</li>
+          <li className="navlist list">
+            <Link
+              href="/"
+              className="flex justify-center items-center gap-2 text-white"
+            >
+              Home
+            </Link>
+          </li>
           <HoverableDropdown className="z-10 h-76" />
 
           <li className="navlist list">Contact</li>
@@ -75,7 +79,7 @@ const Nav = () => {
           </ul>
         </>
       )}
-       <hr  className="" />
+      <hr className="" />
     </>
   );
 };
