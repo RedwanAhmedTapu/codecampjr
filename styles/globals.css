@@ -136,24 +136,72 @@
   .ItemFooter {
     @apply flex flex-col h-full gap-y-4 text-slate-400 hover:text-slate-50;
   }
-  .iconFooter{
+  .iconFooter {
     @apply w-8 h-8 text-slate-400;
   }
-  .textColor{
+  .textColor {
     @apply text-slate-400 hover:text-slate-50;
+  }
+  /*tailwind style for blinkingCard.jsx */
+  .connector_span {
+    @apply w-[6px] h-[10px] -top-[10px] -z-10;
+  }
+  .IcDiv::after {
+    content: "Powered By";
+    width: 186px;
+    height: 60px;
+    background: #131413;
+    color: #898989;
+    font-weight: 900;
+    font-size: 1.5rem;
+    position: absolute;
+
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid #3a3a3a; */
+    border-radius: 4px;
+    z-index: 999;
+  }
+  .connector_span {
+    background: linear-gradient(
+      180deg,
+      #9a9a9a,
+      #686868 33.33%,
+      #848484 66.67%,
+      #3a3a3a
+    );
+    position: absolute;
+    border-radius: 1px 1px 0 0;
+    box-shadow: 0 2px 2px 1px rgba(0, 0, 0, 0.02),
+      inset 0 -1px 1px 1px rgba(0, 0, 0, 0.1), inset 0 -1px 1px #ddd;
+  }
+  .connector_span_text {
+    background: linear-gradient(
+      180deg,
+      #9a9a9a,
+      #686868 33.33%,
+      #848484 66.67%,
+      #3a3a3a
+    );
   }
   .globe-container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: linear-gradient(to bottom, #000, #333); /* Gradient background */
+    background: linear-gradient(
+      to bottom,
+      #000,
+      #333
+    ); /* Gradient background */
   }
-  
+
   .globe-canvas {
     border: 8px solid rgba(0, 0, 0, 0.5); /* Slightly black border */
   }
-  
+
   hr {
     height: 1px;
     background-color: gray;
@@ -257,7 +305,129 @@
     border-radius: 100%;
   }
   /* after-before selector card component */
+  /* design for blinkingCard.jsx */
+  .blinking_div:hover:before {
+    content: "";
+    width: 150%;
+    height: 150%;
+    background-image: conic-gradient(#ff0052 20deg, transparent 120deg);
+    position: absolute;
+    animation: rotate 2s linear infinite;
+  }
+  .blinking_div::after {
+    content: "";
+    width: 190px;
+    height: 190px;
+    border-radius: 10px;
+    background: #101010;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+  }
 
+  .svgs {
+    width: 800px;
+    height: 500px;
+    background-color: #000000;
+    top: -10px;
+    left: -1px;
+    z-index: -999;
+    position: relative;
+  }
+  .pathDownpin1 {
+    stroke-dasharray: 50;
+    stroke-dashoffset: 0;
+    animation: border 1s infinite;
+    transition: animation 5s ease-in-out;
+  }
+  .pathDownpin1Horizontal {
+    stroke-dasharray: 100;
+    stroke-dashoffset: 0;
+    animation: pathDownpin1Horizontal 0.5s infinite;
+    transition: animation 5s ease-in-out;
+  }
+  .pathDownpin2 {
+    stroke-dasharray: 50;
+    stroke-dashoffset: 0;
+    animation: border 0.5s infinite;
+    transition: animation 5s ease-in-out;
+  }
+  .pathrightlastline{
+    stroke-dasharray: 50;
+    stroke-dashoffset: 0;
+    animation: border 0.5s infinite;
+    transition: border 5s ease-in-out;
+  }
+  @keyframes pathDownpin1Horizontal {
+    0% {
+      stroke-dashoffset: 100;
+    }
+    40% {
+      stroke-dashoffset: 80;
+    }
+    60% {
+      stroke-dashoffset: 60;
+    }
+    80% {
+      stroke-dashoffset: 30;
+    }
+    100% {
+      stroke-dashoffset: 0;
+    }
+  }
+  @keyframes border {
+    100% {
+      stroke-dashoffset: 100;
+    }
+    80% {
+      stroke-dashoffset: 80;
+    }
+    60% {
+      stroke-dashoffset: 60;
+    }
+    40% {
+      stroke-dashoffset: 30;
+    }
+    0% {
+      stroke-dashoffset: 0;
+    }
+  }
+  .powerOuterDiv {
+    width: 100%;
+    min-height: 280px;
+    border-radius: 12px;
+    border-color: #36454f;
+    padding: 24px;
+    box-shadow: 0 1px 0 1px rgba(19, 17, 17, 0.02), 0 4px 6px rgba(0, 0, 0, 0.02),
+      inset 0 0 0 7px rgb(3, 2, 2);
+    background: linear-gradient(180deg, #171414 0, rgb(0, 0, 0) 65.62%);
+    position: relative;
+    transition: background 0.15s ease;
+    
+  }
+  .powerOuterDiv::before {
+    content: "";
+    position: absolute;
+    top: -3px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: radial-gradient(circle, cyan, transparent);
+
+  }
+  .powerdiv2::before{
+    background: radial-gradient(circle, rgb(255, 196, 0), transparent);
+  }
+  .powerdiv3::before{
+    background: radial-gradient(circle, rgb(0, 255, 51), transparent);
+  }
+  
+  
+  
+  
+  
+ 
   /* for designing custom curve of a div */
 
   .custom_shape {

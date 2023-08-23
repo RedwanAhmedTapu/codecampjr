@@ -16,6 +16,8 @@ import ActiveStudent from "@components/ActiveStudent";
 import FooterJr from "@components/FooterJr";
 import Login from "@components/Login";
 import Link from "next/link";
+import Svg from "@components/Svg";
+import BlinkingCard from "@components/BlinkingCard";
 const Home = () => {
   // const router=useRouter();
   const data = [
@@ -62,6 +64,7 @@ const Home = () => {
                 Sign up
               </button>
             </Link>
+       
           </div>
         </div>
 
@@ -69,9 +72,11 @@ const Home = () => {
           {/* <CodeEditor/> */}
           <SlidingComponent />
           <Card />
+          <BlinkingCard/>
           <ActiveStudent />
           <ProPracticeCard />
           <FooterJr />
+         {/* <Svg/> */}
         </section>
 
         {/* <div class="custom_shape">
