@@ -12,7 +12,7 @@ const SectionHeadingText = () => {
       <p className="head_text_light  dark:head_text text-start dark:text-start">
         Power of Code
       </p>
-      <p className="head_text_light  dark:head_text font-semibold dark:font-semibold text-start text-xl dark:text-xl text-slate-500 dark:text-start">
+      <p className="head_text_light  dark:head_text font-semibold dark:font-semibold text-start text-[1rem] dark:text-[1rem] leading-6 text-slate-500 dark:text-start">
         CodeCampJR is your gateway to a world of coding knowledge and creativity. Our online learning platform is designed to empower young minds with the skills .
       </p>
       </div>
