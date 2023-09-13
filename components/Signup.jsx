@@ -1,9 +1,10 @@
 "use client";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { ImSpinner9 } from "react-icons/im";
 import { AiFillApple } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
-import { useState,useEffect } from "react";
-import { useRouter } from "next/navigation";
+
 import CountdownTimer from "./CountDownTimer";
 const Signup = () => {
   const [user, setUser] = useState({

@@ -24,13 +24,15 @@ const Login = () => {
     event.preventDefault();
     try {
       const { email, password } = user;
-      console.log(user);
+      console.log(email,password);
       if (email.trim() === "" || password.trim() === "") {
         alert("please fill all the data");
       } else {
         const res = await axios
           .post("http://localhost:5000/user/login", user)
           .then((res) => {
+                  // alert(res.data.message);
+
             if (res.data === "not any user") {
               alert("wrong password and email");
             } else {
