@@ -50,7 +50,7 @@ const TrialClassForm = () => {
         alert("please the all the data");
       } else {
         await axios
-          .post("http://localhost:5000/learner/trial-registration", user)
+          .post("https://codecampjrbackend.onrender.com/learner/trial-registration", user)
           .then((data) => {
             alert(data.message);
             router("/");

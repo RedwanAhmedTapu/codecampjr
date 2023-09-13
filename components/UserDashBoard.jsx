@@ -30,7 +30,7 @@ const UserDashBoard = () => {
 
       try {
         const response = await axios.post(
-          "http://localhost:5000/upload",
+          "https://codecampjrbackend.onrender.com/upload",
           formData,
           {
             headers: {
@@ -50,7 +50,7 @@ const UserDashBoard = () => {
   useEffect(() => {
     const res = async () => {
       const data = await axios
-        .get(`http://localhost:5000/active-user/info/${emailId}`)
+        .get(`https://codecampjrbackend.onrender.com/active-user/info/${emailId}`)
         .then((res) => {
           console.log(res.data);
           setUserData(res.data);

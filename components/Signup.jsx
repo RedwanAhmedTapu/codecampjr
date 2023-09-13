@@ -71,7 +71,7 @@ const Signup = () => {
   const handleSendOtp = async () => {
     const { fname, lname, email, password } = user;
     console.log("OTP:", code);
-    const res = await fetch("http://localhost:5000/verify-email", {
+    const res = await fetch("https://codecampjrbackend.onrender.com/verify-email", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

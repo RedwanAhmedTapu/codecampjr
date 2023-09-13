@@ -88,7 +88,7 @@ const SelectLevel = () => {
     setPayment(true);
     setIsActive(false);
     const res = await axios
-      .post("http://localhost:5000/active-user/registration", studentSchedule)
+      .post("https://codecampjrbackend.onrender.com/active-user/registration", studentSchedule)
       .then((res) => {
         console.log(res);
         // router.push(`/user-dashboard?userEmail=${email}`);
