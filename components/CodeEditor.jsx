@@ -58,7 +58,7 @@ const CodeEditor = () => {
             <span className="text-yellow-600">{divend}</span>
           </div>
         </div>
-        <div className="codeItemDiv relative -top-4 left-36 p-2">
+        <div className="codeItemDiv relative -top-4 max-[1230px]:-left-8 left-36 p-2">
           <div className="flex justify-around text-white gap-14">
             <div className=" flex justify-start items-center gap-x-4 text-white">
               <SettingsOutlinedIcon className="w-4 h-4 bg-gray-600 bg-clip-text" />

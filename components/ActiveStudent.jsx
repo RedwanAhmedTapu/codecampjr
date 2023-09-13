@@ -57,11 +57,11 @@ const ActiveStudent = () => {
         </div>
         <div className="activeStudentTextDiv">
           <div className="flex_center flex-col gap-y-8">
-            <h3 className="text-4xl opacity-75 font-bold text-white ">
+            <h3 className="text-4xl opacity-75 font-bold text-cyan-900 dark:text-white ">
               Supportive Community
             </h3>
             <h3 className="text-blue-400 font-bold text-7xl">64447780</h3>
-            <p className="text-xl text-white opacity-80 p-2 text-center">
+            <p className="text-xl text-cyan-700 dark:text-white opacity-80 p-2 text-center">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. At
               exercitationem sapiente praesentium. Lorem ipsum, dolor sit amet
               consectetur adipisicing elit. Tenetur eveniet quaerat et.
@@ -106,21 +106,22 @@ const ActiveStudent = () => {
       </div>
 
       {/* for mobile and tab version  */}
-      <div className=" min-[930px]:hidden   w-full h-[60rem] bg-[#000000]">
+      <div className=" min-[930px]:hidden   w-full h-full bg-slate-100 dark:bg-[#000000] overflow-hidden">
         <div className="flex flex-col flex_center ">
         
           <div className="flex_center flex-col gap-8 p-10 w-full">
-            <h3 className="min-[663px]:text-4xl text-2xl opacity-75 font-bold text-white ">
+            <h3 className="min-[663px]:text-4xl text-2xl opacity-75 font-bold text-cyan-900 dark:text-white ">
               Supportive Community
             </h3>
             <h3 className="text-blue-400 font-bold min-[663px]:text-7xl text-4xl">64447780</h3>
-            <p className="text-xl text-white opacity-80 p-2 text-center flex-1">
+            <p className="text-xl text-cyan-700 dark:text-white opacity-80 p-2 text-center flex-1">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. At
               exercitationem sapiente praesentium. Lorem ipsum, dolor sit amet
               consectetur adipisicing elit. Tenetur eveniet quaerat et.
             </p>
           </div>
         
+          <CodeEditor />
         
         </div>
         <div className="relative w-full">

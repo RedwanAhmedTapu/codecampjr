@@ -4,29 +4,34 @@ import Link from "next/link";
 import Menubar from "./Menubar";
 import { useState, useEffect } from "react";
 import { ImSpinner9 } from "react-icons/im";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
+import LightModeIcon from "@mui/icons-material/LightMode";
 
 import HoverableDropdown from "./HoverableDropdown";
 const Nav = () => {
   const [providers, setProviders] = useState(null);
   const [toggle, setToggle] = useState(true);
+  const [isDarkMode, setIsDarkMode] = useState(false);
   console.log(toggle);
 
   const isLoggedIn = true;
 
   useEffect(() => {
-    // const setProviders = async () => {
-    //   const response = await getProviders();
-    //   setProviders(response);
-    // };
-    // setProviders();
-  }, []);
+    if (isDarkMode) {
+     
+      document.body.classList.add("dark");
+    } else {
+      document.body.classList.remove("dark");
+    }
+  
+  }, [isDarkMode]);
 
   return (
     <>
-      <nav className="flex justify-around sm:justify-evenly  items-center w-full h-16 shadow-lg  p-8 bg_color fixed top-0 z-10">
+      <nav className="bg-[#fffcfc] dark:bg_color  flex justify-around sm:justify-evenly  items-center w-full h-16 dark:shadow-lg  p-8  fixed top-0 z-50">
         <Link
           href="/"
-          className="flex justify-center items-center gap-2 text-white"
+          className="flex justify-center items-center gap-2 text-orange-600  dark:text-white"
         >
           {/* <Image
           src="/assets/images/logo.svg"
@@ -40,40 +45,60 @@ const Nav = () => {
           </p>
         </Link>
         <div
-          className="relative -top-6 -right-0 text-white w-4 h-4 min-[900px]:hidden"
+          className="relative -top-6 -right-0 text-white  w-4 h-4 min-[900px]:hidden"
           onClick={() => {
             setToggle(!toggle);
           }}
         >
-          <Menubar />
+          <Menubar className="bg-slate-950"/>
         </div>
 
         <ul className="w-[30rem] h-2 flex justify-evenly items-center max-[900px]:hidden ">
           <li className="navlist list">
             <Link
               href="/"
-              className="flex justify-center items-center gap-2 text-white"
+              className="flex justify-center items-center gap-2 text-slate-800  dark:text-white"
             >
               Home
             </Link>
           </li>
           <HoverableDropdown className="z-10 h-76" />
 
-          <li className="navlist list">Contact</li>
+          <li className="navlist list text-slate-800  dark:text-white">Contact</li>
         </ul>
+       
+        <div className="w-8 h-8 rounded-lg  relative -right-10">
+          {isDarkMode ? (
+            <div className="w-8 h-8 text-white flex_center gap-x-1">
+            
 
-        <input
-          type="text"
-          className="input max-[900px]:hidden w-96 px-4 py-2 bg-black rounded-md shadow-sm border border-gray-800 focus:ring-indigo-500 focus:border-indigo-500"
-          placeholder="Search..."
-        />
+              <LightModeIcon
+                className="w-8 h-8 text-slate-800  dark:text-white"
+                onClick={() => {
+                  setIsDarkMode(false);
+                }}
+              />
+            </div>
+          ) : (
+            <div className="w-8 h-8 text-white flex_center gap-x-1">
+              <DarkModeIcon
+                className="w-8 h-8 text-slate-800  dark:text-white"
+                // checked={isDarkMode} 
+                onClick={() => {
+                  setIsDarkMode(true);
+                }}
+              />
+            </div>
+          )}
+         </div>
       </nav>
       {/* mobile responsive */}
 
       {toggle && (
         <>
           <ul className="fixed top-[4.2rem] min-[900px]:hidden w-full h-64 z-20 bg-slate-900 flex flex-col justify-evenly items-center ">
-            <li className="navlist list">Home</li>
+            <li className="navlist list"> <Link
+              href="/">Home</Link></li>
             <HoverableDropdown className="navlist list" />
             <li className="navlist list">Contact</li>
           </ul>

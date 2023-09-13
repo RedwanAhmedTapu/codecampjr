@@ -1,5 +1,6 @@
 // import Feed from "@components/Feed";
 "use client";
+import Image from "next/image";
 // import Script from 'next/script';
 import CardPrompt from "@components/CardPrompt";
 // import Videofx from "@components/Videofx";
@@ -18,8 +19,13 @@ import Login from "@components/Login";
 import Link from "next/link";
 import Svg from "@components/Svg";
 import BlinkingCard from "@components/BlinkingCard";
+import CoursesSchedule from "@components/CoursesSchedule";
+import Level from "@components/Level";
+import GlobeInnerRay from "@components/GlobeInnerRay";
+import { HiOutlineRocketLaunch } from "react-icons/hi2";
+import CodeDivDesignforHomePage from "@components/CodeDivDesignforHomePage";
+
 const Home = () => {
-  // const router=useRouter();
   const data = [
     {
       description: "Why Choose CodeCamp Junior?",
@@ -34,15 +40,27 @@ const Home = () => {
 
   return (
     <>
-      <section className="bg_color w-full flex flex-col     h-[40rem]  mt-20">
-        <div className="flex flex-col justify-center items-center gap-y-14">
-          <SectionHeadingText />
-          <button className="w-64 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition-colors duration-300">
-            Get Started
-          </button>
-          <InlineHr />
+      {/* <div className="absolute top-10 -left-12  w-64 h-[10]">
+        <Image
+          src="assets/images/bitmap_Layer 1_copy_6.svg"
+          className="w-1/2 h-1/2"
+          width={300}
+          height={300}
+        />
+      </div> */}
+      {/* <div className=" text-black dark:text-white absolute top-80 left-44">
+        <HiOutlineRocketLaunch className="w-44 h-44 animate-bounce " />
+      </div> */}
 
-          <div className="flex gap-x-6">
+      <section className="bg-slate-100 dark:bg_color  w-full flex max-[800px]:flex-col justify-between    h-screen max-[800px]:h-full mt-[3.6rem] max-[500px]:gap-y-8">
+        <div className="flex max-[800px]:w-full max-[1150px]:w-[40%]   w-[50%] h-full ">
+          <div className="flex flex-col   w-full gap-y-24 self-center">
+            <SectionHeadingText className=""/>
+
+          
+            {/* <InlineHr /> */}
+
+            {/* <div className="flex gap-x-6">
             <button className="bg-orange-500 opacity-90 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition-colors duration-300">
               Google
             </button>
@@ -51,40 +69,37 @@ const Home = () => {
             </button>
             <button className="bg-blue-500 hover:bg-blue-400 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition-colors duration-300">
               Facebook
-            </button>
+            </button> 
+           </div> */}
+
+           
+            
           </div>
-          <div className="flex gap-x-2 max-[500px]:flex-col max-[500px]:gap-y-4">
-            <Link href="/login">
-              <button className="w-64 bg-transparent hover:bg-pink-500 text-white font-bold py-2 px-4 rounded-md  border-2 hover:border-pink-500 transition-all duration-300 ">
-                Login
-              </button>
-            </Link>
-            <Link href="/signup">
-              <button className="w-64 bg-transparent hover:bg-pink-500 text-white font-bold py-2 px-4 rounded-md  border-2 hover:border-pink-500 transition-all duration-300 ">
-                Sign up
-              </button>
-            </Link>
-       
-          </div>
+         
         </div>
 
-        <section className="flex flex-col max-[600px]:gap-36 gap-8  relative top-10">
-          {/* <CodeEditor/> */}
-          <SlidingComponent />
-          <Card />
-          <BlinkingCard/>
-          <ActiveStudent />
-          <ProPracticeCard />
-          <FooterJr />
-         {/* <Svg/> */}
-        </section>
+        <div className="max-[800px]:w-full max-[1150px]:w-[60%] w-[50%] h-full flex_center  ">
+            <Image
+            src="assets/images/Black Modern Hackathon Instagram Post (10).png"
+             width={300}
+              height={300}
+              className="max-[500px]:w-[20rem] max-[500px]:h-[20rem] max-[1000px]:w-[30rem] max-[1000px]:h-[30rem] w-[40rem] h-[40rem]   text-black   overflow-hidden"
+            />
+          </div>
+      </section>
+      <section className="bg-[#fffcfc] dark:bg_color flex flex-col max-[600px]:gap-36 gap-8  relative  max-[700px]:top-10">
+        {/* <CodeEditor/> */}
+        {/* <CodeDivDesignforHomePage/> */}
+        <SlidingComponent />
 
-        {/* <div class="custom_shape">
-    <svg className="" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
-    </svg>
-   
-</div> */}
+        <Level />
+        <Card />
+        <BlinkingCard />
+        <ActiveStudent />
+        <ProPracticeCard />
+        <FooterJr />
+        {/* <CoursesSchedule/> */}
+        {/* <Svg/> */}
       </section>
     </>
   );

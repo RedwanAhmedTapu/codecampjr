@@ -22,9 +22,9 @@ const BlinkingCard = () => {
   return (
     <>
       {/* <div className="blinking_div w-[200px] h-[200px] bg-[#181818] shadow-lg shadow-slate-700 overflow-hidden rounded-xl relative  "></div> */}
-      <div className="grid grid-rows-2 w-full max-[900px]:h-full h-screen px-20 py-10 max-[900px]:px-4 place-items-center">
+      <div className="grid grid-rows-2 max-[900px]:flex max-[900px]:flex-col  w-full max-[900px]:h-full h-full px-20 max-[900px]:py-32 py-12     max-[900px]:px-4 place-items-center z-10 bg-white dark:bg-black overflow-hidden">
         <div className="">
-          <div className="IcDiv w-48 h-16 flex_center bg-[#474242] rounded-lg shadow-md inset-4 relative ">
+          <div className="IcDIv_light dark:IcDiv w-48 h-16 flex_center bg-[#474242] rounded-lg shadow-md inset-4 relative ">
             <div className="connector_span  left-[1.6rem] "></div>
             <div className="connector_span left-[3.2rem]"></div>
             <div className="connector_span left-[4.8rem]"></div>
@@ -43,8 +43,8 @@ const BlinkingCard = () => {
             <div className="connector_span top-10 -right-2 rotate-90"></div>
             <div className=""></div>
             {/* <div className=" w-44 h- bg[#010101] absolute top-4 left-4 right-4 flex_center"><p className="connector_span_text bg-clip-text text-transparent text-2xl font-bold text-center">Powered By</p></div> */}
-            <div className="svgs relative">
-              <svg className="svgs max-[900px]:w-[300px]  ">
+            <div className=" relative ">
+              <svg className="svgs    bg-transparent ">
                 <path d="M360 300 L360,100" stroke="#333" />
                 <path d="M387 300 L387,80" stroke="#333" />
                 <path d="M410 300 L410,160" stroke="#333" />
@@ -303,40 +303,41 @@ const BlinkingCard = () => {
             </div>
           </div>
         </div>
-        <div className="flex max-[900px]:flex-col w-full gap-4 relative max-[1400px]:top-[0.2rem] max-[1100px]:top-[2.8rem] -top-[2.5rem]  max-[900px]:-top-[52%] z-10">
-          <div className="powerOuterDiv powerdiv1 border-2 ">
+        <div className="flex max-[900px]:flex-col w-full gap-4 relative max-[980px]:top-[2.8rem] max-[1200px]:top-[2.8rem]    z-10">
+          <div className="powerDiv_light dark:powerOuterDiv powerdiv1 border-2 ">
             <div className=" text-blue-600">
               <GiCometSpark className="w-24 h-16 " />
             </div>
-            <div className="text-2xl font-bold bg-gradient-radial from-cyan-300 to-yellow-50 bg-clip-text text-transparent mt-8">
+            <div className="text-2xl dark:font-bold dark:bg-gradient-to-b dark:from-cyan-300 dark:to-yellow-50 dark:bg-clip-text dark:text-transparent mt-8">
               Spark Your Learning Journey
             </div>
-            <div className="text-gray-400 mt-8">
+            <div className="text-slate-900 font-semibold dark:text-gray-400 mt-8">
               Embarking on a learning journey in the world of coding is like
               striking a match to light a fire of endless possibilities.
             </div>
           </div>
-          <div className="powerOuterDiv powerdiv2 border-2  box-border">
-            <div className="text-amber-600 ">
+          <div className="powerDiv_light dark:powerOuterDiv powerDiv_light1 dark:powerdiv2 border-2  box-border">
+            <div className="text-orange-600 ">
               <BsLightningCharge className="w-24 h-16" />
             </div>
-            <div className="text-2xl font-bold bg-gradient-radial from-amber-600 to-yellow-50 bg-clip-text text-transparent mt-4">
+            <div className="text-orange-600 dark:bg-gradient-to-b dark:from-amber-600 dark:to-yellow-50 dark:bg-clip-text dark:text-transparent text-2xl font-bold mt-4">
               Fuel Your Curiosity
             </div>
-            <div className="text-gray-400 mt-12">
+            <div className="text-slate-900 font-semibold dark:text-gray-400 mt-12">
               Embrace the thrill of curiosity as you dive into complex problems,
               chase intriguing concepts, and tinker with technologies that pique
               your interest.
             </div>
           </div>
-          <div className="powerOuterDiv powerdiv3 border-2 gap-10  box-border">
+  .
+          <div className="powerDiv_light dark:powerOuterDiv powerDiv_light2 dark:powerdiv3 border-2 gap-10  box-border">
             <div className="text-green-600">
               <GiBrain className="w-24 h-16" />
             </div>
-            <div className="text-2xl font-bold bg-gradient-radial from-green-600 to-yellow-50 bg-clip-text text-transparent mt-4">
+            <div className="text-2xl text-green-700 font-bold dark:bg-gradient-to-b dark:from-green-600 dark:to-yellow-50 dark:bg-clip-text dark:text-transparent mt-4">
               Nurture Your Intellect
             </div>
-            <div className=" text-gray-400 mt-8">
+            <div className="text-slate-900 font-semibold dark:text-gray-400 mt-8">
               Remember, the intellect is a dynamic entity, capable of adapting
               to the ever-evolving landscape of technology. By nurturing it
               empower yourself to reach new heights of coding prowess.

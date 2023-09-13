@@ -2,17 +2,18 @@
 import Image from "next/image";
 const Card = () => {
   const data=[{
-    img:"/assets/images/chokka.webp",
-    text:"lorem"
+  
+  img:"/assets/images/Black Modern Hackathon Instagram Post (15).png",
+    text:"Begin coding, little explorer"
   },{
-    img:"/assets/images/graduation.avif",
-    text:"lorem"
+    img:"/assets/images/Black Modern Hackathon Instagram Post (16) (1).png",
+    text:"Middle coder, endless horizons"
   },{
-    img:"/assets/images/goldenwire.jpeg",
-    text:"lorem"
+    img:"/assets/images/Black Modern Hackathon Instagram Post (18).png",
+    text:"Pro coder, master architect."
   }]
   return (
-    <div className="    w-full max-[1300px]:h-[50rem]  h-[30rem] bg-[#000000] flex flex-wrap justify-center items-center rounded-md shadow-md    gap-10">
+    <div className="    w-full h-full p-4 bg-white dark:bg-[#000000] flex flex-wrap justify-center items-center rounded-md    gap-10">
     {
       data.map((curElem,index)=>{
         return(<>
@@ -23,7 +24,7 @@ const Card = () => {
           height={300}
           className="inner_image"
         />
-        <p className="inner_text">{curElem.text}</p>
+        <p className="inner_text ">{curElem.text}</p>
       </div>
         </>)
       })
