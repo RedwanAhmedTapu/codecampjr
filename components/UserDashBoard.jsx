@@ -14,7 +14,7 @@ const UserDashBoard = () => {
   const [userData, setUserData] = useState();
   const [selectedFile, setSelectedFile] = useState(null);
   const [imageUrl, setImageUrl] = useState(
-    localStorage.getItem("storedUrl") || ""
+   ""
   );
 
   const searchParams = useSearchParams();
@@ -38,7 +38,7 @@ const UserDashBoard = () => {
             },
           }
         );
-        localStorage.setItem("storedUrl", response.data.imageUrl);
+        // localStorage.setItem("storedUrl", response.data.imageUrl);
         setImageUrl(response.data.imageUrl);
         console.log("File uploaded successfully!");
       } catch (error) {
