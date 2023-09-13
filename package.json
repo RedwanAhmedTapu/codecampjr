@@ -52,6 +52,9 @@
     "type": "git",
     "url": "git+https://github.com/RedwanAhmedTapu/codecampjr.git"
   },
+   "resolutions": {
+    "react": "18.2.0"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
