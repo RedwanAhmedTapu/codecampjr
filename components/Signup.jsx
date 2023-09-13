@@ -38,7 +38,7 @@ const Signup = () => {
       ) {
         alert("please fill all the data");
       } else {
-        const res = await fetch("http://localhost:5000/user/signup", {
+        const res = await fetch("https://codecampjrbackend.onrender.com/user/signup", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
