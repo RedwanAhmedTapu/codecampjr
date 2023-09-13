@@ -5,7 +5,7 @@ import { ImSpinner9 } from "react-icons/im";
 import { AiFillApple } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
 
-import CountdownTimer from "./CountDownTimer";
+import CountdownTimer from "./CountdownTimer";
 const Signup = () => {
   const [user, setUser] = useState({
     firstname: "",
