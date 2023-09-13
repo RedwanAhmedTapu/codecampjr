@@ -19,12 +19,12 @@ const SectionHeadingText = () => {
 
       <Link href="/free-trial-class" ><div className="Book_free_class_button head_text text-xl rounded-lg"></div></Link>
       <div className="flex gap-x-2  max-[500px]:gap-y-4 max-[400px]:pl-0 ">
-              <Link href="/login">
+              <Link href="/login" prefetch>
                 <button className="max-[350px]:w-32 max-[380px]:w-40 w-44 bg-[#0d0d33]   text-white font-bold py-2 px-4 rounded-md  border-[0.001rem] border-slate-200 transition-all duration-300 ">
                   Login
                 </button>
               </Link>
-              <Link href="/signup">
+              <Link href="/signup" prefetch>
                 <button className="max-[350px]:w-32 max-[380px]:w-40 w-44 bg-[#0d0d33]  text-white font-bold py-2 px-4 rounded-md  border-[0.001rem] border-slate-200 transition-all duration-300 ">
                   
                   Sign up
