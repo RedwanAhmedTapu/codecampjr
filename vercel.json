@@ -1,0 +1,27 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "public/**/*",
+        "use": "@vercel/static"
+      },
+      {
+        "src": "api/**/*.js",
+        "use": "@vercel/node"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/api/(.*)",
+        "methods": ["GET", "POST","PUT","PATCH","DELETE"],
+        "dest": "/api/$1"
+      }
+    ],
+   
+    "cors": {
+      "allowedHeaders": ["Content-Type", "Authorization"],
+      "allowedMethods": ["GET", "POST","PUT","PATCH","DELETE"],
+      "origin": "*"
+    }
+  }
+  
