@@ -6,6 +6,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import GlobeInnerRay from "./GlobeInnerRay";
+import { ConstructionOutlined } from "@mui/icons-material";
 const Login = () => {
   const [user, setUser] = useState({
     email: "",
@@ -29,28 +30,28 @@ const Login = () => {
         alert("please fill all the data");
       } else {
         const res = await axios
-          .post("https://codecampjrbackend.onrender.com/user/login", user)
+          .post("http://localhost:5000/user/login", user)
           .then((res) => {
-                  alert(res.data.message);
+                  console.log(res.data);
 
-            if (res.data === "not any user") {
+            if (res.data.message === "not any user") {
               alert("wrong password and email");
             } else {
-              // if (res.data.token) {
-              //   console.log(res.data.token);
-              //   axios.defaults.headers.common[
-              //     "Authorization"
-              //   ] = ` ${res.data.token}`;
-              //   // setToken(true);
+              if (res.data.token) {
+                console.log(res.data.token);
+                axios.defaults.headers.common[
+                  "Authorization"
+                ] = ` ${res.data.token}`;
+                // setToken(true);
                 if (email === "admin@gmail.com") {
-                  router.push("/adminDashboard");
+                  // router.push("/adminDashboard");
                 } else {
                   let userEmail;
-                  router.push(`/select-level?userEmail=${email}`);
+                  // router.push(`/select-level?userEmail=${email}`);
                 }
-              // } else {
-              //   delete axios.defaults.headers.common["Authorization"];
-              // }
+              } else {
+                delete axios.defaults.headers.common["Authorization"];
+              }
             }
           })
           .catch((err) => {
