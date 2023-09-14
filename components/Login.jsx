@@ -54,8 +54,17 @@ const Login = () => {
               }
             }
           })
-          .catch((err) => {
-            console.log(err);
+          .catch((error) => {
+            if (error.response) {
+              // The server responded with a status code outside of the 2xx range
+              console.error('Server responded with an error:', error.response.status, error.response.data);
+            } else if (error.request) {
+              // The request was made, but no response was received
+              console.error('No response received from the server');
+            } else {
+              // Something happened in setting up the request
+              console.error('An error occurred while sending the request:', error.message);
+            }
           });
       }
     } catch (error) {
