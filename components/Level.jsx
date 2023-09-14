@@ -18,10 +18,10 @@ const Level = () => {
         </div>
         <div className="w-full h-full flex_center   flex-col  ">
           <div
-            className="w-full h-1/2 gap-x-2 flex_center max-[1200px]:p-12 max-[600px]:flex-col"
+            className="w-full h-1/2 gap-2 flex_center max-[1200px]:p-12 max-[600px]:flex-col"
           >
             <div className=" bg-gradient-to-r from-gray-800 via-gray-900 to-black  rounded-lg  w-[18rem] h-[20.5rem] flex flex-col border-[0.001rem] border-slate-600 -translate-y-8">
-              <div className="w-[80%] h-[70%] flex_center self-center overflow-auto">
+              <div className="w-[80%] h-[70%] flex_center self-center overflow-auto ">
                 <Image
                   src="assets/images/Black Modern Hackathon Instagram Post (15).png"
                   className="w-[100%] h-[100%] bg-cover bg-center bg-no-repeat"
