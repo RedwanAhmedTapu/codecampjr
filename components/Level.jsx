@@ -2,7 +2,7 @@ import Image from "next/image";
 const Level = () => {
   return (
     <>
-      <div className=" w-screen h-screen flex max-[1000px]:flex-col max-[1000px]:h-full ">
+      <div className=" w-screen h-[50rem] flex max-[1000px]:flex-col max-[1000px]:h-full ">
         {/* <h2 className="head_text text-3xl text-center">Our Classes</h2>
         <h2 className="head_text text-5xl text-center">
           Explores our wide range of live classes
@@ -18,7 +18,7 @@ const Level = () => {
         </div>
         <div className="w-full h-full flex_center   flex-col  ">
           <div
-            className="w-full h-1/2 gap-2 flex_center max-[1200px]:p-12 max-[600px]:flex-col"
+            className="w-full h-1/2 gap-4 flex_center max-[1200px]:p-12 max-[600px]:flex-col "
           >
             <div className=" bg-gradient-to-r from-gray-800 via-gray-900 to-black  rounded-lg  w-[18rem] h-[20.5rem] flex flex-col border-[0.001rem] border-slate-600 -translate-y-8">
               <div className="w-[80%] h-[70%] flex_center self-center overflow-auto ">
@@ -57,7 +57,7 @@ const Level = () => {
               </div>
             </div>
           </div>
-          <div className="flex w-full h-1/2 gap-x-2 flex_center max-[600px]:flex max-[600px]:flex-col  max-[1200px]:p-12 ">
+          <div className="flex w-full h-1/2 gap-x-2  flex_center max-[600px]:flex max-[600px]:flex-col  max-[1200px]:p-12 ">
             <div className=" bg-gradient-to-r from-gray-800 via-gray-900 to-black  rounded-lg  w-[18rem] h-[20.5rem] flex flex-col border-[0.001rem] border-slate-600 -translate-y-8">
               <div className="w-[50%] h-[40%] flex_center self-center overflow-auto">
                 <Image
