@@ -20,7 +20,7 @@ const Level = () => {
           <div
             className="w-full h-1/2 gap-x-2 flex_center max-[1200px]:p-12 max-[600px]:flex-col"
           >
-            <div className=" bg-gradient-to-r from-gray-800 via-gray-900 to-black  rounded-lg  w-[18rem] h-[20.5rem] flex flex-col border-[0.001rem] border-slate-600 overflow-hidden">
+            <div className=" bg-gradient-to-r from-gray-800 via-gray-900 to-black  rounded-lg  w-[18rem] h-[20.5rem] flex flex-col border-[0.001rem] border-slate-600 -translate-y-8">
               <div className="w-[80%] h-[70%] flex_center self-center overflow-auto">
                 <Image
                   src="assets/images/Black Modern Hackathon Instagram Post (15).png"
@@ -47,7 +47,7 @@ const Level = () => {
                   height={300}
                 />
               </div>
-              <div className="flex flex-col w-full h-1/2 gap-y-2  text-xl justify-end pb-4">
+              <div className="flex flex-col w-full h-1/2 gap-y-2  text-xl justify-end pb-4 -translate-y-12">
                 <h2 className="text-xl text-white pl-4">Level-B</h2>
                 <h2 className="text-xl text-slate-600 pl-4">For 10-16years</h2>
                 <p className="text-xl text-amber-700 pl-4 flex gap-x-2">
@@ -57,7 +57,7 @@ const Level = () => {
               </div>
             </div>
           </div>
-          <div className="flex    w-full h-1/2 gap-x-2 flex_center max-[600px]:flex max-[600px]:flex-col  max-[1200px]:p-12 max-[600px]:flex-col">
+          <div className="flex w-full h-1/2 gap-x-2 flex_center max-[600px]:flex max-[600px]:flex-col  max-[1200px]:p-12 ">
             <div className=" bg-gradient-to-r from-gray-800 via-gray-900 to-black  rounded-lg  w-[18rem] h-[20.5rem] flex flex-col border-[0.001rem] border-slate-600 -translate-y-8">
               <div className="w-[50%] h-[40%] flex_center self-center overflow-auto">
                 <Image
@@ -76,7 +76,7 @@ const Level = () => {
                 </p>
               </div>
             </div>
-            <div className=" bg-gradient-to-r from-gray-800 via-gray-900 to-black rounded-lg  w-[18rem] h-[20.5rem] flex flex-col justify-between border-[0.001rem] border-slate-600 translate-y-4 p-8">
+            <div className=" bg-gradient-to-r from-gray-800 via-gray-900 to-black rounded-lg  w-[18rem] h-[20.5rem] flex flex-col justify-between border-[0.001rem] border-slate-600 translate-y-12 p-8">
               <div className="head_text text-2xl max-[600px]:text-xl">
                 Book a FREE class to start your jouney
               </div>
