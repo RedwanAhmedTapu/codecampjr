@@ -30,7 +30,7 @@ const Login = () => {
         alert("please fill all the data");
       } else {
         const res = await axios
-          .post("http://localhost:5000/user/login", user)
+          .post("https://codecampjrbackend.onrender.com/user/login", user)
           .then((res) => {
                   console.log(res.data);
 
