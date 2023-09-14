@@ -38,7 +38,7 @@ const Level = () => {
                 </p>
               </div>
             </div>
-            <div className=" bg-gradient-to-r from-gray-800 via-gray-900 to-black rounded-lg  w-[18rem] h-[20.5rem] flex flex-col border-[0.001rem] border-slate-600 translate-y-12">
+            <div className=" bg-gradient-to-r from-gray-800 via-gray-900 to-black rounded-lg  w-[18rem] h-[20.5rem] flex flex-col border-[0.001rem] border-slate-600 translate-y-8">
               <div className="max-[1200px]:w-[50%] max-[1200px]:h-[40%] w-[60%] h-[50%] self-center  overflow-auto">
                 <Image
                   src="assets/images/Black Modern Hackathon Instagram Post (16) (1).png"
@@ -76,7 +76,7 @@ const Level = () => {
                 </p>
               </div>
             </div>
-            <div className=" bg-gradient-to-r from-gray-800 via-gray-900 to-black rounded-lg  w-[18rem] h-[20.5rem] flex flex-col justify-between border-[0.001rem] border-slate-600 translate-y-12 p-8">
+            <div className=" bg-gradient-to-r from-gray-800 via-gray-900 to-black rounded-lg  w-[18rem] h-[20.5rem] flex flex-col justify-between border-[0.001rem] border-slate-600 translate-y-8 p-8">
               <div className="head_text text-2xl max-[600px]:text-xl">
                 Book a FREE class to start your jouney
               </div>
