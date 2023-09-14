@@ -13,9 +13,7 @@ const TrialClassForm = () => {
     profession: "",
     // country: "",
   });
-  const currentOrigin = window.location.origin;
-
-  console.log(`Current Origin: ${currentOrigin}`);
+  
   const router=useRouter();
   console.log(user);
   const handleChange = (e) => {
