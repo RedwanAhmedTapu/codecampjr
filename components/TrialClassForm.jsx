@@ -81,7 +81,7 @@ const TrialClassForm = () => {
   return (
     <>
       <div className="flex flex-col w-screen h-screen  mt-16 gap-y-8">
-        <h1 className="text-slate-900 font-bold dark:head_text text-4xl dark:text-4xl self-center">
+        <h1 className="text-slate-900 font-bold dark:head_text max-[400px]:text-2xl dark:max-[400px]:text-2xl text-4xl dark:text-4xl self-center">
           Trial Class Registration
         </h1>
 
