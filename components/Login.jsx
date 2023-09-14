@@ -31,7 +31,7 @@ const Login = () => {
         const res = await axios
           .post("https://codecampjrbackend.onrender.com/user/login", user)
           .then((res) => {
-                  // alert(res.data.message);
+                  alert(res.data.message);
 
             if (res.data === "not any user") {
               alert("wrong password and email");
