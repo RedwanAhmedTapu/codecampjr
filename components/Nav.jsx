@@ -24,10 +24,12 @@ const Nav = () => {
   useEffect(() => {
     if (theme==="dark") {
       document.body.classList.add(theme);
+      setIsDarkMode(true);
     } else {
       document.body.classList.remove("dark");
+      setIsDarkMode(false);
     }
-  }, [theme]);
+  }, [theme,isDarkMode]);
 
   return (
     <>
@@ -79,7 +81,7 @@ const Nav = () => {
                 className="w-8 h-8 text-slate-800  dark:text-white"
                 onClick={() => {
                   localStorage.setItem("theme", "");
-                  setIsDarkMode(false);
+                 
                 }}
               />
             </div>
@@ -91,7 +93,7 @@ const Nav = () => {
                 onClick={() => {
                   localStorage.setItem("theme", "dark");
 
-                  setIsDarkMode(true);
+                 
                 }}
               />
             </div>
