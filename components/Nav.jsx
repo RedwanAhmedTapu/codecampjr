@@ -15,16 +15,19 @@ const Nav = () => {
   console.log(toggle);
 
   const isLoggedIn = true;
-
+  let theme;
+  if (typeof window !== 'undefined' && window.localStorage) {
+    theme= localStorage.getItem("theme");
+  }
+  
+  console.log(theme);
   useEffect(() => {
-    if (isDarkMode) {
-     
-      document.body.classList.add("dark");
+    if (theme==="dark") {
+      document.body.classList.add(theme);
     } else {
       document.body.classList.remove("dark");
     }
-  
-  }, [isDarkMode]);
+  }, [theme]);
 
   return (
     <>
@@ -50,7 +53,7 @@ const Nav = () => {
             setToggle(!toggle);
           }}
         >
-          <Menubar className="bg-slate-950"/>
+          <Menubar className="bg-slate-950" />
         </div>
 
         <ul className="w-[30rem] h-2 flex justify-evenly items-center max-[900px]:hidden ">
@@ -64,17 +67,18 @@ const Nav = () => {
           </li>
           <HoverableDropdown className="z-10 h-76" />
 
-          <li className="navlist list text-slate-800  dark:text-white">Contact</li>
+          <li className="navlist list text-slate-800  dark:text-white">
+            Contact
+          </li>
         </ul>
-       
+
         <div className="w-8 h-8 rounded-lg  relative -right-10">
           {isDarkMode ? (
             <div className="w-8 h-8 text-white flex_center gap-x-1">
-            
-
               <LightModeIcon
                 className="w-8 h-8 text-slate-800  dark:text-white"
                 onClick={() => {
+                  localStorage.setItem("theme", "");
                   setIsDarkMode(false);
                 }}
               />
@@ -83,22 +87,26 @@ const Nav = () => {
             <div className="w-8 h-8 text-white flex_center gap-x-1">
               <DarkModeIcon
                 className="w-8 h-8 text-slate-800  dark:text-white"
-                // checked={isDarkMode} 
+                // checked={isDarkMode}
                 onClick={() => {
+                  localStorage.setItem("theme", "dark");
+
                   setIsDarkMode(true);
                 }}
               />
             </div>
           )}
-         </div>
+        </div>
       </nav>
       {/* mobile responsive */}
 
       {toggle && (
         <>
           <ul className="fixed top-[4.2rem] min-[900px]:hidden w-full h-64 z-20 bg-slate-900 flex flex-col justify-evenly items-center ">
-            <li className="navlist list"> <Link
-              href="/">Home</Link></li>
+            <li className="navlist list">
+              {" "}
+              <Link href="/">Home</Link>
+            </li>
             <HoverableDropdown className="navlist list" />
             <li className="navlist list">Contact</li>
           </ul>

@@ -131,7 +131,7 @@ const TrialClassForm = () => {
                 name="parentName"
                 id="parentName"
                 onChange={handleChange}
-                className="w-full h-full bg-white dark:bg-black placeholder:text-black dark:placeholder:text-white placeholder:text-xl placeholder:pl-2 border-2  rounded-sm"
+                className="w-full h-full bg-white text-black dark:bg-black placeholder-slate-950 dark:text-white dark:placeholder-white placeholder:text-xl placeholder:pl-2 border-2  rounded-sm"
 
                 value={user.parentName}
               />
@@ -146,7 +146,7 @@ const TrialClassForm = () => {
                 name="phone"
                 id="phone"
                 onChange={handleChange}
-                className="w-full h-full bg-white dark:bg-black placeholder:text-black dark:placeholder:text-white placeholder:text-xl placeholder:pl-2 border-2  rounded-sm"
+                className="w-full h-full bg-white text-black dark:bg-black placeholder-slate-950 dark:text-white dark:placeholder-white placeholder:text-xl placeholder:pl-2 border-2  rounded-sm"
 
                 value={user.phone}
               />
@@ -162,7 +162,7 @@ const TrialClassForm = () => {
                 name="learnerEmail"
                 id="learnerEmail"
                 onChange={handleChange}
-                className="w-full h-full bg-white dark:bg-black placeholder:text-black dark:placeholder:text-white placeholder:text-xl placeholder:pl-2 border-2  rounded-sm"
+                className="w-full h-full bg-white text-black dark:bg-black placeholder-slate-950 dark:text-white dark:placeholder-white placeholder:text-xl placeholder:pl-2 border-2  rounded-sm"
 
                 value={user.learnerEmail}
               />
@@ -178,7 +178,7 @@ const TrialClassForm = () => {
                 name="profession"
                 id="profession"
                 onChange={handleChange}
-                className="w-full h-full bg-white dark:bg-black placeholder:text-black dark:placeholder:text-white placeholder:text-xl placeholder:pl-2 border-2  rounded-sm"
+                className="w-full h-full bg-white text-black dark:bg-black placeholder-slate-950 dark:text-white dark:placeholder-white placeholder:text-xl placeholder:pl-2 border-2  rounded-sm"
 
                 value={user.profession}
               />
@@ -198,7 +198,8 @@ const TrialClassForm = () => {
                 name="learnerName"
                 id="learnerName"
                 onChange={handleChange}
-                className="w-full h-full bg-white dark:bg-black placeholder:text-black dark:placeholder:text-white placeholder:text-xl placeholder:pl-2 border-2  rounded-sm"
+                className="w-full h-full bg-white text-black dark:bg-black placeholder-slate-950 dark:text-white dark:placeholder-white placeholder:text-xl placeholder:pl-2 border-2  rounded-sm"
+
                 value={user.learnerName}
               />
             </div>
@@ -212,7 +213,8 @@ const TrialClassForm = () => {
                 name="age"
                 id="age"
                 onChange={handleChange}
-                className="w-full h-full bg-white dark:bg-black placeholder:text-black dark:placeholder:text-white placeholder:text-xl placeholder:pl-2 border-2  rounded-sm"
+                className="w-full h-full bg-white text-black dark:bg-black placeholder-slate-950 dark:text-white dark:placeholder-white placeholder:text-xl placeholder:pl-2 border-2  rounded-sm"
+
 
                 value={user.age}
               />
@@ -227,7 +229,7 @@ const TrialClassForm = () => {
                 name="school"
                 id="school"
                 onChange={handleChange}
-                className="w-full h-full bg-white dark:bg-black placeholder:text-black dark:placeholder:text-white placeholder:text-xl placeholder:pl-2 border-2  rounded-sm"
+                className="w-full h-full bg-white text-black dark:bg-black placeholder-slate-950 dark:text-white dark:placeholder-white placeholder:text-xl placeholder:pl-2 border-2  rounded-sm"
 
                 value={user.school}
               />
