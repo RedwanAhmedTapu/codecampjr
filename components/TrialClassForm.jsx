@@ -52,6 +52,7 @@ const TrialClassForm = () => {
         await axios
           .post("https://codecampjrbackend.onrender.com/learner/trial-registration", user)
           .then((data) => {
+            console.log(data);
             alert(data.message);
             router("/");
 
