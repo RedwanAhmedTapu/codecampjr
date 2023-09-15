@@ -44,10 +44,10 @@ const Login = () => {
                 ] = ` ${res.data.token}`;
                 // setToken(true);
                 if (email === "admin@gmail.com") {
-                  // router.push("/adminDashboard");
+                  router.push("/adminDashboard");
                 } else {
                   let userEmail;
-                  // router.push(`/select-level?userEmail=${email}`);
+                  router.push(`/select-level?userEmail=${email}`);
                 }
               } else {
                 delete axios.defaults.headers.common["Authorization"];
@@ -73,7 +73,7 @@ const Login = () => {
   };
   return (
     <div className="flex_center bg-slate-800 dark:bg-black h-screen">
-      <div className=" w-[50rem] flex flex-col    h-full max-[560px]:p-6 min-[849px]:p-10 p-20 bg-slate-800 dark:bg-[#030303] blur-1  rounded-lg shadow-md gap-y-6 max-[648px]:relative fixed top-10 ">
+      <div className=" w-[50rem] flex flex-col    h-full max-[560px]:p-6 min-[849px]:p-10 p-20 bg-slate-800 dark:bg-[#030303] blur-1  rounded-lg shadow-md gap-y-6 relative top-10 ">
         <div className="flex flex-col gap-y-4">
           <h1 className="text-xl flex justify-start items-center gap-x-2 text-white font-bold">
             <ImSpinner9 />
