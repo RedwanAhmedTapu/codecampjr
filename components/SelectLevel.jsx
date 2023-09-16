@@ -333,7 +333,7 @@ const SelectLevel = () => {
                 8.00PM-9.00PM
               </div>
               <div
-                className="days"
+                className="days "
                 id="time11"
                 onClick={() => {
                   setTime("9.00PM-10.00PM", "time11");
@@ -390,27 +390,27 @@ const SelectLevel = () => {
         )}
       </div>
       {payment && (
-        <div className="absolute  max-[500px]:p-4 top-20 left-[30%] max-[999px]:left-[23%] max-[760px]:left-[15%] max-[450px]:left-[0%] max-[550px]:left-[5%]">
-          <div className="bg-gradient-to-br from-black via-gray-800 to-gray-900 rounded-md p-8 max-[600px]:w[20rem]  w-[30rem] h-[20rem] shadow-md flex flex-col justify-between text-white">
+        <div className="relative  w-full h-full flex_center">
+          <div className="bg-gradient-to-br from-black via-gray-800 to-gray-900 rounded-md p-8 max-[470px]:w[15rem] max-[600px]:w[20rem]  w-[30rem] h-[20rem] shadow-md flex flex-col justify-between text-white  mt-20">
             <div className="flex justify-between">
               <div className="w-24 h-20  rounded-md">
                 <FcSimCardChip className="w-full h-full" />
               </div>
-              <div className="text-3xl text-white font-sans">
+              <div className="max-[500px]:text-xl text-3xl text-white font-sans">
                 course Fee:{fees}
               </div>
             </div>
-            <div className="text-lg font-semibold mt-4 uppercase">
+            <div className="max-[500px]:text-sm text-lg font-semibold mt-4 uppercase">
               {username}
             </div>
-            <div className="text-lg mt-4 text font-sans">
+            <div className="max-[500px]:text-sm text-lg mt-4 text font-sans">
               1234 5678 9012 3456
             </div>
             <div className="flex justify-between">
-              <div className="text-base mt-4 font-sans">
+              <div className="max-[500px]:text-sm text-base mt-4 font-sans">
                 {new Date("2023-09-02T15:30:00Z").toLocaleString()}
               </div>
-              <button className="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-lg" onClick={async()=>{
+              <button className="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-lg max-[500px]:text-sm" onClick={async()=>{
                 //  const res = await axios
                 //  .post(`http://localhost:5000/active-user/order/${email}`)
                 //  .then((res) => {

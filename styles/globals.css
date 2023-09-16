@@ -6,7 +6,7 @@
   src: url("https://acupoftee.github.io/fonts/Clip.ttf");
 }
 @import url("https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap");
 /* background-image: linear-gradient(335deg, black 23px, transparent 23px),
       linear-gradient(155deg, black 23px, transparent 23px),
       linear-gradient(335deg, black 23px, transparent 23px),
@@ -34,13 +34,11 @@
   }
   body {
     background-color: white;
-    font-family: 'Poppins', sans-serif;
-    
+    font-family: "Poppins", sans-serif;
   }
   body.dark {
     background-color: rgb(0, 0, 0);
-    font-family: 'Poppins', sans-serif;
-    
+    font-family: "Poppins", sans-serif;
   }
   .head_text {
     @apply mt-5 text-3xl font-extrabold leading-[1.15] bg-gradient-to-br from-slate-400 to-slate-50 bg-clip-text text-transparent text-center text-[3rem] min-[1000px]:text-6xl;
@@ -113,7 +111,7 @@
     @apply w-[30rem] h-[20rem] relative -top-2 -left-4 bg-cyan-400 rounded-md;
   } */
   /* styling for Card.jsx */
-  .inner_div_light{
+  .inner_div_light {
     background: linear-gradient(rgb(17, 24, 39), rgb(13, 14, 14));
   }
   .inner_div {
@@ -123,7 +121,7 @@
     @apply max-[500px]:w-[19rem] max-[500px]:h-[16rem] w-[25rem] h-[20rem] absolute -top-4 -left-4 max-[500px]:hover:w-[17rem] hover:w-[23rem] hover:top-2 hover:left-4 transition-all duration-300 ease-in shadow-lg rounded-lg;
   }
   .inner_text {
-    @apply  text-[1.5rem]  align-text-bottom text-slate-800  dark:bg-gradient-to-br dark:from-slate-400 dark:to-slate-50 dark:bg-clip-text dark:text-transparent   font-semibold absolute bottom-3 left-4;
+    @apply text-[1.5rem]  align-text-bottom text-slate-800  dark:bg-gradient-to-br dark:from-slate-400 dark:to-slate-50 dark:bg-clip-text dark:text-transparent   font-semibold absolute bottom-3 left-4;
   }
   /* end of styling Card.jsx */
 
@@ -170,14 +168,12 @@
   .slectlevelInnerdiv {
     @apply flex flex-col w-full  h-full  px-8 max-[550px]:px-2;
   }
-  .levelInnerDIV_light_mode{
-    background: linear-gradient(to right, rgb(29, 78, 216), rgb(30, 64, 175), rgb(17, 24, 39));
-  }
+ 
   .levelInnerDiv {
-    @apply flex flex-col justify-around items-center w-[33.33%] max-[550px]:w-[95%]   h-[10rem] levelInnerDIV_light_mode dark:bg-gradient-to-r dark:from-orange-600 dark:to-orange-600 active:bg-orange-600 transition-colors  duration-500 text-2xl rounded-lg;
+    @apply flex flex-col justify-around items-center w-[33.33%] max-[550px]:w-[95%]   h-[10rem] active:bg-black  bg-[#ef673e]  rounded-lg   transition-colors  duration-500 text-2xl  ;
   }
   .days {
-    @apply flex_center w-[14rem] h-[4rem] bg-[#183D3D] text-xl text-white rounded-sm active:bg-black transition-colors  duration-500  focus:bg-red-300;
+    @apply flex_center w-[14rem] h-[4rem] bg-[#183D3D] text-xl text-white rounded-sm active:bg-black transition-colors  duration-500  ;
   }
   .select {
     @apply bg-red-300;
@@ -273,29 +269,38 @@
   .menu-btn_burg {
     width: 50px;
     height: 6px;
-    background: linear-gradient(to right, rgb(55, 65, 81), rgb(17, 24, 39), rgb(0, 0, 0));
+    background: linear-gradient(
+      to right,
+      rgb(55, 65, 81),
+      rgb(17, 24, 39),
+      rgb(0, 0, 0)
+    );
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(255, 101, 47, 0.2);
     transition: all 0.5s ease-in-out;
   }
-   body.dark .menu-btn_burg {
+  body.dark .menu-btn_burg {
     background: #fff;
-   }
+  }
   .menu-btn_burg::after,
   .menu-btn_burg::before {
     content: "";
     position: absolute;
     width: 50px;
     height: 6px;
-    background: linear-gradient(to right, rgb(55, 65, 81), rgb(17, 24, 39), rgb(0, 0, 0));
+    background: linear-gradient(
+      to right,
+      rgb(55, 65, 81),
+      rgb(17, 24, 39),
+      rgb(0, 0, 0)
+    );
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(255, 101, 47, 0.2);
     transition: all 0.5s ease-in-out;
   }
   body.dark .menu-btn_burg::after,
-  body.dark .menu-btn_burg::before{
+  body.dark .menu-btn_burg::before {
     background: #fff;
-
   }
   .menu-btn_burg::after {
     transform: translateY(16px);
@@ -459,13 +464,17 @@
     padding: 24px;
     box-shadow: 0 1px 0 1px rgba(19, 17, 17, 0.02),
       0 4px 6px rgba(0, 0, 0, 0.02), inset 0 0 0 3px rgb(230, 226, 226);
-   background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.1) 70%, rgba(255, 255, 255, 0) 100%);
+    background: radial-gradient(
+      ellipse at center,
+      rgba(255, 255, 255, 0.4) 0%,
+      rgba(255, 255, 255, 0.1) 70%,
+      rgba(255, 255, 255, 0) 100%
+    );
 
     position: relative;
     transition: background 0.15s ease;
   }
-  .powerOuterDiv
-   {
+  .powerOuterDiv {
     width: 100%;
     min-height: 280px;
     border-radius: 12px;
@@ -503,17 +512,56 @@
   .powerdiv3::before {
     background: radial-gradient(circle, rgb(0, 255, 51), transparent);
   }
-  .powerDiv_light1::before{
+  .powerDiv_light1::before {
     background: radial-gradient(circle, orange, transparent);
-
   }
-  .powerDiv_light2::before{
+  .powerDiv_light2::before {
     background: radial-gradient(circle, green, transparent);
-
   }
   /* style for proPracticeCard */
-  .proPracticeCardBg{
-    /* background: linear-gradient(to right, rgb(229, 231, 235), rgb(156, 163, 175), rgb(75, 85, 99)); */
+  .pro {
+    width: 20rem;
+    height: 6rem;
+    box-shadow: 16px 14px 20px #0000008c;
+    border-radius: 1rem;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .pro::before {
+    content: "";
+    background-image: conic-gradient(#ff0052 90deg, transparent 270deg);
+    width: 100%;
+    height: 50%;
+    position: absolute;
+    display: none;
+  }
+  .pro:hover::before{
+    display: block;
+    animation: rotateBorder 1.7s linear infinite;
+
+  }
+  .pro::after{
+    content: "Book A FREE class";
+    width: 19.5rem;
+    height: 5.6rem;
+    background-color:#393737;
+    position: absolute;
+    border-radius: 0.8rem;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    color:#ff0052;
+  }
+  @keyframes rotateBorder {
+    0%{
+      transform: 0deg;
+    }
+    100%{
+      transform: rotate(360deg);
+    }
   }
 
   /* for designing custom curve of a div */
@@ -1068,7 +1116,7 @@
     font-weight: 100;
     text-decoration: none;
     color: white;
-   
+
     animation: borderAnimation linear infinite;
   }
   .Book_free_class_button:hover {
@@ -1128,12 +1176,10 @@
     50% {
       background: linear-gradient(
         115deg,
-        #44ce7b
-
-        #4fcf70,
+        #44ce7b #4fcf70,
         #fad648,
         #a767e5,
-        #12bcfe,
+        #12bcfe
       );
     }
     60% {
@@ -1167,16 +1213,10 @@
       );
     }
     100% {
-      background: linear-gradient(
-        #44ce7b,
-        #12bcfe,
-        #a767e5,
-        #fad648,
-        #4fcf70
-      );
+      background: linear-gradient(#44ce7b, #12bcfe, #a767e5, #fad648, #4fcf70);
     }
   }
-  
+
   /* for responsive */
   /* responsiveness of curved shape */
   @media only screen and (max-width: 1400px) {
@@ -1185,4 +1225,3 @@
     }
   }
 }
-

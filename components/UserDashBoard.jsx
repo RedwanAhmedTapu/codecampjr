@@ -124,10 +124,10 @@ const UserDashBoard = () => {
                 </p>
                 <div className="flex_center flex-col space-y-2 uppercase">
                   <p className="text-slate-900 dark:text-white text-center text-xl uppercase">
-                    {/* {userData.schedule.days[0]} */}
+                    {userData.schedule.days[0]}
                   </p>
                   <p className="text-slate-900 dark:text-white text-center text-xl uppercase">
-                    {/* {userData.schedule.days[1]} */}
+                    {userData.schedule.days[1]}
                   </p>
                 </div>
               </div>
@@ -136,7 +136,7 @@ const UserDashBoard = () => {
                   Time
                 </p>
                 <p className="text-white text-center text-xl uppercase">
-                  {/* {userData.schedule.time} */}
+                  {userData.schedule.time}
                 </p>
               </div>
             </div>

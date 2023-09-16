@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 const Level = () => {
   return (
     <>
@@ -33,8 +34,10 @@ const Level = () => {
                 <h2 className="text-xl text-white pl-4">Level-A</h2>
                 <h2 className="text-xl text-slate-600 pl-4">For 6-9years</h2>
                 <p className="text-xl text-amber-700 pl-4 flex gap-x-2">
+                  <Link href="/free-trial-class">
                   Get Started
                   <span className=" text-xl text-amber-700">→</span>
+                  </Link>
                 </p>
               </div>
             </div>
@@ -51,8 +54,10 @@ const Level = () => {
                 <h2 className="text-xl text-white pl-4">Level-B</h2>
                 <h2 className="text-xl text-slate-600 pl-4">For 10-16years</h2>
                 <p className="text-xl text-amber-700 pl-4 flex gap-x-2">
+                <Link href="/free-trial-class">
                   Get Started
                   <span className=" text-xl text-amber-700">→</span>
+                  </Link>
                 </p>
               </div>
             </div>
@@ -71,27 +76,35 @@ const Level = () => {
                 <h2 className="text-xl text-white pl-4">Level-C</h2>
                 <h2 className="text-xl text-slate-600 pl-4">For 17-18+years</h2>
                 <p className="text-xl text-amber-700 pl-4 flex gap-x-2">
+                <Link href="/free-trial-class">
                   Get Started
                   <span className=" text-xl text-amber-700">→</span>
+                  </Link>
                 </p>
               </div>
             </div>
             <div className=" bg-gradient-to-r from-gray-800 via-gray-900 to-black rounded-lg  w-[18rem] h-[20.5rem] flex flex-col justify-between border-[0.001rem] border-slate-600 translate-y-8 p-8">
               <div className="head_text text-2xl max-[600px]:text-xl">
+              <Link href="/free-trial-class">
+                 
+                 
                 Book a FREE class to start your jouney
+                </Link>
               </div>
 
-              <a
-                href="#"
+              <div
+                
                 className="  rounded-lg bg-gradient-to-r from-purple-200 via-purple-400 to-purple-800  p-0.5 [animation-duration:_6s] bg-gradient-to-r dark:bg-gray-800"
               >
+                <Link href="/free-trial-class">
                 <span className="block rounded-md bg-white px-5 py-3 max-[600px]:text-[0.3rem]  max-[600px]:text-xl text-2xl font-medium text-gray-900 dark:bg-gray-900 dark:text-white">
                   Get Started{" "}
                   <span className=" text-2xl text-slate-50 max-[600px]:text-xl">
                     →
                   </span>
                 </span>
-              </a>
+                </Link>
+              </div>
             </div>
           </div>
         </div>

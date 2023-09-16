@@ -12,24 +12,29 @@ const Nav = () => {
   const [providers, setProviders] = useState(null);
   const [toggle, setToggle] = useState(true);
   const [isDarkMode, setIsDarkMode] = useState(false);
-  console.log(toggle);
 
   const isLoggedIn = true;
-  let theme;
-  if (typeof window !== 'undefined' && window.localStorage) {
-    theme= localStorage.getItem("theme");
-  }
   
-  console.log(theme);
   useEffect(() => {
-    if (theme==="dark") {
-      document.body.classList.add(theme);
-      setIsDarkMode(true);
-    } else {
-      document.body.classList.remove("dark");
-      setIsDarkMode(false);
+    const storedTheme = localStorage.getItem('theme');
+    if (storedTheme === 'dark') {
+      applyDarkMode();
     }
-  }, [theme,isDarkMode]);
+  }, []);
+  
+  //  apply dark mode
+  const applyDarkMode = () => {
+    document.body.classList.add('dark');
+    localStorage.setItem('theme', 'dark');
+    setIsDarkMode(true);
+  };
+
+  //  apply light mode
+  const applyLightMode = () => {
+    document.body.classList.remove('dark');
+    localStorage.setItem('theme', 'light');
+    setIsDarkMode(false);
+  };
 
   return (
     <>
@@ -80,7 +85,7 @@ const Nav = () => {
               <LightModeIcon
                 className="w-8 h-8 text-slate-800  dark:text-white"
                 onClick={() => {
-                  localStorage.setItem("theme", "");
+                  applyLightMode();
                  
                 }}
               />
@@ -91,7 +96,7 @@ const Nav = () => {
                 className="w-8 h-8 text-slate-800  dark:text-white"
                 // checked={isDarkMode}
                 onClick={() => {
-                  localStorage.setItem("theme", "dark");
+                  applyDarkMode();
 
                  
                 }}

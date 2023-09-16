@@ -149,10 +149,16 @@ const ProPracticeCard = () => {
           </p>
         </div>
       </div>
-      <Link href="/free-trial-class"><div className="flex_center max-[450px]:flex-wrap max-[450px]:text-xl text-2xl text-white font-bold rounded-md max-[450px]:w-[15rem] max-[700px]:w-[20rem] w-[35rem] h-20 bg-gradient-to-r from-orange-400 to-rose-400 dark:bg-orange-500">
+      
+      <Link href="/free-trial-class"><div className="pro_card_button flex dark:hidden flex_center max-[450px]:flex-wrap max-[450px]:text-xl text-2xl text-white font-bold rounded-md max-[450px]:w-[15rem] max-[700px]:w-[20rem] w-[35rem] h-20 bg-gradient-to-r from-orange-400 to-rose-400 dark:bg-orange-500 relative">
+      <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
         Book A FREE class
       </div>
       </Link>
+      <div className="pro hidden dark:flex"></div>
     </div>
   );
 };

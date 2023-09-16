@@ -5,16 +5,23 @@ import CodeEditor from "./CodeEditor";
 
 const ActiveStudent = () => {
   const [images, setImages] = useState([
-    "https://cdn.pixabay.com/photo/2017/06/13/13/06/girl-2398822_1280.jpg",
-    "https://cdn.pixabay.com/photo/2016/09/21/04/46/barley-field-1684052_1280.jpg",
-    "https://cdn.pixabay.com/photo/2017/03/13/10/25/hummingbird-2139279_1280.jpg",
-    "https://cdn.pixabay.com/photo/2014/11/21/15/39/grey-crowned-cranes-540657_1280.jpg",
+    "https://img.freepik.com/free-photo/indoor-picture-cheerful-handsome-young-man-having-folded-hands-looking-directly-smiling-sincerely-wearing-casual-clothes_176532-10257.jpg?w=996&t=st=1694862539~exp=1694863139~hmac=10b9171a5bdfe12d18e03cab5444256bb98d59ae904acc73b2d38cb5243fb81e",
+    "https://img.freepik.com/free-photo/smiling-young-man-with-crossed-arms-outdoors_1140-255.jpg?w=740&t=st=1694862564~exp=1694863164~hmac=7f483e3244e17682c7722488aa4f7042bd42af4ec61e639f073adff98736a3d1",
+    "https://img.freepik.com/premium-photo/child-boy-teenager-with-glasses-gray-background_656932-680.jpg",
+    "https://img.freepik.com/free-photo/portrait-young-candid-man-student-boy-with-clean-face-relaxed-facial-expression-casual-smile-checked-shirt-t-shirt-summer-outfit-look-white-background_176420-45901.jpg?w=996&t=st=1694862627~exp=1694863227~hmac=62f82cf86671f02c40381a2494a3aab5fd23390309f5d3b1afd680d97fd1f2c2",
+    "https://img.freepik.com/free-photo/handsome-young-guy-with-glasses-posing_176420-30004.jpg?w=996&t=st=1694863087~exp=1694863687~hmac=80e16f657402a7f6e8376339d18b24ef6696a1729dbf54d1c5680793d670de50"
   ]);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [currentImageIndex1, setCurrentImageIndex1] = useState(0);
+  const [currentImageIndex2, setCurrentImageIndex2] = useState(0);
+  const [currentImageIndex3, setCurrentImageIndex3] = useState(0);
+  const [currentImageIndex4, setCurrentImageIndex4] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+      setCurrentImageIndex1((prevIndex) => (prevIndex + 1) % images.length);
+      setCurrentImageIndex2((prevIndex) => (prevIndex + 2) % images.length);
+      setCurrentImageIndex3((prevIndex) => (prevIndex + 3) % images.length);
+      setCurrentImageIndex4((prevIndex) => (prevIndex + 4) % images.length);
     }, 3000);
 
     return () => clearInterval(interval);
@@ -27,28 +34,28 @@ const ActiveStudent = () => {
 
           <div className="absolute w-12 h-12 rounded-full bg-gray-500 top-24 left-[50%]"></div>
           <Image
-            src={`${images[currentImageIndex]}`}
+            src={`${images[currentImageIndex1]}`}
             width={300}
             height={300}
             layout="fixed"
             className="relative w-[4.5rem] h-[4.5rem] rounded-full top-52 left-[60%]"
           />
           <Image
-            src={`${images[currentImageIndex]}`}
+            src={`${images[currentImageIndex2]}`}
             width={300}
             height={300}
             layout="fixed"
             className="relative w-[5.7rem] h-[5.7rem] rounded-full top-72 left-[12%]"
           />
           <Image
-            src={`${images[currentImageIndex]}`}
+            src={`${images[currentImageIndex3]}`}
             width={300}
             height={300}
             layout="fixed"
             className="relative w-[6rem] h-[6rem] rounded-full top-96 left-[55%]"
           />
           <Image
-            src={`${images[currentImageIndex]}`}
+            src={`${images[currentImageIndex4]}`}
             width={300}
             height={300}
             layout="fixed"
@@ -57,7 +64,7 @@ const ActiveStudent = () => {
         </div>
         <div className="activeStudentTextDiv">
           <div className="flex_center flex-col gap-y-8">
-            <h3 className="text-4xl opacity-75 font-bold text-cyan-900 dark:text-white ">
+            <h3 className="max-[350px]:text-2xl text-4xl opacity-75 font-bold text-cyan-900 dark:text-white ">
               Supportive Community
             </h3>
             <h3 className="text-blue-400 font-bold text-7xl">64447780</h3>
@@ -75,28 +82,28 @@ const ActiveStudent = () => {
 
           <div className="absolute w-12 h-12 rounded-full bg-gray-500 top-24 left-[50%]"></div>
           <Image
-            src={`${images[currentImageIndex]}`}
+            src={`${images[currentImageIndex1]}`}
             width={300}
             height={300}
             layout="fixed"
             className="relative w-[4.5rem] h-[4.5rem] rounded-full top-52 left-[60%]"
           />
           <Image
-            src={`${images[currentImageIndex]}`}
+            src={`${images[currentImageIndex2]}`}
             width={300}
             height={300}
             layout="fixed"
             className="relative w-[5.7rem] h-[5.7rem] rounded-full top-72 left-[12%]"
           />
           <Image
-            src={`${images[currentImageIndex]}`}
+            src={`${images[currentImageIndex3]}`}
             width={300}
             height={300}
             layout="fixed"
             className="relative w-[6rem] h-[6rem] rounded-full top-96 left-[55%]"
           />
           <Image
-            src={`${images[currentImageIndex]}`}
+            src={`${images[currentImageIndex4]}`}
             width={300}
             height={300}
             layout="fixed"
@@ -125,33 +132,33 @@ const ActiveStudent = () => {
         
         </div>
         <div className="relative w-full">
-        <div className="absolute w-8 h-8 rounded-full bg-gray-500 bottom-96 left-[20%]"></div>
+        <div className="absolute w-8 h-8 rounded-full bg-gray-500 bottom-96 left-[20%]  max-[663px]:top-10"></div>
 
 <div className="absolute w-12 h-12 rounded-full bg-gray-500 top-24 left-[50%]"></div>
 <div className="absolute w-12 h-12 rounded-full bg-gray-500 top-24 left-[50%]"></div>
           <Image
-            src={`${images[currentImageIndex]}`}
+            src={`${images[currentImageIndex1]}`}
             width={300}
             height={300}
             layout="fixed"
             className="relative w-[4.5rem] h-[4.5rem] rounded-full top-52 left-[30%]"
           />
           <Image
-            src={`${images[currentImageIndex]}`}
+            src={`${images[currentImageIndex2]}`}
             width={300}
             height={300}
             layout="fixed"
             className="relative w-[5.7rem] h-[5.7rem] rounded-full min-[663px]:top-44 min-[663px]:left-[12%] left-48 top-18"
           />
           <Image
-            src={`${images[currentImageIndex]}`}
+            src={`${images[currentImageIndex3]}`}
             width={300}
             height={300}
             layout="fixed"
-            className="relative w-[6rem] h-[6rem] rounded-full top-32 min-[663px]:left-[55%] -right-[30%]"
+            className="relative w-[6rem] h-[6rem] rounded-full top-10 min-[663px]:left-[55%] -right-[65%]"
           />
           <Image
-            src={`${images[currentImageIndex]}`}
+            src={`${images[currentImageIndex4]}`}
             width={300}
             height={300}
             layout="fixed"

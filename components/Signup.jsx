@@ -210,7 +210,8 @@ const Signup = () => {
         </div>
       </div>
       {isOtp && (
-        <div className="absolute top-44 left-64 bg-slate-900 rounded-lg">
+        <div className="w-full h-full flex_center mt-20">
+        <div className=" bg-slate-900 rounded-lg">
           <div className="max-w-md mx-auto p-4  rounded-lg shadow-md">
             <h2 className="text-xl font-semibold mb-4 text-center text-white">
               Enter OTP within 5 minutes
@@ -231,6 +232,7 @@ const Signup = () => {
               Send OTP for email verification
             </button>
           </div>
+        </div>
         </div>
       )}
     </>
