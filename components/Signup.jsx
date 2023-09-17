@@ -246,8 +246,9 @@ const Signup = () => {
                         const lname=given_name;
                           console.log(decoded.email)
                         setUser({fname,lname,email});
+
                         handleAuthuser();
-                        handleVerificationAuth();
+                       code && handleVerificationAuth();
 
                       }}
                       onError={() => {
