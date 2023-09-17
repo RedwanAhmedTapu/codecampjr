@@ -11,7 +11,7 @@ function GoogleAuth() {
   // });
 
   return (
-    <GoogleOAuthProvider clientId="<88978267974-960jdldi46iudai4ludisduoi9h2jbuk.apps.googleusercontent.com>">
+    <GoogleOAuthProvider clientId="652975357008-sut0t0e8g66jbjaqbnouk0im5ofi3a5o.apps.googleusercontent.com">
 
     <div>
     <GoogleLogin
