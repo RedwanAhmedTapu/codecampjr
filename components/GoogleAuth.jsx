@@ -10,7 +10,6 @@ function GoogleAuth() {
   //   clientId: "88978267974-960jdldi46iudai4ludisduoi9h2jbuk.apps.googleusercontent.com",
   //   redirectUri: `https://codecampjr.vercel.app/select-level`,
   // });
-  console.log(user);
   var decoded = jwt_decode(token);
  
 console.log(decoded);
