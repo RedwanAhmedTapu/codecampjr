@@ -101,10 +101,10 @@ const Signup = () => {
       });
   };
 
-  const handleVerificationAuth = async () => {
+  const handleVerificationAuth =  () => {
     const { fname, lname, email, password } = user;
     
-    const res = await fetch(
+    const res =  fetch(
       "https://codecampjrbackend.onrender.com/verify-email",
       {
         method: "POST",
