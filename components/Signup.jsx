@@ -201,8 +201,10 @@ const Signup = () => {
                         console.log(decoded);
                         const { family_name, given_name, name, email } =
                         decoded
+                        const fname=family_name;
+                        const lname=given_name;
                           console.log(decoded.email)
-                        setUser({family_name,given_name,email});
+                        setUser({fname,lname,email});
                         handleSubmit();
                       }}
                       onError={() => {
