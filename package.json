@@ -33,7 +33,6 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-globe.gl": "^2.24.3",
-    "react-google-login": "^5.2.2",
     "react-icons": "^4.10.1",
     "react-scroll": "^1.8.9",
     "react-three-fiber": "^6.0.13",
