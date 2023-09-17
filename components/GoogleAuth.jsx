@@ -10,9 +10,7 @@ function GoogleAuth() {
   //   clientId: "88978267974-960jdldi46iudai4ludisduoi9h2jbuk.apps.googleusercontent.com",
   //   redirectUri: `https://codecampjr.vercel.app/select-level`,
   // });
-  var decoded = jwt_decode(token);
- 
-console.log(decoded);
+  
 
   return (
     <GoogleOAuthProvider clientId="652975357008-sut0t0e8g66jbjaqbnouk0im5ofi3a5o.apps.googleusercontent.com">
@@ -20,6 +18,9 @@ console.log(decoded);
         <GoogleLogin
           onSuccess={(credentialResponse) => {
             console.log(credentialResponse);
+            var decoded = jwt_decode(credentialResponse.credential);
+ 
+console.log(decoded);
           }}
           onError={() => {
             console.log("Login Failed");
