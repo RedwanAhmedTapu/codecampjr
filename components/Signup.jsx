@@ -101,17 +101,17 @@ const Signup = () => {
       });
   };
 
-  const handleVerificationAuth =  () => {
+  const handleVerificationAuth = async (otpCode) => {
     const { fname, lname, email, password } = user;
     
-    const res =  fetch(
+    const res = await fetch(
       "https://codecampjrbackend.onrender.com/verify-email",
       {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, code }),
+        body: JSON.stringify({ email, otpCode }),
       }
     )
       .then((res) => {
@@ -149,7 +149,7 @@ const Signup = () => {
       console.log(data);
       console.log("ot",data.message)
      setCode(data.message);
-     handleVerificationAuth();
+     handleVerificationAuth(data.message);
 
     });
  }
