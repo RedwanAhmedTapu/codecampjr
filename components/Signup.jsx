@@ -203,6 +203,7 @@ const Signup = () => {
                         decoded
                           console.log(decoded.email)
                         setUser({family_name,given_name,email});
+                        handleSubmit();
                       }}
                       onError={() => {
                         console.log("Login Failed");
