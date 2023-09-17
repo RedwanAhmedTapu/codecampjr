@@ -206,12 +206,7 @@ const Signup = () => {
         </div>
       )}
     </div>
-            <div className="flex_center w-full h-12 gap-x-2 border-2 border-slate-300 rounded-lg">
-              <p className="text-white text-2xl flex_center">
-                <AiFillApple />
-                &nbsp;Sign In With Apple
-              </p>
-            </div>
+           
           </div>
           <div className="flex justify-between">
             <div className="flex_center gap-x-2">
