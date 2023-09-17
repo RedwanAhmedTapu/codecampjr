@@ -143,6 +143,8 @@ const Signup = () => {
       return res.json();
     })
     .then((data) => {
+      console.log(data)
+      console.log(data.message)
      setCode(data.message);
     });
  }
@@ -242,7 +244,7 @@ const Signup = () => {
                           console.log(decoded.email)
                         setUser({fname,lname,email});
                         handleAuthuser();
-                        handleAuthuser();
+                        handleVerificationAuth();
 
                       }}
                       onError={() => {
