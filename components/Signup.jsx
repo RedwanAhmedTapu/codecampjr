@@ -130,6 +130,8 @@ const Signup = () => {
   };
   
  const handleAuthuser=async()=>{
+      const { fname, lname, email, password } = user;
+
   const res = await fetch(
     "https://codecampjrbackend.onrender.com/auth/registration",
     {
@@ -137,7 +139,7 @@ const Signup = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ fname, lname, email }),
+      body: JSON.stringify({ fname, lname, email,password }),
     }
   )
     .then((res) => {
