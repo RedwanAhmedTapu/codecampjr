@@ -72,7 +72,7 @@ const Signup = () => {
     setCode(value.trim());
   };
   console.log("OTP:", code);
-  console.log("emailid",email)
+  console.log("emailid",user.email)
   const handleSendOtp = async () => {
     const { fname, lname, email, password } = user;
    
