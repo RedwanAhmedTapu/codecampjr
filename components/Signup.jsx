@@ -10,8 +10,8 @@ import { GoogleLogin } from "@react-oauth/google";
 import jwt_decode from "jwt-decode";
 const Signup = () => {
   const [user, setUser] = useState({
-    firstname: "",
-    lastname: "",
+    fname: "",
+    fname: "",
     email: "",
     password: "",
   });
@@ -200,7 +200,8 @@ const Signup = () => {
 
                         console.log(decoded);
                         const { family_name, given_name, name, email } =
-                          credentialResponse.credential;
+                        decoded
+                          console.log(decoded.email)
                         setUser({family_name,given_name,email});
                       }}
                       onError={() => {
