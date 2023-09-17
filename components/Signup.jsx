@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { ImSpinner9 } from "react-icons/im";
 import { AiFillApple } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
+import { GoogleLogin } from 'react-google-login';
 
 import CountdownTimer from "./CountdownTimer";
 const Signup = () => {
@@ -16,6 +17,7 @@ const Signup = () => {
   const router = useRouter();
   const [code, setCode] = useState("");
   const [isOtp, setIsOtp] = useState(false);
+  const [userData, setUserData] = useState(null);
 
   console.log("tapu");
   const handleChange = (e) => {
@@ -24,6 +26,14 @@ const Signup = () => {
       ...user,
       [name]: value,
     });
+  };
+
+  const responseGoogle = (response) => {
+    if (response && response.profileObj) {
+      const { name, imageUrl,email } = response.profileObj;
+      setUserData({ name, imageUrl,email });
+      router(`https://codecampjr.vercel.app/select-level?userEmail=${userData.email}`);
+    }
   };
 
   const handleSubmit = async (event) => {
@@ -178,12 +188,24 @@ const Signup = () => {
             <div className="w-2/3 bg-slate-300 h-[0.25px]"></div>
           </div>
           <div className="flex flex-col gap-y-8">
-            <div className="flex_center w-full h-12 gap-x-2 border-2 border-slate-300 rounded-lg">
-              <p className="text-white text-2xl flex_center">
-                <FcGoogle />
-                &nbsp;Sign In With Google
-              </p>
-            </div>
+          <div>
+          <div className="flex_center w-full h-12 gap-x-2 border-2 border-slate-300 rounded-lg">
+      <GoogleLogin
+        clientId="88978267974-960jdldi46iudai4ludisduoi9h2jbuk.apps.googleusercontent.com"
+        buttonText="Sign in with Google"
+        onSuccess={responseGoogle}
+        onFailure={responseGoogle}
+        cookiePolicy={'single_host_origin'}
+        className="w-full h-full "
+      />
+      </div>
+      {userData && (
+        <div>
+          <p>Welcome, {userData.name}</p>
+          <img src={userData.imageUrl} alt={userData.name} />
+        </div>
+      )}
+    </div>
             <div className="flex_center w-full h-12 gap-x-2 border-2 border-slate-300 rounded-lg">
               <p className="text-white text-2xl flex_center">
                 <AiFillApple />
