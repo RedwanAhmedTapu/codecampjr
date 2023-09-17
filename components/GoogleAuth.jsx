@@ -1,7 +1,6 @@
 // GoogleAuth.js
 "use client"
 import React, { useState } from 'react';
-import { GoogleOAuthProvider } from '@react-oauth/google';
 import { GoogleLogin } from '@react-oauth/google';
 
 function GoogleAuth() {
@@ -12,7 +11,6 @@ function GoogleAuth() {
 
   return (
     <div>
-    <GoogleOAuthProvider clientId="<88978267974-960jdldi46iudai4ludisduoi9h2jbuk.apps.googleusercontent.com>">
     <GoogleLogin
   onSuccess={credentialResponse => {
     console.log(credentialResponse);
@@ -21,7 +19,7 @@ function GoogleAuth() {
     console.log('Login Failed');
   }}
 />;
-    </GoogleOAuthProvider>;
+   
     </div>
   );
 }

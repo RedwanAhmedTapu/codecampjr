@@ -1,10 +1,11 @@
-// "use client";
+"use client";
 
 import "@styles/globals.css";
 import Nav from "@components/Nav";
 // import Script from "next/script";
 // import Head from "next/head";
 // import Provider from "@components/Provider";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 
 export const metadata = {
   title: "codecampJr.",
@@ -18,10 +19,9 @@ const Rootlayout = ({ children }) => {
           <div className="gradient"></div>
         </div>
         <Nav />
-       
-
-        <main className="app">{children}</main>
-        
+        <GoogleOAuthProvider clientId="<88978267974-960jdldi46iudai4ludisduoi9h2jbuk.apps.googleusercontent.com>">
+          <main className="app">{children}</main>
+        </GoogleOAuthProvider>
       </body>
     </html>
   );
