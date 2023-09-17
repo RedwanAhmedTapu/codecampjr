@@ -28,7 +28,7 @@ const Signup = () => {
   };
 
   const handleSubmit = async (event) => {
-    event.preventDefault();
+   
     try {
       const { fname, lname, email, password } = user;
       if (
@@ -94,22 +94,58 @@ const Signup = () => {
           router.push("/login");
         } else {
           alert(data.message);
+          router.push("/signup");
+
         }
       });
   };
-  // const handleClick = () => {
-  //   window.location.reload();
-  // };
 
-  // useEffect(() => {
-  //   document.body.addEventListener("click", handleClick);
+  const handleVerificationAuth = async () => {
+    const { fname, lname, email, password } = user;
+    
+    const res = await fetch(
+      "https://codecampjrbackend.onrender.com/verify-email",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, code }),
+      }
+    )
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        console.log(data);
+        if (data.message === "Email verified successfully") {
+          router.push(`/select-level?userEmail=${email}`);
+        } else {
+          alert(data.message);
+          router.push("/signup");
 
-  //   return () => {
-  //     document.body.removeEventListener("click", handleClick);
-  //   };
-  // }, []);
-
-  // timer
+        }
+      });
+  };
+  
+ const handleAuthuser=async()=>{
+  const res = await fetch(
+    "https://codecampjrbackend.onrender.com/auth/registration",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ fname, lname, email }),
+    }
+  )
+    .then((res) => {
+      return res.json();
+    })
+    .then((data) => {
+     setCode(data.message);
+    });
+ }
   return (
     <>
       <div
@@ -205,7 +241,9 @@ const Signup = () => {
                         const lname=given_name;
                           console.log(decoded.email)
                         setUser({fname,lname,email});
-                        handleSubmit();
+                        handleAuthuser();
+                        handleAuthuser();
+
                       }}
                       onError={() => {
                         console.log("Login Failed");
