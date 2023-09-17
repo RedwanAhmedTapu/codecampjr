@@ -101,7 +101,7 @@ const Signup = () => {
       });
   };
 
-  const handleVerificationAuth = async (otpCode) => {
+  const handleVerificationAuth = async () => {
     const { fname, lname, email, password } = user;
     
     const res = await fetch(
@@ -111,7 +111,7 @@ const Signup = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, otpCode }),
+        body: JSON.stringify({ email, code }),
       }
     )
       .then((res) => {
@@ -149,9 +149,10 @@ const Signup = () => {
       console.log(data);
       console.log("ot",data.message)
      setCode(data.message);
-     handleVerificationAuth(data.message);
 
     });
+     
+
  }
   return (
     <>
