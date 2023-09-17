@@ -139,7 +139,7 @@ const Signup = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ fname, lname, email,password }),
+      body: JSON.stringify({ fname, lname, email }),
     }
   )
     .then((res) => {
@@ -251,6 +251,7 @@ const Signup = () => {
                         setUser({fname,lname,email});
 
                         handleAuthuser();
+                        handleVerificationAuth();
 
                       }}
                       onError={() => {
