@@ -4,8 +4,10 @@ import { useRouter } from "next/navigation";
 import { ImSpinner9 } from "react-icons/im";
 import { AiFillApple } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
-
 import CountdownTimer from "./CountdownTimer";
+import { GoogleOAuthProvider } from "@react-oauth/google";
+import { GoogleLogin } from "@react-oauth/google";
+import jwt_decode from "jwt-decode";
 const Signup = () => {
   const [user, setUser] = useState({
     firstname: "",
@@ -17,7 +19,6 @@ const Signup = () => {
   const [code, setCode] = useState("");
   const [isOtp, setIsOtp] = useState(false);
 
-  console.log("tapu");
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUser({
@@ -38,13 +39,16 @@ const Signup = () => {
       ) {
         alert("please fill all the data");
       } else {
-        const res = await fetch("https://codecampjrbackend.onrender.com/user/signup", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ fname, lname, email, password }),
-        })
+        const res = await fetch(
+          "https://codecampjrbackend.onrender.com/user/signup",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ fname, lname, email, password }),
+          }
+        )
           .then((res) => {
             return res.json();
           })
@@ -71,13 +75,16 @@ const Signup = () => {
   const handleSendOtp = async () => {
     const { fname, lname, email, password } = user;
     console.log("OTP:", code);
-    const res = await fetch("https://codecampjrbackend.onrender.com/verify-email", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email, code }),
-    })
+    const res = await fetch(
+      "https://codecampjrbackend.onrender.com/verify-email",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, code }),
+      }
+    )
       .then((res) => {
         return res.json();
       })
@@ -105,7 +112,11 @@ const Signup = () => {
   // timer
   return (
     <>
-      <div className={`flex_center bg-slate-800 dark:bg-black   ${isOtp ? "blur" : null}`}>
+      <div
+        className={`flex_center bg-slate-800 dark:bg-black   ${
+          isOtp ? "blur" : null
+        }`}
+      >
         <div className=" w-[50rem] flex flex-col self-center  h-full max-[560px]:p-6 min-[849px]:p-10 p-20 bg-slate-800 dark:bg-[#030303] blur-1  rounded-lg shadow-md gap-y-6 relative  top-10">
           <div className="flex flex-col gap-y-4">
             <h1 className="text-xl flex justify-start items-center gap-x-2 text-white font-bold">
@@ -180,8 +191,25 @@ const Signup = () => {
           <div className="flex flex-col gap-y-8">
             <div className="flex_center w-full h-12 gap-x-2 border-2 border-slate-300 rounded-lg">
               <p className="text-white text-2xl flex_center">
-                <FcGoogle />
-                &nbsp;Sign In With Google
+                <GoogleOAuthProvider clientId="652975357008-sut0t0e8g66jbjaqbnouk0im5ofi3a5o.apps.googleusercontent.com">
+                  <div>
+                    <GoogleLogin
+                      onSuccess={(credentialResponse) => {
+                        console.log(credentialResponse);
+                        var decoded = jwt_decode(credentialResponse.credential);
+
+                        console.log(decoded);
+                        const { family_name, given_name, name, email } =
+                          credentialResponse.credential;
+                        setUser({family_name,given_name,email});
+                      }}
+                      onError={() => {
+                        console.log("Login Failed");
+                      }}
+                    />
+                    ;
+                  </div>
+                </GoogleOAuthProvider>
               </p>
             </div>
             <div className="flex_center w-full h-12 gap-x-2 border-2 border-slate-300 rounded-lg">
@@ -211,28 +239,28 @@ const Signup = () => {
       </div>
       {isOtp && (
         <div className="w-full h-full flex_center mt-20">
-        <div className=" bg-slate-900 rounded-lg">
-          <div className="max-w-md mx-auto p-4  rounded-lg shadow-md">
-            <h2 className="text-xl font-semibold mb-4 text-center text-white">
-              Enter OTP within 5 minutes
-            </h2>
-            <CountdownTimer />
+          <div className=" bg-slate-900 rounded-lg">
+            <div className="max-w-md mx-auto p-4  rounded-lg shadow-md">
+              <h2 className="text-xl font-semibold mb-4 text-center text-white">
+                Enter OTP within 5 minutes
+              </h2>
+              <CountdownTimer />
 
-            <input
-              type="text"
-              className="w-full p-2 border text-black rounded-md focus:outline-none focus:ring focus:border-blue-300"
-              placeholder="Enter OTP"
-              value={code}
-              onChange={handleInputChange}
-            />
-            <button
-              className="mt-4 px-4 py-2 self-center bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
-              onClick={handleSendOtp}
-            >
-              Send OTP for email verification
-            </button>
+              <input
+                type="text"
+                className="w-full p-2 border text-black rounded-md focus:outline-none focus:ring focus:border-blue-300"
+                placeholder="Enter OTP"
+                value={code}
+                onChange={handleInputChange}
+              />
+              <button
+                className="mt-4 px-4 py-2 self-center bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
+                onClick={handleSendOtp}
+              >
+                Send OTP for email verification
+              </button>
+            </div>
           </div>
-        </div>
         </div>
       )}
     </>

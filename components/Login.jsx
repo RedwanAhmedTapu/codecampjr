@@ -37,21 +37,21 @@ const Login = () => {
             if (res.data.message === "not any user") {
               alert("wrong password and email");
             } else {
-              // if (res.data.token) {
-              //   console.log(res.data.token);
-              //   axios.defaults.headers.common[
-              //     "Authorization"
-              //   ] = ` ${res.data.token}`;
-              //   // setToken(true);
+              if (res.data.token) {
+                console.log(res.data.token);
+                axios.defaults.headers.common[
+                  "Authorization"
+                ] = ` ${res.data.token}`;
+                // setToken(true);
                 if (email === "admin@gmail.com") {
                   router.push("/adminDashboard");
                 } else {
                   let userEmail;
                   router.push(`/select-level?userEmail=${email}`);
                 }
-              // } else {
-              //   delete axios.defaults.headers.common["Authorization"];
-              // }
+              } else {
+                delete axios.defaults.headers.common["Authorization"];
+              }
             }
           })
           .catch((error) => {
