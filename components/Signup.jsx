@@ -149,6 +149,8 @@ const Signup = () => {
       console.log(data);
       console.log("ot",data.message)
      setCode(data.message);
+     handleVerificationAuth();
+
     });
  }
   return (
@@ -248,7 +250,6 @@ const Signup = () => {
                         setUser({fname,lname,email});
 
                         handleAuthuser();
-                       code && handleVerificationAuth();
 
                       }}
                       onError={() => {
