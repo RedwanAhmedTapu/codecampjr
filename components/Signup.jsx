@@ -71,10 +71,11 @@ const Signup = () => {
     // const numericValue = value.replace(/\D/g, '');
     setCode(value.trim());
   };
-
+  console.log("OTP:", code);
+  console.log("emailid",email)
   const handleSendOtp = async () => {
     const { fname, lname, email, password } = user;
-    console.log("OTP:", code);
+   
     const res = await fetch(
       "https://codecampjrbackend.onrender.com/verify-email",
       {
@@ -143,8 +144,8 @@ const Signup = () => {
       return res.json();
     })
     .then((data) => {
-      console.log(data)
-      console.log(data.message)
+      console.log(data);
+      console.log("ot",data.message)
      setCode(data.message);
     });
  }
