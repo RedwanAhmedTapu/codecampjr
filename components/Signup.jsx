@@ -246,6 +246,7 @@ const Signup = () => {
                         setUser({ fname, lname, email });
 
                         handleAuthuser().then((data) => {
+                          console.log(data)
                           handleVerificationAuth(data.message);
                         });
                       }}
