@@ -100,7 +100,7 @@ const Signup = () => {
 
   const handleVerificationAuth = async (otpData) => {
     const { email } = user;
-console.log("codecamp",`${email+otpData}`);
+console.log("codecamp",`${otpData}`);
     try {
       const res = await fetch(
         "https://codecampjrbackend.onrender.com/auth/googleAuth-verfication",
