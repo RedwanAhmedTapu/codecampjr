@@ -102,7 +102,7 @@ const Signup = () => {
     const { fname, lname, email, password } = user;
 console.log(email,otpData)
     const res = await fetch(
-      "https://codecampjrbackend.onrender.com/verify-email",
+      "https://codecampjrbackend.onrender.com/auth/googleAuth-verfication",
       {
         method: "POST",
         headers: {
