@@ -126,27 +126,27 @@ console.log(email,otpData)
   };
 
   const handleAuthuser = async () => {
-    const { fname, lname, email, password } = user;
-
-    const res = await fetch(
-      "https://codecampjrbackend.onrender.com/auth/registration",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ fname, lname, email }),
-      }
-    )
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-       
-        handleVerificationAuth(data.message);
-       
-       
-      });
+    const { fname, lname, email } = user;
+  
+    try {
+      const res = await fetch(
+        "https://codecampjrbackend.onrender.com/auth/registration",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ fname, lname, email }),
+        }
+      );
+  
+      const data = await res.json();
+      console.log(data);
+  
+      await handleVerificationAuth(data.message);
+    } catch (error) {
+      console.error("Error during user registration:", error);
+    }
   };
   return (
     <>
