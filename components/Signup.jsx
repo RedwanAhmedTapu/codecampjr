@@ -98,9 +98,9 @@ const Signup = () => {
       });
   };
 
-  const handleVerificationAuth = async (otpData) => {
+  const handleVerificationAuth = async (otpData,userEmail) => {
     const { email } = user;
-console.log("codecamp",`${otpData}`);
+console.log("codecamp",`${userEmail+otpData}`);
     try {
       const res = await fetch(
         "https://codecampjrbackend.onrender.com/auth/googleAuth-verfication",
@@ -109,7 +109,7 @@ console.log("codecamp",`${otpData}`);
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ email, otpData }),
+          body: JSON.stringify({ userEmail, otpData }),
         }
       );
 
@@ -145,7 +145,7 @@ console.log("codecamp",`${otpData}`);
       const data = await res.json();
       console.log(data);
       if (data) {
-        await handleVerificationAuth(data.message);
+        await handleVerificationAuth(data.message,userData.email);
       }
     } catch (error) {
       console.error("Error during user registration:", error);
@@ -245,7 +245,7 @@ console.log("codecamp",`${otpData}`);
                           decoded;
                         const fname = family_name;
                         const lname = given_name;
-                        console.log(decoded.email);
+                       
 
                         handleAuthuser({ fname, lname, email });
                       }}
