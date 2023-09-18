@@ -99,32 +99,34 @@ const Signup = () => {
   };
 
   const handleVerificationAuth = async (otpData) => {
-    const { fname, lname, email, password } = user;
-console.log(email,otpData)
-    const res = await fetch(
-      "https://codecampjrbackend.onrender.com/auth/googleAuth-verfication",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, otpData }),
-      }
-    )
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        console.log(data);
-        if (data.message === "Email verified successfully") {
-          router.push(`/select-level?userEmail=${email}`);
-        } else {
-          alert(data.message);
-          router.push("/signup");
+    const { email } = user;
+  
+    try {
+      const res = await fetch(
+        "https://codecampjrbackend.onrender.com/auth/googleAuth-verfication",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email, otpData }),
         }
-      });
+      );
+  
+      const data = await res.json();
+      console.log(data);
+  
+      if (data.message === "Email verified successfully") {
+        router.push(`/select-level?userEmail=${email}`);
+      } else {
+        alert(data.message);
+        router.push("/signup");
+      }
+    } catch (error) {
+      console.error("Error during email verification:", error);
+    }
   };
-
+  
   const handleAuthuser = async () => {
     const { fname, lname, email } = user;
   
@@ -148,6 +150,7 @@ console.log(email,otpData)
       console.error("Error during user registration:", error);
     }
   };
+  
   return (
     <>
       <div
