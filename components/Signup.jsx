@@ -28,7 +28,6 @@ const Signup = () => {
   };
 
   const handleSubmit = async (event) => {
-   
     try {
       const { fname, lname, email, password } = user;
       if (
@@ -72,10 +71,10 @@ const Signup = () => {
     setCode(value.trim());
   };
   console.log("OTP:", code);
-  console.log("emailid",user.email)
+  console.log("emailid", user.email);
   const handleSendOtp = async () => {
     const { fname, lname, email, password } = user;
-   
+
     const res = await fetch(
       "https://codecampjrbackend.onrender.com/verify-email",
       {
@@ -96,22 +95,21 @@ const Signup = () => {
         } else {
           alert(data.message);
           router.push("/signup");
-
         }
       });
   };
 
-  const handleVerificationAuth = async () => {
+  const handleVerificationAuth = async (otpData) => {
     const { fname, lname, email, password } = user;
-    
-    const res =code && await fetch(
+
+    const res = await fetch(
       "https://codecampjrbackend.onrender.com/verify-email",
       {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, code }),
+        body: JSON.stringify({ email, otpData }),
       }
     )
       .then((res) => {
@@ -124,36 +122,33 @@ const Signup = () => {
         } else {
           alert(data.message);
           router.push("/signup");
-
         }
       });
   };
-  
- const handleAuthuser=async()=>{
-      const { fname, lname, email, password } = user;
 
-  const res = await fetch(
-    "https://codecampjrbackend.onrender.com/auth/registration",
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ fname, lname, email }),
-    }
-  )
-    .then((res) => {
-      return res.json();
-    })
-    .then((data) => {
-      console.log(data);
-      console.log("ot",data.message)
-     setCode(data.message);
+  const handleAuthuser = async () => {
+    const { fname, lname, email, password } = user;
 
-    });
-     
-
- }
+    const res = await fetch(
+      "https://codecampjrbackend.onrender.com/auth/registration",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ fname, lname, email }),
+      }
+    )
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        console.log(data);
+        console.log("ot", data.message);
+        setCode(data.message);
+        return data;
+      });
+  };
   return (
     <>
       <div
@@ -244,15 +239,15 @@ const Signup = () => {
 
                         console.log(decoded);
                         const { family_name, given_name, name, email } =
-                        decoded
-                        const fname=family_name;
-                        const lname=given_name;
-                          console.log(decoded.email)
-                        setUser({fname,lname,email});
+                          decoded;
+                        const fname = family_name;
+                        const lname = given_name;
+                        console.log(decoded.email);
+                        setUser({ fname, lname, email });
 
-                        handleAuthuser();
-                        handleVerificationAuth();
-
+                        handleAuthuser().then((data) => {
+                          handleVerificationAuth(data.message);
+                        });
                       }}
                       onError={() => {
                         console.log("Login Failed");
