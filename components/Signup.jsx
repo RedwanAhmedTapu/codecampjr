@@ -100,7 +100,7 @@ const Signup = () => {
 
   const handleVerificationAuth = async (otpData) => {
     const { fname, lname, email, password } = user;
-
+console.log(email,otpData)
     const res = await fetch(
       "https://codecampjrbackend.onrender.com/verify-email",
       {
