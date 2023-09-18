@@ -143,8 +143,9 @@ const Signup = () => {
       })
       .then((data) => {
        
-        setCode(data.message);
-        return data;
+        handleVerificationAuth(data.message);
+       
+       
       });
   };
   return (
@@ -243,10 +244,7 @@ const Signup = () => {
                         console.log(decoded.email);
                         setUser({ fname, lname, email });
 
-                        handleAuthuser().then((data) => {
-                          // console.log(data)
-                          handleVerificationAuth();
-                        });
+                        handleAuthuser();
                       }}
                       onError={() => {
                         console.log("Login Failed");
