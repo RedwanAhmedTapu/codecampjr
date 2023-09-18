@@ -70,8 +70,7 @@ const Signup = () => {
     // const numericValue = value.replace(/\D/g, '');
     setCode(value.trim());
   };
-  console.log("OTP:", code);
-  console.log("emailid", user.email);
+  
   const handleSendOtp = async () => {
     const { fname, lname, email, password } = user;
 
@@ -143,8 +142,7 @@ const Signup = () => {
         return res.json();
       })
       .then((data) => {
-        console.log(data);
-        console.log("ot", data.message);
+       
         setCode(data.message);
         return data;
       });
@@ -247,7 +245,7 @@ const Signup = () => {
 
                         handleAuthuser().then((data) => {
                           console.log(data)
-                          handleVerificationAuth(data.message);
+                          handleVerificationAuth();
                         });
                       }}
                       onError={() => {
