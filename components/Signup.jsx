@@ -127,7 +127,7 @@ const Signup = () => {
     }
   };
 
-  const handleAuthuser = async () => {
+  const handleAuthuser = async (userData) => {
     const { fname, lname, email } = user;
 
     try {
@@ -138,7 +138,7 @@ const Signup = () => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ fname, lname, email }),
+          body: JSON.stringify(userData),
         }
       );
 
@@ -246,9 +246,8 @@ const Signup = () => {
                         const fname = family_name;
                         const lname = given_name;
                         console.log(decoded.email);
-                        setUser({ fname, lname, email });
 
-                        handleAuthuser();
+                        handleAuthuser({ fname, lname, email });
                       }}
                       onError={() => {
                         console.log("Login Failed");
