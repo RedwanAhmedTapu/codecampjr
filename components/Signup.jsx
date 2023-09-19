@@ -8,6 +8,7 @@ import CountdownTimer from "./CountdownTimer";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { GoogleLogin } from "@react-oauth/google";
 import jwt_decode from "jwt-decode";
+import { Center } from "@react-three/drei";
 const Signup = () => {
   const [user, setUser] = useState({
     fname: "",
@@ -231,10 +232,9 @@ console.log("codecamp",`${userEmail+otpData}`);
             <div className="w-2/3 bg-slate-300 h-[0.25px]"></div>
           </div>
           <div className="flex flex-col gap-y-8">
-            <div className="flex_center w-full h-12 gap-x-2 border-2 border-slate-300 rounded-lg">
-              <p className="text-white text-2xl flex_center">
+            <div className="flex_center w-full h-10 gap-x-2 border-2 border-slate-300 rounded-lg">
                 <GoogleOAuthProvider clientId="652975357008-sut0t0e8g66jbjaqbnouk0im5ofi3a5o.apps.googleusercontent.com">
-                  <div>
+                  <div className="w-full h-full ">
                     <GoogleLogin
                       onSuccess={(credentialResponse) => {
                         console.log(credentialResponse);
@@ -252,11 +252,13 @@ console.log("codecamp",`${userEmail+otpData}`);
                       onError={() => {
                         console.log("Login Failed");
                       }}
+                      logo_alignment="center"
+                      text="continue_with"
+                      useOneTap
                     />
                     ;
                   </div>
                 </GoogleOAuthProvider>
-              </p>
             </div>
             <div className="flex_center w-full h-12 gap-x-2 border-2 border-slate-300 rounded-lg">
               <p className="text-white text-2xl flex_center">

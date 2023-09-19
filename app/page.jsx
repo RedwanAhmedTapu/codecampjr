@@ -24,7 +24,6 @@ import Level from "@components/Level";
 import GlobeInnerRay from "@components/GlobeInnerRay";
 import { HiOutlineRocketLaunch } from "react-icons/hi2";
 import CodeDivDesignforHomePage from "@components/CodeDivDesignforHomePage";
-import GoogleAuth from "@components/GoogleAuth";
 
 const Home = () => {
   const data = [
@@ -91,7 +90,7 @@ const Home = () => {
       <section className="bg-[#fffcfc] dark:bg_color flex flex-col max-[600px]:gap-36 gap-8  relative  max-[700px]:top-10">
         {/* <CodeEditor/> */}
         {/* <CodeDivDesignforHomePage/> */}
-        <GoogleAuth/>
+        
         <SlidingComponent />
 
         <Level />

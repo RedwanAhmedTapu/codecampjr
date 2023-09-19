@@ -1,35 +1,45 @@
 // GoogleAuth.js
 "use client";
-import React, { useState } from "react";
+import React from 'react';
+// import { useGoogleOneTapLogin } from '@react-auth/google';
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { GoogleLogin } from "@react-oauth/google";
 import jwt_decode from "jwt-decode";
 
-function GoogleAuth() {
-  // const { signIn, signOut, user, error } = useGoogleOAuth({
-  //   clientId: "88978267974-960jdldi46iudai4ludisduoi9h2jbuk.apps.googleusercontent.com",
-  //   redirectUri: `https://codecampjr.vercel.app/select-level`,
-  // });
-  
+const GoogleAuth = () => {
+ 
 
   return (
-    <GoogleOAuthProvider clientId="652975357008-sut0t0e8g66jbjaqbnouk0im5ofi3a5o.apps.googleusercontent.com">
-      <div>
-        <GoogleLogin
-          onSuccess={(credentialResponse) => {
-            console.log(credentialResponse);
-            var decoded = jwt_decode(credentialResponse.credential);
- 
-console.log(decoded);
-          }}
-          onError={() => {
-            console.log("Login Failed");
-          }}
-        />
-        ;
-      </div>
-    </GoogleOAuthProvider>
+    <div>
+      <GoogleOAuthProvider clientId="220848079763-ljc1j00fmuamub2rkq1f98403m00mab8.apps.googleusercontent.com">
+                  <div className="w-full h-full ">
+                    <GoogleLogin
+                      onSuccess={(credentialResponse) => {
+                        console.log(credentialResponse);
+                        var decoded = jwt_decode(credentialResponse.credential);
+
+                        console.log(decoded);
+                        const { family_name, given_name, name, email } =
+                          decoded;
+                        const fname = family_name;
+                        const lname = given_name;
+                       
+
+                        handleAuthuser({ fname, lname, email });
+                      }}
+                      onError={() => {
+                        console.log("Login Failed");
+                      }}
+                      logo_alignment="center"
+                      text="continue_with"
+                      useOneTap
+                    />
+                    ;
+                  </div>
+                </GoogleOAuthProvider>
+    </div>
   );
-}
+};
 
 export default GoogleAuth;
+

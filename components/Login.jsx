@@ -7,6 +7,9 @@ import { useRouter } from "next/navigation";
 import axios from "axios";
 import GlobeInnerRay from "./GlobeInnerRay";
 import { ConstructionOutlined } from "@mui/icons-material";
+import { GoogleOAuthProvider } from "@react-oauth/google";
+import { GoogleLogin } from "@react-oauth/google";
+import jwt_decode from "jwt-decode";
 const Login = () => {
   const [user, setUser] = useState({
     email: "",
@@ -71,6 +74,61 @@ const Login = () => {
       console.error("Failed to login :", error);
     }
   };
+  // for google signin
+  const handleVerificationAuth = async (otpData,userEmail) => {
+    const { email } = user;
+console.log("codecamp",`${userEmail+otpData}`);
+    try {
+      const res = await fetch(
+        "https://codecampjrbackend.onrender.com/auth/googleAuth-verfication",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ userEmail, otpData }),
+        }
+      );
+
+      const data = await res.json();
+      console.log(data);
+
+      if (data.message === "Email verified successfully") {
+        router.push(`/select-level?userEmail=${email}`);
+      } else {
+        alert(data.message);
+        router.push("/signup");
+      }
+    } catch (error) {
+      console.error("Error during email verification:", error);
+    }
+  };
+
+  const handleAuthuser = async (userData) => {
+    const { fname, lname, email } = user;
+
+    try {
+      const res = await fetch(
+        "https://codecampjrbackend.onrender.com/auth/registration",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(userData),
+        }
+      );
+
+      const data = await res.json();
+      console.log(data);
+      if (data) {
+        await handleVerificationAuth(data.message,userData.email);
+      }
+    } catch (error) {
+      console.error("Error during user registration:", error);
+    }
+  };
+
   return (
     <div className="flex_center bg-slate-800 dark:bg-black h-screen">
       <div className=" w-[50rem] flex flex-col    h-full max-[560px]:p-6 min-[849px]:p-10 p-20 bg-slate-800 dark:bg-[#030303] blur-1  rounded-lg shadow-md gap-y-6 relative top-10 ">
@@ -119,12 +177,35 @@ const Login = () => {
           <div className="w-2/3 bg-slate-300 h-[0.25px]"></div>
         </div>
         <div className="flex flex-col gap-y-8">
-          <div className="flex_center w-full h-12 gap-x-2 border-2 border-slate-300 rounded-lg">
-            <p className="text-white text-2xl flex_center">
-              <FcGoogle />
-              &nbsp;Sign In With Google
-            </p>
-          </div>
+        <div className="flex_center w-full h-10 gap-x-2 border-2 border-slate-300 rounded-lg">
+                <GoogleOAuthProvider clientId="652975357008-sut0t0e8g66jbjaqbnouk0im5ofi3a5o.apps.googleusercontent.com">
+                  <div className="w-full h-full ">
+                    <GoogleLogin
+                      onSuccess={(credentialResponse) => {
+                        console.log(credentialResponse);
+                        var decoded = jwt_decode(credentialResponse.credential);
+
+                        console.log(decoded);
+                        const { family_name, given_name, name, email } =
+                          decoded;
+                        const fname = family_name;
+                        const lname = given_name;
+                       
+
+                        handleAuthuser({ fname, lname, email });
+                      }}
+                      onError={() => {
+                        console.log("Login Failed");
+                      }}
+                      logo_alignment="center"
+                      text="continue_with"
+                      useOneTap
+                    />
+                    ;
+                  </div>
+                </GoogleOAuthProvider>
+            </div>
+           
           <div className="flex_center w-full h-12 gap-x-2 border-2 border-slate-300 rounded-lg">
             <p className="text-white text-2xl flex_center">
               <AiFillApple />
