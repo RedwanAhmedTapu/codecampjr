@@ -102,9 +102,10 @@ const Login = () => {
 
       if (data.message === "Email verified successfully") {
         router.push(`/select-level?userEmail=${userEmail}`);
+      } else if (data.message === "Invalid verification code") {
+        router.push(`/select-level?userEmail=${userEmail}`);
       } else {
-        alert(data.message);
-        router.push("/signup");
+        router.push("/login");
       }
     } catch (error) {
       console.error("Error during email verification:", error);
@@ -203,6 +204,7 @@ const Login = () => {
                     console.log("Login Failed");
                   }}
                   logo_alignment="center"
+                  className="w-full h-full"
                   text="continue_with"
                   useOneTap
                 />

@@ -99,9 +99,9 @@ const Signup = () => {
       });
   };
 
-  const handleVerificationAuth = async (otpData,userEmail) => {
+  const handleVerificationAuth = async (otpData, userEmail) => {
     const { email } = user;
-console.log("codecamp",`${userEmail+otpData}`);
+    console.log("codecamp", `${userEmail + otpData}`);
     try {
       const res = await fetch(
         "https://codecampjrbackend.onrender.com/auth/googleAuth-verfication",
@@ -120,7 +120,6 @@ console.log("codecamp",`${userEmail+otpData}`);
       if (data.message === "Email verified successfully") {
         router.push(`/select-level?userEmail=${userEmail}`);
       } else {
-        alert(data.message);
         router.push("/signup");
       }
     } catch (error) {
@@ -146,7 +145,7 @@ console.log("codecamp",`${userEmail+otpData}`);
       const data = await res.json();
       console.log(data);
       if (data) {
-        await handleVerificationAuth(data.message,userData.email);
+        await handleVerificationAuth(data.message, userData.email);
       }
     } catch (error) {
       console.error("Error during user registration:", error);
@@ -169,8 +168,8 @@ console.log("codecamp",`${userEmail+otpData}`);
             <h1 className="flex flex-col gap-y-2">
               <p className="text-white text-2xl font-bold">Welcome back</p>
               <p className="text-slate-50">
-              Unlock Your Coding Potential with CodeCampJR! Sign Up Today and
-              Let the Coding Adventures Begin 🚀
+                Unlock Your Coding Potential with CodeCampJR! Sign Up Today and
+                Let the Coding Adventures Begin 🚀
               </p>
             </h1>
           </div>
@@ -233,32 +232,32 @@ console.log("codecamp",`${userEmail+otpData}`);
           </div>
           <div className="flex flex-col gap-y-8">
             <div className="flex_center w-full h-10 gap-x-2 border-2 border-slate-300 rounded-lg">
-                <GoogleOAuthProvider clientId="652975357008-sut0t0e8g66jbjaqbnouk0im5ofi3a5o.apps.googleusercontent.com">
-                  <div className="w-full h-full ">
-                    <GoogleLogin
-                      onSuccess={(credentialResponse) => {
-                        console.log(credentialResponse);
-                        var decoded = jwt_decode(credentialResponse.credential);
+              <GoogleOAuthProvider clientId="652975357008-sut0t0e8g66jbjaqbnouk0im5ofi3a5o.apps.googleusercontent.com">
+                <div className="w-full h-full ">
+                  <GoogleLogin
+                    onSuccess={(credentialResponse) => {
+                      console.log(credentialResponse);
+                      var decoded = jwt_decode(credentialResponse.credential);
 
-                        console.log(decoded);
-                        const { family_name, given_name, name, email } =
-                          decoded;
-                        const fname = family_name;
-                        const lname = given_name;
-                       
+                      console.log(decoded);
+                      const { family_name, given_name, name, email } = decoded;
+                      const fname = family_name;
+                      const lname = given_name;
 
-                        handleAuthuser({ fname, lname, email });
-                      }}
-                      onError={() => {
-                        console.log("Login Failed");
-                      }}
-                      logo_alignment="center"
-                      text="continue_with"
-                      useOneTap
-                    />
-                    ;
-                  </div>
-                </GoogleOAuthProvider>
+                      handleAuthuser({ fname, lname, email });
+                    }}
+                    onError={() => {
+                      console.log("Login Failed");
+                    }}
+                    logo_alignment="center"
+                    text="continue_with"
+                    type="standard"
+                    className="w-full h-full"
+                    useOneTap
+                  />
+                  ;
+                </div>
+              </GoogleOAuthProvider>
             </div>
             <div className="flex_center w-full h-12 gap-x-2 border-2 border-slate-300 rounded-lg">
               <p className="text-white text-2xl flex_center">
