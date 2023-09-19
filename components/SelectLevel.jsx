@@ -411,13 +411,12 @@ const SelectLevel = () => {
                 {new Date("2023-09-02T15:30:00Z").toLocaleString()}
               </div>
               <button className="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-lg max-[500px]:text-sm" onClick={async()=>{
-                //  const res = await axios
-                //  .post(`http://localhost:5000/active-user/order/${email}`)
-                //  .then((res) => {
-                  //  console.log(res.data.url);
-                  //  router.push(`${res.data.url}`)
-                   router.push(`/user-dashboard?userEmail=${email}`);
-                //  });
+                 const res = await axios
+                 .post(`https://codecampjrbackend.onrender.com/active-user/order/${email}`)
+                 .then((res) => {
+                   console.log(res.data.url);
+                   router.push(`${res.data.url}`)
+                 });
               }}>
                 Pay Now
               </button>

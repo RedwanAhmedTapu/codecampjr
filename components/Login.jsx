@@ -187,10 +187,10 @@ const Login = () => {
         <div className="flex flex-col gap-y-8">
           <div className="flex_center w-full h-10 gap-x-2 border-2 border-slate-300 rounded-lg">
             <GoogleOAuthProvider clientId="652975357008-sut0t0e8g66jbjaqbnouk0im5ofi3a5o.apps.googleusercontent.com">
-              <div className="w-full h-full flex_center bg-white">
+              <div className="w-full h-full flex_center bg-white rounded-lg">
                 <GoogleLogin
                   onSuccess={(credentialResponse) => {
-                    console.log(credentialResponse);
+                   
                     var decoded = jwt_decode(credentialResponse.credential);
 
                     console.log(decoded);
@@ -204,10 +204,11 @@ const Login = () => {
                     console.log("Login Failed");
                   }}
                   logo_alignment="center"
-                  className="w-full h-full"
+                  className="w-full h-full rounded-lg"
                   text="continue_with"
                   useOneTap="true"
                   select_account
+                  theme="outline"
                 />
                 
               </div>
