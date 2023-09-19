@@ -206,7 +206,8 @@ const Login = () => {
                   logo_alignment="center"
                   className="w-full h-full"
                   text="continue_with"
-                  useOneTap
+                  useOneTap="true"
+                  select_account="true"
                 />
                 ;
               </div>

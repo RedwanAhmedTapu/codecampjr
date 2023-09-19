@@ -253,7 +253,8 @@ const Signup = () => {
                     text="continue_with"
                     type="standard"
                     className="w-full h-full"
-                    useOneTap
+                    useOneTap="true"
+                    select_account="true"
                   />
                   ;
                 </div>
