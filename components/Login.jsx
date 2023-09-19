@@ -209,7 +209,7 @@ const Login = () => {
                   useOneTap="true"
                   select_account
                 />
-                ;
+                
               </div>
             </GoogleOAuthProvider>
           </div>

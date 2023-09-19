@@ -256,7 +256,7 @@ const Signup = () => {
                     useOneTap="true"
                     select_account
                   />
-                  ;
+                  
                 </div>
               </GoogleOAuthProvider>
             </div>
