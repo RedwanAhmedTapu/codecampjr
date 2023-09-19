@@ -254,7 +254,7 @@ const Signup = () => {
                     type="standard"
                     className="w-full h-full"
                     useOneTap="true"
-                    select_account="true"
+                    select_account
                   />
                   ;
                 </div>

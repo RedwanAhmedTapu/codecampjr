@@ -207,7 +207,7 @@ const Login = () => {
                   className="w-full h-full"
                   text="continue_with"
                   useOneTap="true"
-                  select_account="true"
+                  select_account
                 />
                 ;
               </div>
