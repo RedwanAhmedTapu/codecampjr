@@ -118,7 +118,7 @@ console.log("codecamp",`${userEmail+otpData}`);
       console.log(data);
 
       if (data.message === "Email verified successfully") {
-        router.push(`/select-level?userEmail=${email}`);
+        router.push(`/select-level?userEmail=${userEmail}`);
       } else {
         alert(data.message);
         router.push("/signup");
@@ -169,8 +169,8 @@ console.log("codecamp",`${userEmail+otpData}`);
             <h1 className="flex flex-col gap-y-2">
               <p className="text-white text-2xl font-bold">Welcome back</p>
               <p className="text-slate-50">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab
-                doloremque esse nam.
+              Unlock Your Coding Potential with CodeCampJR! Sign Up Today and
+              Let the Coding Adventures Begin 🚀
               </p>
             </h1>
           </div>
