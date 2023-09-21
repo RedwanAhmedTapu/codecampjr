@@ -53,7 +53,7 @@ const Login = () => {
                 const { email, fname, isLoggedin, isVerified, lname } =
                   res.data.user;
                 setLoggeduser({ email, fname, isLoggedin, isVerified, lname });
-                localStorage.setItem("loggedUser", loggedUser);
+                localStorage.setItem("loggedUser", JSON.stringify(loggedUser));
 
                 if (email === "admin@gmail.com") {
                   router.push("/adminDashboard");
