@@ -18,7 +18,6 @@ const Nav = () => {
 
   const isLoggedIn = true;
   const router=useRouter();
-console.log(user.fname)
   useEffect(() => {
     const storedTheme = localStorage.getItem("theme");
     if (storedTheme === "dark") {
@@ -107,7 +106,7 @@ console.log(user.fname)
           )}
         </div>
         {user &&
-          <div className="w-16 h-16 bg-gradient-to-r from-gray-700 via-gray-900 to-black rounded-full text-white flex_center" onClick={()=>{
+          <div className="max-[500px]:w-10 max-[500px]:h-10 w-16 h-16 bg-gradient-to-r from-gray-700 via-gray-900 to-black rounded-full text-white flex_center" onClick={()=>{
             router.push(`/user-dashboard?userEmail=${user.email}`);
 
           }}>
