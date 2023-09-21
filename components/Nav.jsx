@@ -37,7 +37,7 @@ const Nav = () => {
     setIsDarkMode(false);
   };
   if (typeof localStorage !== 'undefined') {
-  setuser(localStorage.getItem("loggedUser", loggedUser));
+  setuser(localStorage.getItem("loggedUser"));
   }
   return (
     <>
