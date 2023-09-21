@@ -108,7 +108,7 @@ console.log(user.fname)
         </div>
         {user &&
           <div className="w-16 h-16 bg-gradient-to-r from-gray-700 via-gray-900 to-black rounded-full text-white flex_center" onClick={()=>{
-            router.push(`/adminDashboard?userEmail=${user.email}`);
+            router.push(`/user-dashboard?userEmail=${user.email}`);
 
           }}>
            profile
