@@ -244,6 +244,8 @@ const Signup = () => {
                       const lname = given_name;
 
                       handleAuthuser({ fname, lname, email });
+                localStorage.setItem("loggedUser", JSON.stringify({ email, fname, lname }));
+
                     }}
                     onError={() => {
                       console.log("Login Failed");

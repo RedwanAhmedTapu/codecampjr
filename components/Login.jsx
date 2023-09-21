@@ -15,8 +15,6 @@ const Login = () => {
     email: "",
     password: "",
   });
-  
-
 
   const router = useRouter();
   const handleChange = (e) => {
@@ -51,8 +49,17 @@ const Login = () => {
 
                 const { email, fname, isLoggedin, isVerified, lname } =
                   res.data.user;
-                  console.log({ email, fname, isLoggedin, isVerified, lname })
-                localStorage.setItem("loggedUser", JSON.stringify({ email, fname, isLoggedin, isVerified, lname }));
+                console.log({ email, fname, isLoggedin, isVerified, lname });
+                localStorage.setItem(
+                  "loggedUser",
+                  JSON.stringify({
+                    email,
+                    fname,
+                    isLoggedin,
+                    isVerified,
+                    lname,
+                  })
+                );
 
                 if (email === "admin@gmail.com") {
                   router.push("/adminDashboard");
@@ -206,6 +213,10 @@ const Login = () => {
                     const lname = given_name;
 
                     handleAuthuser({ fname, lname, email });
+                    localStorage.setItem(
+                      "loggedUser",
+                      JSON.stringify({ email, fname, lname })
+                    );
                   }}
                   onError={() => {
                     console.log("Login Failed");
