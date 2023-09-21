@@ -21,6 +21,9 @@ const Nav = () => {
     if (storedTheme === "dark") {
       applyDarkMode();
     }
+    if (typeof localStorage !== 'undefined') {
+      setuser(localStorage.getItem("loggedUser"));
+      }
   }, []);
 
   //  apply dark mode
@@ -36,9 +39,7 @@ const Nav = () => {
     localStorage.setItem("theme", "light");
     setIsDarkMode(false);
   };
-  if (typeof localStorage !== 'undefined') {
-  setuser(localStorage.getItem("loggedUser"));
-  }
+  
   return (
     <>
       <nav className="bg-[#fffcfc] dark:bg_color  flex justify-around sm:justify-evenly  items-center w-full h-16 dark:shadow-lg  p-8  fixed top-0 z-50">
