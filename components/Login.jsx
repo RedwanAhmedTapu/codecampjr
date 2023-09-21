@@ -17,7 +17,6 @@ const Login = () => {
   });
   
 
-  console.log(loggedUser);
 
   const router = useRouter();
   const handleChange = (e) => {
