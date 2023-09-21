@@ -9,6 +9,7 @@ import { IoMdLogOut } from "react-icons/io";
 import { ImSpinner9 } from "react-icons/im";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const UserDashBoard = () => {
   const [userData, setUserData] = useState();
@@ -19,6 +20,7 @@ const UserDashBoard = () => {
 
   const searchParams = useSearchParams();
   const emailId = searchParams.get("userEmail");
+  const router=useRouter();
 
   const handleFileChange = (event) => {
     setSelectedFile(event.target.files[0]);
@@ -97,7 +99,11 @@ const UserDashBoard = () => {
               <p className="text-slate-900 dark:text-white text-center text-xl">
                 <IoMdLogOut />
               </p>
-              <p className="text-slate-900 dark:text-white text-center text-xl">Logout</p>
+              <p className="text-slate-900 dark:text-white text-center text-xl" onClick={()=>{
+                localStorage.removeItem('loggedUser');
+                router.push("/");
+
+              }}>Logout</p>
             </div>
           </div>
           <div className="w-[60%] max-[1029px]:w-full h-full flex flex-col gap-y-8 dark:mt-4 max-[1029px]:p-4  bg-white dark:bg-[#060606]">
