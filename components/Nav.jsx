@@ -22,7 +22,7 @@ console.log(user)
       applyDarkMode();
     }
     if (typeof localStorage !== 'undefined') {
-      setuser(localStorage.getItem("loggedUser"));
+      setuser(JSON.parse(localStorage.getItem("loggedUser")));
       }
   }, []);
 
