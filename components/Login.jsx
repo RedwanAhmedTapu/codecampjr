@@ -15,6 +15,13 @@ const Login = () => {
     email: "",
     password: "",
   });
+  const [loggedUser, setLoggeduser] = useState({
+    email: "",
+    fname: "",
+    isLoggedin: "",
+    isVerified: "",
+    lname: "",
+  });
 
   const router = useRouter();
   const handleChange = (e) => {
@@ -46,6 +53,9 @@ const Login = () => {
                   "Authorization"
                 ] = ` ${res.data.token}`;
                 // setToken(true);
+            
+                const {email,fname,isLoggedin,isVerified,lname}=res.data.user;
+                setLoggeduser({email,fname,isLoggedin,isVerified,lname});
                 if (email === "admin@gmail.com") {
                   router.push("/adminDashboard");
                 } else {
@@ -137,6 +147,8 @@ const Login = () => {
     }
   };
 
+  loggedUser && localStorage.setItem("loggedUser",loggedUser);
+
   return (
     <div className="flex_center bg-slate-800 dark:bg-black h-screen">
       <div className=" w-[50rem] flex flex-col    h-full max-[560px]:p-6 min-[849px]:p-10 p-20 bg-slate-800 dark:bg-[#030303] blur-1  rounded-lg shadow-md gap-y-6 relative top-10 ">
@@ -190,7 +202,6 @@ const Login = () => {
               <div className="w-full h-full flex_center bg-white rounded-lg">
                 <GoogleLogin
                   onSuccess={(credentialResponse) => {
-                   
                     var decoded = jwt_decode(credentialResponse.credential);
 
                     console.log(decoded);
@@ -210,7 +221,6 @@ const Login = () => {
                   select_account
                   theme="outline"
                 />
-                
               </div>
             </GoogleOAuthProvider>
           </div>

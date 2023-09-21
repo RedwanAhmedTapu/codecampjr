@@ -9,32 +9,35 @@ import LightModeIcon from "@mui/icons-material/LightMode";
 
 import HoverableDropdown from "./HoverableDropdown";
 const Nav = () => {
+  const [user, setuser] = useState({});
   const [providers, setProviders] = useState(null);
   const [toggle, setToggle] = useState(true);
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   const isLoggedIn = true;
-  
+
   useEffect(() => {
-    const storedTheme = localStorage.getItem('theme');
-    if (storedTheme === 'dark') {
+    const storedTheme = localStorage.getItem("theme");
+    if (storedTheme === "dark") {
       applyDarkMode();
     }
   }, []);
-  
+
   //  apply dark mode
   const applyDarkMode = () => {
-    document.body.classList.add('dark');
-    localStorage.setItem('theme', 'dark');
+    document.body.classList.add("dark");
+    localStorage.setItem("theme", "dark");
     setIsDarkMode(true);
   };
 
   //  apply light mode
   const applyLightMode = () => {
-    document.body.classList.remove('dark');
-    localStorage.setItem('theme', 'light');
+    document.body.classList.remove("dark");
+    localStorage.setItem("theme", "light");
     setIsDarkMode(false);
   };
+
+  setuser(localStorage.getItem("loggedUser", loggedUser));
 
   return (
     <>
@@ -74,9 +77,7 @@ const Nav = () => {
           </li>
           <HoverableDropdown className="z-10 h-76" />
 
-          <li className="navlist list text-slate-800  dark:text-white">
-            Contact
-          </li>
+       
         </ul>
 
         <div className="w-8 h-8 rounded-lg  relative -right-10">
@@ -86,7 +87,6 @@ const Nav = () => {
                 className="w-8 h-8 text-slate-800  dark:text-white"
                 onClick={() => {
                   applyLightMode();
-                 
                 }}
               />
             </div>
@@ -97,13 +97,17 @@ const Nav = () => {
                 // checked={isDarkMode}
                 onClick={() => {
                   applyDarkMode();
-
-                 
                 }}
               />
             </div>
           )}
         </div>
+        {user &&
+          <div className="w-32 h-32 bg-gradient-to-r from-gray-700 via-gray-900 to-black rounded-full">
+            {user.fname}
+          </div>
+        }
+
       </nav>
       {/* mobile responsive */}
 
@@ -115,7 +119,7 @@ const Nav = () => {
               <Link href="/">Home</Link>
             </li>
             <HoverableDropdown className="navlist list" />
-            <li className="navlist list">Contact</li>
+            <li className="navlist list"></li>
           </ul>
         </>
       )}

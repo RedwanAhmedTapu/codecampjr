@@ -38,6 +38,7 @@ const Home = () => {
       description: "Why Choose CodeCamp Junior?",
     },
   ];
+  
 
   return (
     <>
