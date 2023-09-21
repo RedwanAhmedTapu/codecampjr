@@ -115,9 +115,8 @@ const Signup = () => {
       );
 
       const data = await res.json();
-      console.log(data);
 
-      if (data.message === "Email verified successfully") {
+      if (data.message === "Email verified successfully" || data.message==="Invalid verification code") {
         router.push(`/select-level?userEmail=${userEmail}`);
       } else {
         router.push("/signup");
