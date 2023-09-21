@@ -6,8 +6,10 @@ import { useState, useEffect } from "react";
 import { ImSpinner9 } from "react-icons/im";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";
-
 import HoverableDropdown from "./HoverableDropdown";
+import { useRouter } from "next/navigation";
+
+
 const Nav = () => {
   const [user, setuser] = useState({});
   const [providers, setProviders] = useState(null);
@@ -15,6 +17,7 @@ const Nav = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   const isLoggedIn = true;
+  const router=useRouter();
 console.log(user.fname)
   useEffect(() => {
     const storedTheme = localStorage.getItem("theme");
@@ -104,8 +107,11 @@ console.log(user.fname)
           )}
         </div>
         {user &&
-          <div className="w-20 h-20 bg-gradient-to-r from-gray-700 via-gray-900 to-black rounded-full text-white flex_center">
-            {user.fname}
+          <div className="w-16 h-16 bg-gradient-to-r from-gray-700 via-gray-900 to-black rounded-full text-white flex_center" onClick={()=>{
+            router.push(`/adminDashboard?userEmail=${user.email}`);
+
+          }}>
+           profile
           </div>
         }
 
