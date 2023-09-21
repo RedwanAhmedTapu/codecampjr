@@ -52,6 +52,7 @@ const Login = () => {
 
                 const { email, fname, isLoggedin, isVerified, lname } =
                   res.data.user;
+                  console.log({ email, fname, isLoggedin, isVerified, lname })
                 localStorage.setItem("loggedUser", JSON.stringify({ email, fname, isLoggedin, isVerified, lname }));
 
                 if (email === "admin@gmail.com") {
