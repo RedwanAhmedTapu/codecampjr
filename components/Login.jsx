@@ -15,9 +15,9 @@ const Login = () => {
     email: "",
     password: "",
   });
-  const [loggedUser, setLoggeduser] = useState({
   
-  });
+
+  console.log(loggedUser);
 
   const router = useRouter();
   const handleChange = (e) => {
@@ -52,8 +52,7 @@ const Login = () => {
 
                 const { email, fname, isLoggedin, isVerified, lname } =
                   res.data.user;
-                setLoggeduser({ email, fname, isLoggedin, isVerified, lname });
-                localStorage.setItem("loggedUser", JSON.stringify(loggedUser));
+                localStorage.setItem("loggedUser", JSON.stringify({ email, fname, isLoggedin, isVerified, lname }));
 
                 if (email === "admin@gmail.com") {
                   router.push("/adminDashboard");
