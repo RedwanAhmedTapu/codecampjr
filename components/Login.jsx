@@ -53,9 +53,12 @@ const Login = () => {
                   "Authorization"
                 ] = ` ${res.data.token}`;
                 // setToken(true);
-            
-                const {email,fname,isLoggedin,isVerified,lname}=res.data.user;
-                setLoggeduser({email,fname,isLoggedin,isVerified,lname});
+
+                const { email, fname, isLoggedin, isVerified, lname } =
+                  res.data.user;
+                setLoggeduser({ email, fname, isLoggedin, isVerified, lname });
+                localStorage.setItem("loggedUser", loggedUser);
+
                 if (email === "admin@gmail.com") {
                   router.push("/adminDashboard");
                 } else {
@@ -146,8 +149,6 @@ const Login = () => {
       console.error("Error during user registration:", error);
     }
   };
-
-  localStorage.setItem("loggedUser",loggedUser);
 
   return (
     <div className="flex_center bg-slate-800 dark:bg-black h-screen">
