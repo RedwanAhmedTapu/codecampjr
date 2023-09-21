@@ -104,7 +104,7 @@ console.log(user.fname)
           )}
         </div>
         {user &&
-          <div className="w-32 h-32 bg-gradient-to-r from-gray-700 via-gray-900 to-black rounded-full text-white">
+          <div className="w-20 h-20 bg-gradient-to-r from-gray-700 via-gray-900 to-black rounded-full text-white flex_center">
             {user.fname}
           </div>
         }
