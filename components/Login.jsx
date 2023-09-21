@@ -16,11 +16,7 @@ const Login = () => {
     password: "",
   });
   const [loggedUser, setLoggeduser] = useState({
-    email: "",
-    fname: "",
-    isLoggedin: "",
-    isVerified: "",
-    lname: "",
+  
   });
 
   const router = useRouter();
