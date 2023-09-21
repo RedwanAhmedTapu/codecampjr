@@ -22,7 +22,7 @@ const Nav = () => {
       applyDarkMode();
     }
     if (typeof localStorage !== 'undefined') {
-      setuser(JSON.parse(localStorage.getItem("loggedUser")));
+      setuser(localStorage.getItem("loggedUser"));
       }
   }, []);
 
@@ -104,7 +104,7 @@ const Nav = () => {
           )}
         </div>
         {user &&
-          <div className="w-32 h-32 bg-gradient-to-r from-gray-700 via-gray-900 to-black rounded-full">
+          <div className="w-32 h-32 bg-gradient-to-r from-gray-700 via-gray-900 to-black rounded-full text-white">
             {user.fname}
           </div>
         }
