@@ -147,7 +147,7 @@ const Login = () => {
     }
   };
 
-  loggedUser && localStorage.setItem("loggedUser",loggedUser);
+  localStorage.setItem("loggedUser",loggedUser);
 
   return (
     <div className="flex_center bg-slate-800 dark:bg-black h-screen">
