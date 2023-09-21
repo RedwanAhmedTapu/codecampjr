@@ -15,7 +15,7 @@ const Nav = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   const isLoggedIn = true;
-console.log(user)
+console.log(user.fname)
   useEffect(() => {
     const storedTheme = localStorage.getItem("theme");
     if (storedTheme === "dark") {
