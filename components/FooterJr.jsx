@@ -1,11 +1,17 @@
 "use client";
 
+import { useState } from "react";
 import { ImSpinner9 } from "react-icons/im";
 import { CiFacebook, CiLinkedin } from "react-icons/ci";
 import { AiOutlineInstagram, AiFillTwitterCircle } from "react-icons/ai";
+import { FcSimCardChip } from "react-icons/fc";
+import Payment from "./Payment";
 import Link from "next/link";
 
 const FooterJr = () => {
+  const [payment, setPayment] = useState(false);
+  console.log(payment)
+
   return (
     <>
       <div className="containerFooter ">
@@ -162,6 +168,42 @@ const FooterJr = () => {
           </Link>
         </div>
       </div>
+      <Payment setPayment={setPayment} />
+      {payment && (
+        <div className="relative  w-full h-full flex_center">
+          <div className="bg-gradient-to-br from-black via-gray-800 to-gray-900 rounded-md p-8 max-[470px]:w[15rem] max-[600px]:w[20rem]  w-[30rem] h-[20rem] shadow-md flex flex-col justify-between text-white  mt-20">
+            <div className="flex justify-between">
+              <div className="w-24 h-20  rounded-md">
+                <FcSimCardChip className="w-full h-full" />
+              </div>
+              <div className="max-[500px]:text-xl text-3xl text-white font-sans">
+                course Fee:5000/-
+              </div>
+            </div>
+            <div className="max-[500px]:text-sm text-lg font-semibold mt-4 uppercase">
+              
+            </div>
+            <div className="max-[500px]:text-sm text-lg mt-4 text font-sans">
+              1234 5678 9012 3456
+            </div>
+            <div className="flex justify-between">
+              <div className="max-[500px]:text-sm text-base mt-4 font-sans">
+                {new Date("2023-09-02T15:30:00Z").toLocaleString()}
+              </div>
+              <button className="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-lg max-[500px]:text-sm" onClick={async()=>{
+                 const res = await axios
+                 .post(`https://codecampjrbackend.onrender.com/active-user/order/${email}`)
+                 .then((res) => {
+                   console.log(res.data.url);
+                   router.push(`${res.data.url}`)
+                 });
+              }}>
+                Pay Now
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 };

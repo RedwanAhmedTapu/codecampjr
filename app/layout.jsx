@@ -2,6 +2,7 @@
 
 import "@styles/globals.css";
 import Nav from "@components/Nav";
+import FooterJr from "@components/FooterJr";
 // import Script from "next/script";
 // import Head from "next/head";
 // import Provider from "@components/Provider";
@@ -21,6 +22,8 @@ const Rootlayout = ({ children }) => {
        
 
         <main className="app">{children}</main>
+
+        <FooterJr/>
         
       </body>
     </html>

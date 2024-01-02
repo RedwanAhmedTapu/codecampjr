@@ -101,7 +101,7 @@ const Home = () => {
         <BlinkingCard />
         <ActiveStudent />
         <ProPracticeCard />
-        <FooterJr />
+        {/* <FooterJr /> */}
         {/* <CoursesSchedule/> */}
         {/* <Svg/> */}
       </section>
