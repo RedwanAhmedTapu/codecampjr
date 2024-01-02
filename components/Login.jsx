@@ -74,7 +74,6 @@ const Login = () => {
           })
           .catch((error) => {
             if (error.response) {
-              // The server responded with a status code outside of the 2xx range
               console.error(
                 "Server responded with an error:",
                 error.response.status,
