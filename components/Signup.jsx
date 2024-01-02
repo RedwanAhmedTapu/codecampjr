@@ -153,11 +153,10 @@ const Signup = () => {
 
   return (
     <>
-      {/* <div
-        className={`flex_center bg-slate-800 dark:bg-black   ${
-          isOtp ? "blur" : null
-        }`}
-      > */}
+      <div
+        className={`flex_center bg-slate-800 dark:bg-black   
+        `}
+      >
         <div className=" w-[50rem] flex flex-col self-center  h-full max-[560px]:p-6 min-[849px]:p-10 p-20 bg-slate-800 dark:bg-[#030303] blur-1  rounded-lg shadow-md gap-y-6 relative  top-10">
           <div className="flex flex-col gap-y-4">
             <h1 className="text-xl flex justify-start items-center gap-x-2 text-white font-bold">
@@ -285,7 +284,7 @@ const Signup = () => {
             Sign up
           </div>
         </div>
-      {/* </div> */}
+      </div>
       {/* {isOtp && (
         <div className="w-full h-full flex_center mt-20">
           <div className=" bg-slate-900 rounded-lg">
