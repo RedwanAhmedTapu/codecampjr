@@ -53,7 +53,7 @@ const Signup = () => {
             return res.json();
           })
           .then((data) => {
-            if (data.message === "successfully studentInfo saved") {
+            if (data.message === "user registered successfully") {
               router.push("/login");
             } else {
               alert(data.message);
@@ -142,8 +142,9 @@ const Signup = () => {
 
       const data = await res.json();
       // console.log(data);
-      if (data) {
-        console.log(data)
+      if ((data.message==="User already exists")||(data.message==="user registered successfully")) {
+         router.push(`/user-dashboard?userEmail=${email}`);
+       
         // await handleVerificationAuth(data.message, userData.email);
       }
     } catch (error) {
