@@ -65,7 +65,8 @@ const Login = () => {
                   router.push("/adminDashboard");
                 } else {
                   let userEmail;
-                  router.push(`/user-dashboard=${email}`);
+                  router.push(`/user-dashboard?userEmail=${email}`);
+
                 }
               } else {
                 delete axios.defaults.headers.common["Authorization"];
