@@ -12,13 +12,13 @@ import { Center } from "@react-three/drei";
 const Signup = () => {
   const [user, setUser] = useState({
     fname: "",
-    fname: "",
+    lname: "",
     email: "",
     password: "",
   });
   const router = useRouter();
-  const [code, setCode] = useState("");
-  const [isOtp, setIsOtp] = useState(false);
+  // const [code, setCode] = useState("");
+  // const [isOtp, setIsOtp] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -54,7 +54,7 @@ const Signup = () => {
           })
           .then((data) => {
             if (data.message === "successfully studentInfo saved") {
-              setIsOtp(true);
+              router.push("/login");
             } else {
               alert(data.message);
             }
@@ -64,67 +64,66 @@ const Signup = () => {
       console.log("error");
     }
   };
-  console.log(user);
 
-  const handleInputChange = (e) => {
-    const value = e.target.value;
-    // const numericValue = value.replace(/\D/g, '');
-    setCode(value.trim());
-  };
+  // const handleInputChange = (e) => {
+  //   const value = e.target.value;
+  //   // const numericValue = value.replace(/\D/g, '');
+  //   setCode(value.trim());
+  // };
 
-  const handleSendOtp = async () => {
-    const { fname, lname, email, password } = user;
+  // const handleSendOtp = async () => {
+  //   const { fname, lname, email, password } = user;
 
-    const res = await fetch(
-      "https://codecampjrbackend.onrender.com/verify-email",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, code }),
-      }
-    )
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        console.log(data);
-        if (data.message === "Email verified successfully") {
-          router.push("/login");
-        } else {
-          alert(data.message);
-          router.push("/signup");
-        }
-      });
-  };
+  //   const res = await fetch(
+  //     "https://codecampjrbackend.onrender.com/verify-email",
+  //     {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify({ email, code }),
+  //     }
+  //   )
+  //     .then((res) => {
+  //       return res.json();
+  //     })
+  //     .then((data) => {
+  //       console.log(data);
+  //       if (data.message === "Email verified successfully") {
+  //         router.push("/login");
+  //       } else {
+  //         alert(data.message);
+  //         router.push("/signup");
+  //       }
+  //     });
+  // };
 
-  const handleVerificationAuth = async (otpData, userEmail) => {
-    const { email } = user;
-    console.log("codecamp", `${userEmail + otpData}`);
-    try {
-      const res = await fetch(
-        "https://codecampjrbackend.onrender.com/auth/googleAuth-verfication",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ userEmail, otpData }),
-        }
-      );
+  // const handleVerificationAuth = async (otpData, userEmail) => {
+  //   const { email } = user;
+  //   console.log("codecamp", `${userEmail + otpData}`);
+  //   try {
+  //     const res = await fetch(
+  //       "https://codecampjrbackend.onrender.com/auth/googleAuth-verfication",
+  //       {
+  //         method: "POST",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //         body: JSON.stringify({ userEmail, otpData }),
+  //       }
+  //     );
 
-      const data = await res.json();
+  //     const data = await res.json();
 
-      if (data.message === "Email verified successfully" || data.message==="Invalid verification code") {
-        router.push(`/select-level?userEmail=${userEmail}`);
-      } else {
-        router.push("/signup");
-      }
-    } catch (error) {
-      console.error("Error during email verification:", error);
-    }
-  };
+  //     if (data.message === "Email verified successfully" || data.message==="Invalid verification code") {
+  //       router.push(`/select-level?userEmail=${userEmail}`);
+  //     } else {
+  //       router.push("/signup");
+  //     }
+  //   } catch (error) {
+  //     console.error("Error during email verification:", error);
+  //   }
+  // };
 
   const handleAuthuser = async (userData) => {
     const { fname, lname, email } = user;
@@ -142,9 +141,10 @@ const Signup = () => {
       );
 
       const data = await res.json();
-      console.log(data);
+      // console.log(data);
       if (data) {
-        await handleVerificationAuth(data.message, userData.email);
+        console.log(data)
+        // await handleVerificationAuth(data.message, userData.email);
       }
     } catch (error) {
       console.error("Error during user registration:", error);
@@ -153,11 +153,11 @@ const Signup = () => {
 
   return (
     <>
-      <div
+      {/* <div
         className={`flex_center bg-slate-800 dark:bg-black   ${
           isOtp ? "blur" : null
         }`}
-      >
+      > */}
         <div className=" w-[50rem] flex flex-col self-center  h-full max-[560px]:p-6 min-[849px]:p-10 p-20 bg-slate-800 dark:bg-[#030303] blur-1  rounded-lg shadow-md gap-y-6 relative  top-10">
           <div className="flex flex-col gap-y-4">
             <h1 className="text-xl flex justify-start items-center gap-x-2 text-white font-bold">
@@ -285,8 +285,8 @@ const Signup = () => {
             Sign up
           </div>
         </div>
-      </div>
-      {isOtp && (
+      {/* </div> */}
+      {/* {isOtp && (
         <div className="w-full h-full flex_center mt-20">
           <div className=" bg-slate-900 rounded-lg">
             <div className="max-w-md mx-auto p-4  rounded-lg shadow-md">
@@ -311,7 +311,7 @@ const Signup = () => {
             </div>
           </div>
         </div>
-      )}
+      )} */}
     </>
   );
 };

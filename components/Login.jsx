@@ -97,35 +97,35 @@ const Login = () => {
     }
   };
   // for google signin
-  const handleVerificationAuth = async (otpData, userEmail) => {
-    const { email } = user;
-    console.log("codecamp", `${userEmail + otpData}`);
-    try {
-      const res = await fetch(
-        "https://codecampjrbackend.onrender.com/auth/googleAuth-verfication",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ userEmail, otpData }),
-        }
-      );
+  // const handleVerificationAuth = async (otpData, userEmail) => {
+  //   const { email } = user;
+  //   console.log("codecamp", `${userEmail + otpData}`);
+  //   try {
+  //     const res = await fetch(
+  //       "https://codecampjrbackend.onrender.com/auth/googleAuth-verfication",
+  //       {
+  //         method: "POST",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //         body: JSON.stringify({ userEmail, otpData }),
+  //       }
+  //     );
 
-      const data = await res.json();
-      console.log(data);
+  //     const data = await res.json();
+  //     console.log(data);
 
-      if (data.message === "Email verified successfully") {
-        router.push(`/select-level?userEmail=${userEmail}`);
-      } else if (data.message === "Invalid verification code") {
-        router.push(`/select-level?userEmail=${userEmail}`);
-      } else {
-        router.push("/login");
-      }
-    } catch (error) {
-      console.error("Error during email verification:", error);
-    }
-  };
+  //     if (data.message === "Email verified successfully") {
+  //       router.push(`/select-level?userEmail=${userEmail}`);
+  //     } else if (data.message === "Invalid verification code") {
+  //       router.push(`/select-level?userEmail=${userEmail}`);
+  //     } else {
+  //       router.push("/login");
+  //     }
+  //   } catch (error) {
+  //     console.error("Error during email verification:", error);
+  //   }
+  // };
 
   const handleAuthuser = async (userData) => {
     const { fname, lname, email } = user;
@@ -143,10 +143,10 @@ const Login = () => {
       );
 
       const data = await res.json();
-      console.log(data);
-      if (data) {
-        await handleVerificationAuth(data.message, userData.email);
-      }
+      // console.log(data);
+      // if (data) {
+      //   await handleVerificationAuth(data.message, userData.email);
+      // }
     } catch (error) {
       console.error("Error during user registration:", error);
     }
