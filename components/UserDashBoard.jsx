@@ -122,7 +122,7 @@ const UserDashBoard = () => {
             </div>
             <div className="flex_center max-[740px]:flex-col max-[1029px]:gap-y-4 gap-x-2 ">
               <div className="powerDiv_light dark:powerOuterDiv powerdiv1 border-2  flex_center text-slate-900 dark:text-white text-2xl font-bold uppercase">
-                {userData.level}
+                {/* {userData.level} */}
               </div>
               <div className="powerDiv_light dark:powerOuterDiv powerdiv1 border-2 w-full flex_center gap-y-12 flex-col">
                 <p className="text-slate-900 dark:text-white text-center text-2xl font-bold">
@@ -130,10 +130,10 @@ const UserDashBoard = () => {
                 </p>
                 <div className="flex_center flex-col space-y-2 uppercase">
                   <p className="text-slate-900 dark:text-white text-center text-xl uppercase">
-                    {userData.schedule.days[0]}
+                    {/* {userData.schedule.days[0]} */}
                   </p>
                   <p className="text-slate-900 dark:text-white text-center text-xl uppercase">
-                    {userData.schedule.days[1]}
+                    {/* {userData.schedule.days[1]} */}
                   </p>
                 </div>
               </div>
@@ -142,7 +142,7 @@ const UserDashBoard = () => {
                   Time
                 </p>
                 <p className="text-white text-center text-xl uppercase">
-                  {userData.schedule.time}
+                  {/* {userData.schedule.time} */}
                 </p>
               </div>
             </div>

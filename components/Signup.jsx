@@ -172,8 +172,10 @@ const Signup = () => {
               </p>
             </h1>
           </div>
+          <form>
           <div className="flex justify-between w-full gap-x-4">
             <div className="flex flex-col gap-y-1 w-[50%]">
+              
               <label className="text-white">First Name</label>
               <input
                 type="text"
@@ -223,7 +225,9 @@ const Signup = () => {
                 onChange={handleChange}
               />
             </div>
+            
           </div>
+          </form>
           <div className="flex_center gap-2">
             <div className="w-2/3 bg-slate-300 h-[0.25px]"></div>
             <p className="text-white text-2xl font-semibold">or</p>

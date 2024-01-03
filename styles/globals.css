@@ -118,7 +118,7 @@
     @apply max-[500px]:w-[19rem] max-[500px]:h-[18rem] w-[25rem] h-[22rem] bg-[#fcfafa] dark:inner_div_light dark:opacity-90  relative shadow-lg rounded-lg transition-all duration-300 ease-in max-[500px]:hover:h-[23rem] hover:h-[24rem];
   }
   .inner_image {
-    @apply max-[500px]:w-[19rem] max-[500px]:h-[16rem] w-[25rem] h-[20rem] absolute -top-4 -left-4 max-[500px]:hover:w-[17rem] hover:w-[23rem] hover:top-2 hover:left-4 transition-all duration-300 ease-in shadow-lg rounded-lg;
+    @apply max-[500px]:w-[19rem] max-[500px]:h-[16rem] w-[25rem] h-[20rem] absolute -top-4 -left-4 max-[500px]:hover:w-[17rem] hover:w-[23rem] hover:top-2 hover:left-4 transition-all duration-300 ease-in shadow-lg rounded-lg object-cover;
   }
   .inner_text {
     @apply text-[1.5rem]  align-text-bottom text-slate-800  dark:bg-gradient-to-br dark:from-slate-400 dark:to-slate-50 dark:bg-clip-text dark:text-transparent   font-semibold absolute bottom-3 left-4;
