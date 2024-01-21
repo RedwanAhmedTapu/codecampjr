@@ -271,7 +271,7 @@ const TrialClassForm = () => {
           Register For Trial Class
         </div>
       </div>
-      {isOpen && (
+      { (
         <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center">
           <div className="bg-white p-8 rounded shadow-md max-w-md">
             <div className="flex justify-end">
@@ -281,7 +281,7 @@ const TrialClassForm = () => {
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6"
+                  className="h-6 w-6 relative -top-2 -right-2"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -296,8 +296,9 @@ const TrialClassForm = () => {
               </button>
             </div>
             <p className="text-center text-lg font-semibold">{resData}</p>
+            <div className="w-full h-16 flex_center items-end">
             <button
-              className="w-24 h-16 bg-blue-500 hover:bg-blue-400 shadow-xl rounded-md flex_center text-white font-extralight "
+              className="w-16 h-8 bg-blue-500 hover:bg-blue-400 shadow-xl rounded-md flex_center text-white font-extralight "
               onClick={() => {
                 router.push("/");
                 setIsOpen(false);
@@ -305,6 +306,7 @@ const TrialClassForm = () => {
             >
               Ok
             </button>
+            </div>
           </div>
         </div>
       )}
