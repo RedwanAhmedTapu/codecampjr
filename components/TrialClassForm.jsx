@@ -91,7 +91,7 @@ const TrialClassForm = () => {
     <>
       <div
         className={`flex flex-col w-full  h-full  mt-16 gap-y-8 ${
-          loader ? "blur" : ""
+          resData ? "" : "blur"
         }`}
       >
         <h1 className="text-slate-900 font-bold dark:head_text max-[400px]:text-2xl dark:max-[400px]:text-2xl text-4xl dark:text-4xl self-center">
