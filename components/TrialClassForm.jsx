@@ -147,7 +147,8 @@ const TrialClassForm = () => {
                 name="parentName"
                 id="parentName"
                 onChange={handleChange}
-                className="w-full mt-2 p-2 border rounded-md dark:bg-slate-900"
+                className="w-full mt-2 p-2 border text-black dark:text-white   rounded-md dark:bg-slate-900"
+
                 value={user.parentName}
               />
             </div>
@@ -164,7 +165,8 @@ const TrialClassForm = () => {
                 name="phone"
                 id="phone"
                 onChange={handleChange}
-                className="w-full mt-2 p-2 border rounded-md dark:bg-slate-900"
+                className="w-full mt-2 p-2 border text-black dark:text-white   rounded-md dark:bg-slate-900"
+
                 value={user.phone}
               />
             </div>
@@ -182,7 +184,8 @@ const TrialClassForm = () => {
                 name="learnerEmail"
                 id="learnerEmail"
                 onChange={handleChange}
-                className="w-full mt-2 p-2 border rounded-md dark:bg-slate-900"
+                className="w-full mt-2 p-2 border text-black dark:text-white   rounded-md dark:bg-slate-900"
+
                 value={user.learnerEmail}
               />
             </div>
@@ -200,7 +203,8 @@ const TrialClassForm = () => {
                 name="profession"
                 id="profession"
                 onChange={handleChange}
-                className="w-full mt-2 p-2 border rounded-md dark:bg-slate-900"
+                className="w-full mt-2 p-2 border text-black dark:text-white   rounded-md dark:bg-slate-900"
+
                 value={user.profession}
               />
             </div>
@@ -224,14 +228,15 @@ const TrialClassForm = () => {
                 name="learnerName"
                 id="learnerName"
                 onChange={handleChange}
-                className="w-full mt-2 p-2 border rounded-md dark:bg-slate-900"
+                className="w-full mt-2 p-2 border text-black dark:text-white   rounded-md dark:bg-slate-900"
+
                 value={user.learnerName}
               />
             </div>
             <div className="flex flex-col w-[33.33%] max-[560px]:w-[90%] h-16 gap-y-2">
               <label
                 for="age"
-                className="text-xl text-slate-900 dark:text-white"
+                className="text-xl text-slate-900 placeholder-slate-950 dark:text-white"
               >
                 age:
               </label>
@@ -241,7 +246,7 @@ const TrialClassForm = () => {
                 name="age"
                 id="age"
                 onChange={handleChange}
-                className="w-full mt-2 p-2 border rounded-md dark:bg-slate-900"
+                className="w-full mt-2 p-2 border text-black dark:text-white   rounded-md dark:bg-slate-900"
                 value={user.age}
               />
             </div>
@@ -258,7 +263,8 @@ const TrialClassForm = () => {
                 name="school"
                 id="school"
                 onChange={handleChange}
-                className="w-full mt-2 p-2 border rounded-md dark:bg-slate-900"
+                className="w-full mt-2 p-2 border text-black dark:text-white   rounded-md dark:bg-slate-900"
+
                 value={user.school}
               />
             </div>
@@ -271,7 +277,7 @@ const TrialClassForm = () => {
           Register For Trial Class
         </div>
       </div>
-      { (
+      {isOpen && (
         <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center">
           <div className="bg-white p-8 rounded shadow-md max-w-md">
             <div className="flex justify-end">
