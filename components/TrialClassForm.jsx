@@ -56,7 +56,9 @@ const TrialClassForm = () => {
         profession.trim() === "" ||
         phone.trim() === ""
       ) {
+
         alert("please the all the data");
+        setLoader(false);
       } else {
         const res = await axios
           .post(
