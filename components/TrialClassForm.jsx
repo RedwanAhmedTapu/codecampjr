@@ -36,7 +36,6 @@ const TrialClassForm = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
     const {
       learnerName,
       age,
@@ -275,7 +274,7 @@ const TrialClassForm = () => {
           className=" register_btn self-center flex_center rounded-sm dark:text-white dark:bg-slate-950 text-xl border-2 mb-2 shadow-lg "
           onClick={() => {
             handleSubmit();
-          
+            setLoader(true);
           }}
         >
           Register For Trial Class
