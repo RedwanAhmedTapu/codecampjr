@@ -36,6 +36,7 @@
     "react-dom": "^18.2.0",
     "react-globe.gl": "^2.24.3",
     "react-icons": "^4.10.1",
+    "react-loader-spinner": "^6.1.6",
     "react-scroll": "^1.8.9",
     "react-three-fiber": "^6.0.13",
     "react-timer-hook": "^3.0.7",

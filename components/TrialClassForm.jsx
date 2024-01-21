@@ -2,6 +2,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { Blocks } from "react-loader-spinner";
 
 const TrialClassForm = () => {
   const [user, setUser] = useState({
@@ -15,6 +16,7 @@ const TrialClassForm = () => {
     // country: "",
   });
   const [isOpen, setIsOpen] = useState(false);
+  const [loader, setLoader] = useState(false);
   const [resData, setResData] = useState("");
 
   const router = useRouter();
@@ -66,6 +68,7 @@ const TrialClassForm = () => {
             setResData(res.data.message);
             if (res) {
               setIsOpen(true);
+              setLoader(false);
             }
           });
       }
@@ -92,7 +95,11 @@ const TrialClassForm = () => {
   ];
   return (
     <>
-      <div className="flex flex-col w-full  h-full  mt-16 gap-y-8">
+      <div
+        className={`flex flex-col w-full  h-full  mt-16 gap-y-8 ${
+          loader ? "blur" : ""
+        }`}
+      >
         <h1 className="text-slate-900 font-bold dark:head_text max-[400px]:text-2xl dark:max-[400px]:text-2xl text-4xl dark:text-4xl self-center">
           Trial Class Registration
         </h1>
@@ -148,7 +155,6 @@ const TrialClassForm = () => {
                 id="parentName"
                 onChange={handleChange}
                 className="w-full mt-2 p-2 border text-black dark:text-white   rounded-md dark:bg-slate-900"
-
                 value={user.parentName}
               />
             </div>
@@ -166,7 +172,6 @@ const TrialClassForm = () => {
                 id="phone"
                 onChange={handleChange}
                 className="w-full mt-2 p-2 border text-black dark:text-white   rounded-md dark:bg-slate-900"
-
                 value={user.phone}
               />
             </div>
@@ -185,7 +190,6 @@ const TrialClassForm = () => {
                 id="learnerEmail"
                 onChange={handleChange}
                 className="w-full mt-2 p-2 border text-black dark:text-white   rounded-md dark:bg-slate-900"
-
                 value={user.learnerEmail}
               />
             </div>
@@ -204,7 +208,6 @@ const TrialClassForm = () => {
                 id="profession"
                 onChange={handleChange}
                 className="w-full mt-2 p-2 border text-black dark:text-white   rounded-md dark:bg-slate-900"
-
                 value={user.profession}
               />
             </div>
@@ -229,7 +232,6 @@ const TrialClassForm = () => {
                 id="learnerName"
                 onChange={handleChange}
                 className="w-full mt-2 p-2 border text-black dark:text-white   rounded-md dark:bg-slate-900"
-
                 value={user.learnerName}
               />
             </div>
@@ -264,7 +266,6 @@ const TrialClassForm = () => {
                 id="school"
                 onChange={handleChange}
                 className="w-full mt-2 p-2 border text-black dark:text-white   rounded-md dark:bg-slate-900"
-
                 value={user.school}
               />
             </div>
@@ -272,7 +273,10 @@ const TrialClassForm = () => {
         </div>
         <div
           className=" register_btn self-center flex_center rounded-sm dark:text-white dark:bg-slate-950 text-xl border-2 mb-2 shadow-lg "
-          onClick={handleSubmit}
+          onClick={() => {
+            handleSubmit();
+            setLoader(true);
+          }}
         >
           Register For Trial Class
         </div>
@@ -303,17 +307,31 @@ const TrialClassForm = () => {
             </div>
             <p className="text-center text-lg font-semibold">{resData}</p>
             <div className="w-full h-16 flex_center items-end">
-            <button
-              className="w-16 h-8 bg-blue-500 hover:bg-blue-400 shadow-xl rounded-md flex_center text-white font-extralight "
-              onClick={() => {
-                router.push("/");
-                setIsOpen(false);
-              }}
-            >
-              Ok
-            </button>
+              <button
+                className="w-16 h-8 bg-blue-500 hover:bg-blue-400 shadow-xl rounded-md flex_center text-white font-extralight "
+                onClick={() => {
+                  router.push("/");
+                  setIsOpen(false);
+                }}
+              >
+                Ok
+              </button>
             </div>
           </div>
+        </div>
+      )}
+
+      {loader && (
+        <div className="absolute w-full top-0  h-screen flex_center ">
+          <Blocks
+            height="80"
+            width="80"
+            color="#4fa94d"
+            ariaLabel="blocks-loading"
+            wrapperStyle={{}}
+            wrapperClass="blocks-wrapper"
+            visible={true}
+          />
         </div>
       )}
     </>
