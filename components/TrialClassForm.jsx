@@ -15,8 +15,6 @@ const TrialClassForm = () => {
     profession: "",
     // country: "",
   });
-  const [isOpen, setIsOpen] = useState(false);
-  const [loader, setLoader] = useState(false);
   const [resData, setResData] = useState("");
 
   const router = useRouter();
@@ -56,9 +54,7 @@ const TrialClassForm = () => {
         profession.trim() === "" ||
         phone.trim() === ""
       ) {
-
-        alert("please the all the data");
-        setLoader(false);
+        alert("please fill all the data");
       } else {
         const res = await axios
           .post(
@@ -67,10 +63,7 @@ const TrialClassForm = () => {
           )
           .then((res) => {
             setResData(res.data.message);
-            if (res) {
-              setIsOpen(true);
-              setLoader(false);
-            }
+            
           });
       }
     } catch {
@@ -276,13 +269,12 @@ const TrialClassForm = () => {
           className=" register_btn self-center flex_center rounded-sm dark:text-white dark:bg-slate-950 text-xl border-2 mb-2 shadow-lg "
           onClick={() => {
             handleSubmit();
-            setLoader(true);
           }}
         >
           Register For Trial Class
         </div>
       </div>
-      {isOpen && (
+      {resData ? (
         <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center">
           <div className="bg-white p-8 rounded shadow-md max-w-md">
             <div className="flex justify-end">
@@ -320,9 +312,7 @@ const TrialClassForm = () => {
             </div>
           </div>
         </div>
-      )}
-
-      {loader && (
+      ) : (
         <div className="absolute w-full top-0  h-screen flex_center ">
           <Blocks
             height="80"
