@@ -13,8 +13,10 @@ import { useRouter } from "next/navigation";
 const Nav = () => {
   const [user, setuser] = useState({});
   const [providers, setProviders] = useState(null);
-  const [toggle, setToggle] = useState(true);
+  const [toggle, setToggle] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
+  
+  console.log(toggle)
 
   const isLoggedIn = true;
   const router=useRouter();
@@ -60,30 +62,7 @@ const Nav = () => {
             CodecampJr.
           </p>
         </Link>
-        <div
-          className="relative -top-10 -right-0  text-white  w-4 h-full  min-[900px]:hidden"
-          onClick={() => {
-            setToggle(!toggle);
-          }}
-        >
-          <Menubar className="bg-slate-950" />
-        </div>
-
-        <ul className="w-[30rem] h-2 max-[900px]:hidden flex justify-evenly items-center max-[900px]:hidden ">
-          <li className="navlist list">
-            <Link
-              href="/"
-              className="flex justify-center items-center gap-2 text-slate-800  dark:text-white"
-            >
-              Home
-            </Link>
-          </li>
-          <HoverableDropdown className="z-10 h-76" />
-
-       
-        </ul>
-
-        <div className="w-8 h-8 rounded-lg max-[900px]:hidden  relative -right-10">
+        <div className="w-8 h-8 rounded-lg min-[900px]:hidden   relative -right-10">
           {isDarkMode ? (
             <div className="w-8 h-8 text-white flex_center gap-x-1">
               <LightModeIcon
@@ -105,6 +84,49 @@ const Nav = () => {
             </div>
           )}
         </div>
+        <div
+          className="relative -top-10 -right-0  text-white  w-4 h-full  min-[900px]:hidden"
+        
+        >
+          <Menubar className="bg-slate-950" setToggle={setToggle} />
+        </div>
+
+        <ul className="w-[30rem] h-2 max-[900px]:hidden flex justify-evenly items-center max-[900px]:hidden ">
+          <li className="navlist list">
+            <Link
+              href="/"
+              className="flex justify-center items-center gap-2 text-slate-800  dark:text-white"
+            >
+              Home
+            </Link>
+          </li>
+          <HoverableDropdown className="z-10 h-76" />
+
+       
+        </ul>
+        <div className="w-8 h-8 rounded-lg max-[901px]:hidden   relative -right-10">
+          {isDarkMode ? (
+            <div className="w-8 h-8 text-white flex_center gap-x-1">
+              <LightModeIcon
+                className="w-8 h-8 text-slate-800  dark:text-white"
+                onClick={() => {
+                  applyLightMode();
+                }}
+              />
+            </div>
+          ) : (
+            <div className="w-8 h-8 text-white flex_center gap-x-1">
+              <DarkModeIcon
+                className="w-8 h-8 text-slate-800  dark:text-white"
+                // checked={isDarkMode}
+                onClick={() => {
+                  applyDarkMode();
+                }}
+              />
+            </div>
+          )}
+        </div>
+      
         {user &&
           <div className="max-[500px]:w-10 max-[500px]:h-10 w-16 h-16 max-[900px]:hidden bg-gradient-to-r from-gray-700 via-gray-900 to-black rounded-full text-white flex_center" onClick={()=>{
             router.push(`/user-dashboard?userEmail=${user.email}`);

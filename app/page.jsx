@@ -1,5 +1,6 @@
 // import Feed from "@components/Feed";
 "use client";
+import { useRef } from "react";
 import Image from "next/image";
 // import Script from 'next/script';
 import CardPrompt from "@components/CardPrompt";
@@ -26,6 +27,7 @@ import { HiOutlineRocketLaunch } from "react-icons/hi2";
 import CodeDivDesignforHomePage from "@components/CodeDivDesignforHomePage";
 import FingerprintLogin from "@components/FingerprintLogin";
 
+
 const Home = () => {
   const data = [
     {
@@ -38,6 +40,8 @@ const Home = () => {
       description: "Why Choose CodeCamp Junior?",
     },
   ];
+
+
   
 
   return (

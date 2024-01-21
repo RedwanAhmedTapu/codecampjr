@@ -9,12 +9,32 @@ const ActiveStudent = () => {
     "https://img.freepik.com/free-photo/smiling-young-man-with-crossed-arms-outdoors_1140-255.jpg?w=740&t=st=1694862564~exp=1694863164~hmac=7f483e3244e17682c7722488aa4f7042bd42af4ec61e639f073adff98736a3d1",
     "https://img.freepik.com/premium-photo/child-boy-teenager-with-glasses-gray-background_656932-680.jpg",
     "https://img.freepik.com/free-photo/portrait-young-candid-man-student-boy-with-clean-face-relaxed-facial-expression-casual-smile-checked-shirt-t-shirt-summer-outfit-look-white-background_176420-45901.jpg?w=996&t=st=1694862627~exp=1694863227~hmac=62f82cf86671f02c40381a2494a3aab5fd23390309f5d3b1afd680d97fd1f2c2",
-    "https://img.freepik.com/free-photo/handsome-young-guy-with-glasses-posing_176420-30004.jpg?w=996&t=st=1694863087~exp=1694863687~hmac=80e16f657402a7f6e8376339d18b24ef6696a1729dbf54d1c5680793d670de50"
+    "https://img.freepik.com/free-photo/handsome-young-guy-with-glasses-posing_176420-30004.jpg?w=996&t=st=1694863087~exp=1694863687~hmac=80e16f657402a7f6e8376339d18b24ef6696a1729dbf54d1c5680793d670de50",
   ]);
   const [currentImageIndex1, setCurrentImageIndex1] = useState(0);
   const [currentImageIndex2, setCurrentImageIndex2] = useState(0);
   const [currentImageIndex3, setCurrentImageIndex3] = useState(0);
   const [currentImageIndex4, setCurrentImageIndex4] = useState(0);
+  const [hovered, setHovered] = useState(false);
+  const [number, setNumber] = useState(64447780);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY || document.documentElement.scrollTop;
+      const sensitivity = 4; // Adjust the sensitivity to control how fast the number increases
+
+      const newNumber = Math.floor(scrollY / sensitivity);
+
+      setNumber(number+newNumber);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []); // Empty dependency array to run only once on mount
+ 
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -28,7 +48,7 @@ const ActiveStudent = () => {
   }, [images.length]);
   return (
     <>
-      <div className="activeStudentContainer">
+      <div className="activeStudentContainer" >
         <div className="activeStudentItemDiv">
           <div className="absolute w-8 h-8 rounded-full bg-gray-500 bottom-96 left-[20%]"></div>
 
@@ -67,7 +87,14 @@ const ActiveStudent = () => {
             <h3 className="max-[350px]:text-2xl text-4xl opacity-75 font-bold text-cyan-900 dark:text-white ">
               Supportive Community
             </h3>
-            <h3 className="text-blue-400 font-bold text-7xl">64447780</h3>
+            <h3
+              className={`active_number text-blue-400 font-bold min-[663px]:text-7xl text-4xl ${
+                hovered ? "hovered transition-all duration-300" : ""
+              }`}
+             
+            >
+              {number}
+            </h3>
             <p className="text-xl text-cyan-700 dark:text-white opacity-80 p-2 text-center">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. At
               exercitationem sapiente praesentium. Lorem ipsum, dolor sit amet
@@ -115,27 +142,32 @@ const ActiveStudent = () => {
       {/* for mobile and tab version  */}
       <div className=" min-[930px]:hidden   w-full h-full bg-slate-100 dark:bg-[#000000] overflow-hidden">
         <div className="flex flex-col flex_center ">
-        
           <div className="flex_center flex-col gap-8 p-10 w-full">
             <h3 className="min-[663px]:text-4xl text-2xl opacity-75 font-bold text-cyan-900 dark:text-white ">
               Supportive Community
             </h3>
-            <h3 className="text-blue-400 font-bold min-[663px]:text-7xl text-4xl">64447780</h3>
+            <h3
+              className={`active_number text-blue-400 font-bold min-[663px]:text-7xl text-4xl ${
+                hovered ? "hovered" : ""
+              }`}
+            
+            >
+              {number}
+            </h3>
             <p className="text-xl text-cyan-700 dark:text-white opacity-80 p-2 text-center flex-1">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. At
               exercitationem sapiente praesentium. Lorem ipsum, dolor sit amet
               consectetur adipisicing elit. Tenetur eveniet quaerat et.
             </p>
           </div>
-        
+
           <CodeEditor />
-        
         </div>
         <div className="relative w-full">
-        <div className="absolute w-8 h-8 rounded-full bg-gray-500 bottom-96 left-[20%]  max-[663px]:top-10"></div>
+          <div className="absolute w-8 h-8 rounded-full bg-gray-500 bottom-96 left-[20%]  max-[663px]:top-10"></div>
 
-<div className="absolute w-12 h-12 rounded-full bg-gray-500 top-24 left-[50%]"></div>
-<div className="absolute w-12 h-12 rounded-full bg-gray-500 top-24 left-[50%]"></div>
+          <div className="absolute w-12 h-12 rounded-full bg-gray-500 top-24 left-[50%]"></div>
+          <div className="absolute w-12 h-12 rounded-full bg-gray-500 top-24 left-[50%]"></div>
           <Image
             src={`${images[currentImageIndex1]}`}
             width={300}
@@ -164,11 +196,8 @@ const ActiveStudent = () => {
             layout="fixed"
             className="relative min-[663px]:w-[10rem] object-fit  min-[663px]:h-[10rem] w-[6rem] h-[6rem] rounded-full -top-24 min-[663px]:-right-[75%] right-10% "
           />
-           
         </div>
-   
       </div>
-    
     </>
   );
 };

@@ -2,6 +2,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+
 const TrialClassForm = () => {
   const [user, setUser] = useState({
     learnerName: "",
@@ -13,8 +14,10 @@ const TrialClassForm = () => {
     profession: "",
     // country: "",
   });
-  
-  const router=useRouter();
+  const [isOpen, setIsOpen] = useState(false);
+  const [resData, setResData] = useState("");
+
+  const router = useRouter();
   console.log(user);
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -23,6 +26,11 @@ const TrialClassForm = () => {
       ...user,
       [name]: value,
     });
+  };
+
+  const closeModal = () => {
+    setIsOpen(false);
+    onClose(); // Close modal and navigate to homepage
   };
 
   const handleSubmit = async (e) => {
@@ -36,26 +44,29 @@ const TrialClassForm = () => {
       profession,
       phone,
     } = user;
-    console.log(learnerEmail)
+    console.log(learnerEmail);
     try {
       if (
         learnerName.trim() === "" ||
         age.trim() === "" ||
         parentName.trim() === "" ||
-        learnerEmail.trim()==="" ||
+        learnerEmail.trim() === "" ||
         school.trim() === "" ||
         profession.trim() === "" ||
         phone.trim() === ""
       ) {
         alert("please the all the data");
       } else {
-        await axios
-          .post("https://codecampjrbackend.onrender.com/learner/trial-registration", user)
+        const res = await axios
+          .post(
+            "https://codecampjrbackend.onrender.com/learner/trial-registration",
+            user
+          )
           .then((res) => {
-            console.log(res);
-            alert(res.data.message);
-            router("/");
-
+            setResData(res.data.message);
+            if (res) {
+              setIsOpen(true);
+            }
           });
       }
     } catch {
@@ -119,11 +130,16 @@ const TrialClassForm = () => {
             );
           })}
         </div>
-        <div className="w-full flex flex-col h-[30%] max-[560px]:h-full gap-4 px-8">
-          <h2 className=" text-slate-900 dark:head_text text-3xl dark:text-3xl text-start dark:text-start">Parent{"'"}s Info</h2>
-          <div className="flex_center gap-x-2 max-[560px]:flex-col">
+        <div className="w-full flex flex-col justify-start h-[13rem] p-4 bg-slate-100 dark:bg-black  max-[560px]:h-[32rem] max-[560px]:justify-center">
+          <h2 className=" text-slate-900 dark:head_text text-3xl dark:text-3xl text-start dark:text-start">
+            Parent{"'"}s Info
+          </h2>
+          <div className="flex_center gap-x-2 max-[560px]:flex-col gap-10">
             <div className="flex flex-col w-[25%] max-[560px]:w-[90%] h-16 gap-y-2">
-              <label for="parentname" className="text-xl text-slate-900 dark:text-white">
+              <label
+                for="parentname"
+                className="text-xl text-slate-900 dark:text-white"
+              >
                 parent name:
               </label>
               <input
@@ -131,13 +147,15 @@ const TrialClassForm = () => {
                 name="parentName"
                 id="parentName"
                 onChange={handleChange}
-                className="w-full h-full bg-white text-black dark:bg-black placeholder-slate-950 dark:text-white dark:placeholder-white placeholder:text-xl placeholder:pl-2 border-2  rounded-sm"
-
+                className="w-full mt-2 p-2 border rounded-md dark:bg-slate-900"
                 value={user.parentName}
               />
             </div>
-            <div className="flex flex-col w-[25%] max-[560px]:w-[90%] h-16 gap-y-2">
-              <label for="phone" className="text-xl text-slate-900 dark:text-white">
+            <div className="flex flex-col w-[25%]  max-[560px]:w-[90%] h-16 gap-y-2">
+              <label
+                for="phone"
+                className="text-xl text-slate-900 dark:text-white"
+              >
                 contact:
               </label>
 
@@ -146,14 +164,16 @@ const TrialClassForm = () => {
                 name="phone"
                 id="phone"
                 onChange={handleChange}
-                className="w-full h-full bg-white text-black dark:bg-black placeholder-slate-950 dark:text-white dark:placeholder-white placeholder:text-xl placeholder:pl-2 border-2  rounded-sm"
-
+                className="w-full mt-2 p-2 border rounded-md dark:bg-slate-900"
                 value={user.phone}
               />
             </div>
 
             <div className="flex flex-col w-[25%] max-[560px]:w-[90%] h-16 gap-y-2">
-              <label for="learnerEmail" className="text-xl text-slate-900 dark:text-white">
+              <label
+                for="learnerEmail"
+                className="text-xl text-slate-900 dark:text-white"
+              >
                 email:
               </label>
 
@@ -162,14 +182,16 @@ const TrialClassForm = () => {
                 name="learnerEmail"
                 id="learnerEmail"
                 onChange={handleChange}
-                className="w-full h-full bg-white text-black dark:bg-black placeholder-slate-950 dark:text-white dark:placeholder-white placeholder:text-xl placeholder:pl-2 border-2  rounded-sm"
-
+                className="w-full mt-2 p-2 border rounded-md dark:bg-slate-900"
                 value={user.learnerEmail}
               />
             </div>
 
             <div className="flex flex-col w-[25%] max-[560px]:w-[90%] h-16 gap-y-2">
-              <label for="profession" className="text-xl text-slate-900 dark:text-white">
+              <label
+                for="profession"
+                className="text-xl text-slate-900 dark:text-white"
+              >
                 profession:
               </label>
 
@@ -178,18 +200,22 @@ const TrialClassForm = () => {
                 name="profession"
                 id="profession"
                 onChange={handleChange}
-                className="w-full h-full bg-white text-black dark:bg-black placeholder-slate-950 dark:text-white dark:placeholder-white placeholder:text-xl placeholder:pl-2 border-2  rounded-sm"
-
+                className="w-full mt-2 p-2 border rounded-md dark:bg-slate-900"
                 value={user.profession}
               />
             </div>
           </div>
         </div>
-        <div className="w-full flex flex-col h-[30%] max-[560px]:h-full px-8 gap-4">
-          <h2 className="dark:head_text dark:text-3xl text-slate-900 text-3xl text-start  dark:text-start">Child Info</h2>
-          <div className="flex gap-x-4 max-[560px]:flex-col max-[560px]:flex_center">
+        <div className="w-full flex flex-col justify-start h-[13rem] p-4 bg-slate-100 dark:bg-black max-[560px]:h-[25rem] max-[560px]:justify-center">
+          <h2 className="dark:head_text dark:text-3xl text-slate-900 text-3xl text-start  dark:text-start">
+            Child Info
+          </h2>
+          <div className="flex gap-x-4 max-[560px]:flex-col max-[560px]:flex_center gap-10">
             <div className="flex flex-col w-[33.33%] max-[560px]:w-[90%] h-16 gap-y-2">
-              <label for="learnerName" className="text-xl text-slate-900 dark:text-white">
+              <label
+                for="learnerName"
+                className="text-xl text-slate-900 dark:text-white"
+              >
                 name:
               </label>
 
@@ -198,13 +224,15 @@ const TrialClassForm = () => {
                 name="learnerName"
                 id="learnerName"
                 onChange={handleChange}
-                className="w-full h-full bg-white text-black dark:bg-black placeholder-slate-950 dark:text-white dark:placeholder-white placeholder:text-xl placeholder:pl-2 border-2  rounded-sm"
-
+                className="w-full mt-2 p-2 border rounded-md dark:bg-slate-900"
                 value={user.learnerName}
               />
             </div>
             <div className="flex flex-col w-[33.33%] max-[560px]:w-[90%] h-16 gap-y-2">
-              <label for="age" className="text-xl text-slate-900 dark:text-white">
+              <label
+                for="age"
+                className="text-xl text-slate-900 dark:text-white"
+              >
                 age:
               </label>
 
@@ -213,14 +241,15 @@ const TrialClassForm = () => {
                 name="age"
                 id="age"
                 onChange={handleChange}
-                className="w-full h-full bg-white text-black dark:bg-black placeholder-slate-950 dark:text-white dark:placeholder-white placeholder:text-xl placeholder:pl-2 border-2  rounded-sm"
-
-
+                className="w-full mt-2 p-2 border rounded-md dark:bg-slate-900"
                 value={user.age}
               />
             </div>
             <div className="flex flex-col w-[33.33%] max-[560px]:w-[90%] h-16 gap-y-2">
-              <label for="school" className="text-xl text-slate-900 dark:text-white">
+              <label
+                for="school"
+                className="text-xl text-slate-900 dark:text-white"
+              >
                 school:
               </label>
 
@@ -229,20 +258,56 @@ const TrialClassForm = () => {
                 name="school"
                 id="school"
                 onChange={handleChange}
-                className="w-full h-full bg-white text-black dark:bg-black placeholder-slate-950 dark:text-white dark:placeholder-white placeholder:text-xl placeholder:pl-2 border-2  rounded-sm"
-
+                className="w-full mt-2 p-2 border rounded-md dark:bg-slate-900"
                 value={user.school}
               />
             </div>
           </div>
         </div>
         <div
-          className=" w-64 h-16 self-center flex_center rounded-sm dark:text-white text-2xl border-2 mb-2"
+          className=" register_btn self-center flex_center rounded-sm dark:text-white dark:bg-slate-950 text-xl border-2 mb-2 shadow-lg "
           onClick={handleSubmit}
         >
           Register For Trial Class
         </div>
       </div>
+      {isOpen && (
+        <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center">
+          <div className="bg-white p-8 rounded shadow-md max-w-md">
+            <div className="flex justify-end">
+              <button
+                className="text-gray-600 hover:text-gray-800"
+                onClick={closeModal}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+            </div>
+            <p className="text-center text-lg font-semibold">{resData}</p>
+            <button
+              className="w-24 h-16 bg-blue-500 hover:bg-blue-400 shadow-xl rounded-md flex_center text-white font-extralight "
+              onClick={() => {
+                router.push("/");
+                setIsOpen(false);
+              }}
+            >
+              Ok
+            </button>
+          </div>
+        </div>
+      )}
     </>
   );
 };
