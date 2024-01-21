@@ -15,6 +15,8 @@ const TrialClassForm = () => {
     profession: "",
     // country: "",
   });
+  const [isOpen, setIsOpen] = useState(false);
+  const [loader, setLoader] = useState(false);
   const [resData, setResData] = useState("");
 
   const router = useRouter();
@@ -54,8 +56,11 @@ const TrialClassForm = () => {
         profession.trim() === "" ||
         phone.trim() === ""
       ) {
-        alert("please fill all the data");
+
+        alert("please the all the data");
+        
       } else {
+        setLoader(true);
         const res = await axios
           .post(
             "https://codecampjrbackend.onrender.com/learner/trial-registration",
@@ -63,7 +68,10 @@ const TrialClassForm = () => {
           )
           .then((res) => {
             setResData(res.data.message);
-            
+            if (res) {
+              setIsOpen(true);
+              setLoader(false);
+            }
           });
       }
     } catch {
@@ -91,7 +99,7 @@ const TrialClassForm = () => {
     <>
       <div
         className={`flex flex-col w-full  h-full  mt-16 gap-y-8 ${
-          resData ? "" : "blur"
+          loader ? "blur" : ""
         }`}
       >
         <h1 className="text-slate-900 font-bold dark:head_text max-[400px]:text-2xl dark:max-[400px]:text-2xl text-4xl dark:text-4xl self-center">
@@ -274,7 +282,7 @@ const TrialClassForm = () => {
           Register For Trial Class
         </div>
       </div>
-      {resData ? (
+      {isOpen && (
         <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center">
           <div className="bg-white p-8 rounded shadow-md max-w-md">
             <div className="flex justify-end">
@@ -312,7 +320,9 @@ const TrialClassForm = () => {
             </div>
           </div>
         </div>
-      ) : (
+      )}
+
+      {loader && (
         <div className="absolute w-full top-0  h-screen flex_center ">
           <Blocks
             height="80"
