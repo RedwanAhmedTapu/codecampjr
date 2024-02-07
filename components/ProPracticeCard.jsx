@@ -3,25 +3,25 @@ import {HiCheckBadge} from "react-icons/hi2";
 import Link from "next/link";
 const data = [
   {
-    heading: "Level-A",
-    speed: "2500",
+    heading: "Group-A",
+    speed: "1500",
     class: "1 FREE Trial class",
     liveClass: "2 weekly Live Classes",
     maxStudent: "Maximum 10 Students",
   },
   {
-    heading: "Level-B",
-    speed: "4000",
+    heading: "Group-B",
+    speed: "2500",
     class: "1 FREE Trial class",
-    liveClass: "2 weekly Live Class",
-    maxStudent: "Maximum 10 Students",
+    liveClass: "2 weekly Live Classes",
+    maxStudent: "Maximum 5 Students",
   },
   {
-    heading: "Level-C",
-    speed: "7500",
+    heading: "Group-C",
+    speed: "7999",
     class: "1 FREE Trial class",
-    liveClass: "2 weekly Live Class",
-    maxStudent: "Maximum 10 Students",
+    liveClass: "2 weekly Live Classes",
+    maxStudent: "Maximum 1 Student",
   },
 ];
 const ProPracticeCard = () => {

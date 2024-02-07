@@ -95,10 +95,8 @@ const ActiveStudent = () => {
             >
               {number}
             </h3>
-            <p className="text-xl text-cyan-700 dark:text-white opacity-80 p-2 text-center">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-              exercitationem sapiente praesentium. Lorem ipsum, dolor sit amet
-              consectetur adipisicing elit. Tenetur eveniet quaerat et.
+            <p className="text-[1rem] leading-[1.15] max-[359px]:w-full  font-extralight text-cyan-700 dark:text-white opacity-80 p-2 text-center">
+            Welcome to CodeCampJr{`'`}s Community Hub, a vibrant and inclusive space designed to support and inspire young coders on their learning journey. At CodeCampJr, we believe that fostering a supportive community is essential for nurturing young talent and empowering them to become confident and proficient coders.
             </p>
           </div>
 
@@ -154,10 +152,9 @@ const ActiveStudent = () => {
             >
               {number}
             </h3>
-            <p className="text-xl text-cyan-700 dark:text-white opacity-80 p-2 text-center flex-1">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-              exercitationem sapiente praesentium. Lorem ipsum, dolor sit amet
-              consectetur adipisicing elit. Tenetur eveniet quaerat et.
+            <p className="text-[1rem] text-cyan-700 leading-[1.55]  dark:text-white opacity-80 p-2 text-center flex-1">
+            Welcome to CodeCampJr{`'`}s Community Hub, a vibrant and inclusive space designed to support and inspire young coders on their learning journey. At CodeCampJr, we believe that fostering a supportive community is essential for nurturing young talent and empowering them to become confident and proficient coders.
+
             </p>
           </div>
 
