@@ -20,6 +20,9 @@ const Signup = () => {
   // const [code, setCode] = useState("");
   // const [isOtp, setIsOtp] = useState(false);
 
+  const server=`https://codecampjrbackend.onrender.com`;
+// const server=`http://localhost:5000`;
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUser({
@@ -40,7 +43,7 @@ const Signup = () => {
         alert("please fill all the data");
       } else {
         const res = await fetch(
-          "https://codecampjrbackend.onrender.com/user/signup",
+          `${server}/user/signup`,
           {
             method: "POST",
             headers: {
@@ -130,7 +133,7 @@ const Signup = () => {
 
     try {
       const res = await fetch(
-        "https://codecampjrbackend.onrender.com/auth/registration",
+        `${server}/auth/registration`,
         {
           method: "POST",
           headers: {

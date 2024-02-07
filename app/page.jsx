@@ -26,6 +26,7 @@ import GlobeInnerRay from "@components/GlobeInnerRay";
 import { HiOutlineRocketLaunch } from "react-icons/hi2";
 import CodeDivDesignforHomePage from "@components/CodeDivDesignforHomePage";
 import FingerprintLogin from "@components/FingerprintLogin";
+// import SelectLevel from "@components/SelectLevel";
 
 
 const Home = () => {
@@ -105,6 +106,7 @@ const Home = () => {
         <BlinkingCard />
         <ActiveStudent />
         <ProPracticeCard />
+        {/* <SelectLevel/> */}
         {/* <FooterJr /> */}
         {/* <CoursesSchedule/> */}
         {/* <Svg/> */}

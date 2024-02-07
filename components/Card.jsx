@@ -22,6 +22,7 @@ const Card = () => {
           src={curElem.img}
           width={300}
           height={300}
+          alt="card-img"
           className="inner_image"
         />
         <p className="inner_text ">{curElem.text}</p>

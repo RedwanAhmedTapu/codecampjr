@@ -14,16 +14,124 @@ const SelectLevel = () => {
     },
     email: "",
   });
+  const [levels, setLevels] = useState([
+    {
+      id: "levelA",
+      label: "A",
+      color: "bg-[#ef673e] ",
+      selected: false,
+      age: "age: 7-14 years",
+      medium: " Basic",
+    },
+    {
+      id: "levelB",
+      label: "B",
+      color: "bg-[#ef673e] ",
+      selected: false,
+      age: "age: 15-20 years",
+      medium: "Intermediate",
+    },
+    {
+      id: "levelC",
+      label: "C",
+      color: "bg-[#ef673e] ",
+      selected: false,
+      age: "age: 20+ years",
+      medium: " Pro",
+    },
+  ]);
+  const [daysOfWeek, setDaysOfweek] = useState([
+    { id: "saturday", color: "bg-[#183D3D]", selected: false },
+    { id: "sunday", color: "bg-[#183D3D]", selected: false },
+    { id: "monday", color: "bg-[#183D3D]", selected: false },
+    { id: "tuesday", color: "bg-[#183D3D]", selected: false },
+    { id: "wednesday", color: "bg-[#183D3D]", selected: false },
+    { id: "thursday", color: "bg-[#183D3D]", selected: false },
+    { id: "friday", color: "bg-[#183D3D]", selected: false },
+  ]);
+  const [timeSlots, setTimeSlots] = useState([
+    {
+      id: 1,
+      label: "7.00AM-8.00AM",
+      color: "bg-[#183D3D] ",
+      selected: false,
+    },
+    {
+      id: 2,
+      label: "8.00AM-9.00AM",
+      color: "bg-[#183D3D] ",
+      selected: false,
+    },
+    {
+      id: 3,
+      label: "10.00AM-11.00AM",
+      color: "bg-[#183D3D] ",
+      selected: false,
+    },
+    {
+      id: 4,
+      label: "11.00AM-12.00PM",
+      color: "bg-[#183D3D] ",
+      selected: false,
+    },
+    {
+      id: 5,
+      label: "2.00PM-3.00PM",
+      color: "bg-[#183D3D] ",
+      selected: false,
+    },
+    {
+      id: 6,
+      label: "3.00PM-4.00PM",
+      color: "bg-[#183D3D]",
+      selected: false,
+    },
+    {
+      id: 7,
+      label: "4.00PM-5.00PM",
+      color: "bg-[#183D3D] ",
+      selected: false,
+    },
+    {
+      id: 8,
+      label: "5.00PM-6.00PM",
+      color: "bg-[#183D3D] ",
+      selected: false,
+    },
+    {
+      id: 9,
+      label: "7.00PM-8.00PM",
+      color: "bg-[#183D3D] ",
+      selected: false,
+    },
+    {
+      id: 10,
+      label: "8.00PM-9.00PM",
+      color: "bg-[#183D3D] ",
+      selected: false,
+    },
+    {
+      id: 11,
+      label: "9.00PM-10.00PM",
+      color: "bg-[#183D3D] ",
+      selected: false,
+    },
+  ]);
+
   const [isActive, setIsActive] = useState(false);
   const [payment, setPayment] = useState(false);
+
+  const server=`https://codecampjrbackend.onrender.com`;
+  // const server=`http://localhost:5000`;
 
   const searchParams = useSearchParams();
   const router = useRouter();
   const email = searchParams.get("userEmail");
+  const userCompleted = searchParams.get("userCompletion");
   const updateSchedule = (newSchedule) => {
     setStudentSchedule((prevSchedule) => ({
       ...prevSchedule,
-      email: email,
+      email,
       schedule: {
         ...prevSchedule.schedule,
         days: newSchedule,
@@ -37,7 +145,7 @@ const SelectLevel = () => {
     updateSchedule(newSchedule);
   };
 
-  const setLevel = (level, id) => {
+  const handleSetLevel = (level, id) => {
     setStudentSchedule((prevSchedule) => ({
       ...prevSchedule,
       level: level,
@@ -45,20 +153,35 @@ const SelectLevel = () => {
   };
 
   const setDay = (day) => {
-    if (
-      studentSchedule.schedule.days[0] &&
-      studentSchedule.schedule.days[0] === day
-    ) {
-      alert("you must select different days");
-    } else {
-      if (
-        studentSchedule.schedule.days &&
-        studentSchedule.schedule.days.length >= 2
-      ) {
-        studentSchedule.schedule.days[1] = day;
+    // Check if the days property is an array
+    if (Array.isArray(studentSchedule.schedule.days)) {
+      // Check if the array already contains two selected days
+      if (studentSchedule.schedule.days.length === 2) {
+        // Empty the array
+        const updatedDays = [];
+        if (studentSchedule.schedule.days.includes(day)) {
+          updateSchedule(updatedDays);
+        } else {
+          updateSchedule([...updatedDays, day]);
+        }
       } else {
-        handleAddSchedule(day);
+        const index = studentSchedule.schedule.days.findIndex(
+          (element) => element === day
+        );
+
+        if (index !== -1) {
+          // If the day is already selected, remove it
+          const updatedDays = studentSchedule.schedule.days.filter(
+            (element) => element !== day
+          );
+          updateSchedule(updatedDays);
+        } else {
+          // If the day is not selected, add it
+          handleAddSchedule(day);
+        }
       }
+    } else {
+      console.error("studentSchedule.schedule.days is not an array.");
     }
   };
 
@@ -83,157 +206,152 @@ const SelectLevel = () => {
       setIsActive(true);
     }
   };
-
-  const handleSubmit = async () => {
-    setPayment(true);
-    setIsActive(false);
+// handlesubmit for trialstudent
+  const handleSubmitForTrial = async () => {
+    // setPayment(true);
+    // setIsActive(false);
     const res = await axios
-      .post("https://codecampjrbackend.onrender.com/active-user/registration", studentSchedule)
+      .put(
+        `${server}/update-trial-learner-data`,
+        studentSchedule
+      )
       .then((res) => {
         console.log(res);
-        // router.push(`/user-dashboard?userEmail=${email}`);
+        router.push(`/adminDashboard`);
+      });
+  };
+  // handleSubmit for active-student
+  const handleSubmitActiveStudent = async () => {
+    // setPayment(true);
+    // setIsActive(false);
+    const res = await axios
+      .put(
+        `${server}/update-trial-to-active-learner-data`,
+        studentSchedule
+      )
+      .then((res) => {
+        console.log(res);
+        router.push(`/adminDashboard`);
       });
   };
   // splitting user email and take only the user name
-  function extractNameFromEmail(email) {
-    const parts = email.split("@");
+  // function extractNameFromEmail(email) {
+  //   const parts = email.split("@");
 
-    if (parts.length === 2) {
-      return parts[0];
-    } else {
-      return null;
-    }
-  }
-  const username = extractNameFromEmail(email);
+  //   if (parts.length === 2) {
+  //     return parts[0];
+  //   } else {
+  //     return null;
+  //   }
+  // }
+  // const username = extractNameFromEmail(email);
   // fees
   let fees;
   if (studentSchedule.level === "level-A") {
     fees = "2500/-";
-  }
- else if (studentSchedule.level === "level-B") {
+  } else if (studentSchedule.level === "level-B") {
     fees = "5000/-";
-  }
-  else  {
+  } else {
     fees = "7500/-";
   }
 
   return (
     <>
-      <div className={`absolute top-20 gap-y-16  ${payment ? "blur" : null}`}>
+      <div className={`relative top-20 gap-y-16  ${payment ? "blur" : null}`}>
         <div className="slectlevelInnerdiv justify-center  ">
           <h2 className="text-slate-900 font-bold text-4xl max-[775px]:text-2xl dark:head_text  dark:text-4xl text-center">
             Select a level in which you want to admit
           </h2>
           <div className="level flex justify-between max-[550px]:flex-col w-full max-[550px]:h-screen max-[550px]:justify-center max-[550px]:gap-y-4 p-2 gap-x-4">
-            <div
-              className="levelInnerDiv "
-              id="levelA"
-              onClick={() => {
-                setLevel("level-A", "levelA");
-              }}
-            >
-              <h2 className="text-2xl text-black font-bold text-center">A</h2>
-              <p className="text-xl text-white text-center">age: 7-14 years</p>
-              <p className="text-xl text-white text-center">Basic</p>
-            </div>
-            <div
-              className="levelInnerDiv"
-              id="levelB"
-              onClick={() => {
-                setLevel("level-B", "levelB");
-              }}
-            >
-              <h2 className="text-2xl text-black font-bold text-center">B</h2>
-              <p className="text-xl text-white text-center">age: 15-20 years</p>
-              <p className="text-xl text-white text-center">Intermediate</p>
-            </div>
-            <div
-              className="levelInnerDiv"
-              id="levelC"
-              onClick={() => {
-                setLevel("level-C", "levelC");
-              }}
-            >
-              <h2 className="text-2xl text-black font-bold text-center">C</h2>
-              <p className="text-xl text-white text-center">age: 20+ years</p>
-              <p className="text-xl text-white text-center">Pro</p>
-            </div>
+            {levels.map((level) => (
+              <div
+                key={level.id}
+                className={`levelInnerDiv ${level.color}`}
+                id={level.id}
+                onClick={() => {
+                  const updatedLevels = levels.map((div) =>
+                    div.id === level.id
+                      ? {
+                          ...div,
+                          selected: !div.selected,
+                          color: div.selected ? "bg-[#ef673e]" : "bg-green-500",
+                        }
+                      : {
+                          ...div,
+                          selected: false, // Reset other levels to not selected
+                          color: "bg-[#ef673e]",
+                        }
+                  );
+
+                  setLevels(updatedLevels);
+
+                  const levelSelected =
+                    studentSchedule.level === `level-${level.label}`
+                      ? ""
+                      : `level-${level.label}`;
+
+                  handleSetLevel(levelSelected, level.id);
+                }}
+              >
+                <h2 className="text-2xl text-black font-bold text-center">
+                  {level.label}
+                </h2>
+                <p className="text-xl text-white text-center">{level.age}</p>
+                <p className="text-xl text-white text-center">{level.medium}</p>
+              </div>
+            ))}
           </div>
         </div>
         <div className="slectlevelInnerdiv flex_center ">
-        <h2 className="text-slate-900 font-bold text-4xl max-[775px]:text-2xl dark:head_text  dark:text-4xl text-center">
-
+          <h2 className="text-slate-900 font-bold text-4xl max-[775px]:text-2xl dark:head_text  dark:text-4xl text-center">
             Set a schedule according to your comfort
           </h2>
-          <div className="flex flex-col gap-y-4">
-            <h3 className="text-2xl font-bold text-center text-white">
-              Select Two Days
-            </h3>
-            <div className="flex_center gap-x-2 w-full flex-wrap gap-y-2">
+          <div className="flex_center gap-x-2 w-full flex-wrap gap-y-2">
+            {daysOfWeek.map((day) => (
               <div
-                className="days"
-                id="saturday"
+                key={day.id}
+                className={`days ${day.color}`}
+                id={day.id}
                 onClick={() => {
-                  setDay("saturday");
+                  const updatedLevels = daysOfWeek.map((div) => {
+                    console.log(div.id === day.id);
+                    if (div.id === day.id) {
+                      // Toggle the selected status
+
+                      const updatedDay = {
+                        ...div,
+                        selected: !div.selected,
+                        color: div.selected ? "bg-[#183D3D]" : "bg-red-500",
+                      };
+
+                      return updatedDay;
+                    } else {
+                      // Keep track of the number of selected days
+                      const selectedDays = daysOfWeek.filter((d) => d.selected);
+                      const canSelect = selectedDays.length < 2;
+
+                      if (!canSelect && div.selected) {
+                        // If already two days selected, and the clicked day is selected, reset it
+                        return {
+                          ...div,
+                          selected: false,
+                          color: "bg-[#183D3D]",
+                        };
+                      }
+
+                      return div;
+                    }
+                  });
+
+                  console.log(updatedLevels);
+
+                  setDaysOfweek(updatedLevels);
+                  setDay(day.id);
                 }}
               >
-                saturday
+                {day.id}
               </div>
-              <div
-                className="days"
-                id="sunday"
-                onClick={() => {
-                  setDay("sunday");
-                }}
-              >
-                sunday
-              </div>
-              <div
-                className="days"
-                id="monday"
-                onClick={() => {
-                  setDay("monday");
-                }}
-              >
-                monday
-              </div>
-              <div
-                className="days"
-                id="tuesday"
-                onClick={() => {
-                  setDay("tuesday");
-                }}
-              >
-                tuesday
-              </div>
-              <div
-                className="days"
-                id="wednesday"
-                onClick={() => {
-                  setDay("wednesday");
-                }}
-              >
-                wednesday
-              </div>
-              <div
-                className="days"
-                id="thursday"
-                onClick={() => {
-                  setDay("thursday");
-                }}
-              >
-                thursday
-              </div>
-              <div
-                className="days"
-                id="friday"
-                onClick={() => {
-                  setDay("friday");
-                }}
-              >
-                friday
-              </div>
-            </div>
+            ))}
           </div>
         </div>
         <div className="slectlevelInnerdiv justify-start items-center">
@@ -242,111 +360,43 @@ const SelectLevel = () => {
               Select Time
             </h3>
             <div className="flex_center gap-x-2 w-full flex-wrap gap-y-2">
-              <div
-                className="days"
-                id="time1"
-                onClick={() => {
-                  setTime("7.00AM-8.00AM", "time1");
-                }}
-              >
-                7.00AM-8.00AM
-              </div>
-              <div
-                className="days"
-                id="time2"
-                onClick={() => {
-                  setTime("8.00AM-9.00AM", "time2");
-                }}
-              >
-                8.00AM-9.00AM
-              </div>
-              <div
-                className="days"
-                id="time3"
-                onClick={() => {
-                  setTime("10.00Am-11.00AM", "time3");
-                }}
-              >
-                10.00Am-11.00AM
-              </div>
-              <div
-                className="days"
-                id="time4"
-                onClick={() => {
-                  setTime("11.00AM-12.00PM", "time4");
-                }}
-              >
-                11.00AM-12.00PM
-              </div>
-              <div
-                className="days"
-                id="time5"
-                onClick={() => {
-                  setTime("2.00PM-3.00PM", "time5");
-                }}
-              >
-                2.00PM-3.00PM
-              </div>
-              <div
-                className="days"
-                id="time6"
-                onClick={() => {
-                  setTime("3.00PM-4.00PM", "time6");
-                }}
-              >
-                3.00PM-4.00PM
-              </div>
-              <div
-                className="days"
-                id="time7"
-                onClick={() => {
-                  setTime("4.00PM-5.00PM", "time7");
-                }}
-              >
-                4.00PM-5.00PM
-              </div>
-              <div
-                className="days"
-                id="time8"
-                onClick={() => {
-                  setTime("5.00PM-6.00PM", "time8");
-                }}
-              >
-                5.00PM-6.00PM
-              </div>
-              <div
-                className="days"
-                id="time9"
-                onClick={() => {
-                  setTime("7.00PM-8.00PM", "time9");
-                }}
-              >
-                7.00PM-8.00PM
-              </div>
-              <div
-                className="days"
-                id="time10"
-                onClick={() => {
-                  setTime("8.00PM-9.00PM", "time10");
-                }}
-              >
-                8.00PM-9.00PM
-              </div>
-              <div
-                className="days "
-                id="time11"
-                onClick={() => {
-                  setTime("9.00PM-10.00PM", "time11");
-                }}
-              >
-                9.00PM-10.00PM
-              </div>
+              {timeSlots.map((timeSlot, index) => (
+                <div
+                  key={`time${index + 1}`}
+                  className={`days ${timeSlot.color}`}
+                  id={`time${index + 1}`}
+                  onClick={() => {
+                    const updatedLevels = timeSlots.map((div) =>
+                    timeSlot.id === div.id
+                      ? {
+                          ...div,
+                          selected: !div.selected,
+                          color: div.selected ? "bg-[#183D3D]" : "bg-red-500",
+                        }
+                      : {
+                          ...div,
+                          selected: false, // Reset other levels to not selected
+                          color: "bg-[#183D3D]",
+                        }
+                  );
+
+                  setTimeSlots(updatedLevels);
+                  const timeSelected =
+                  studentSchedule.schedule.time === `${timeSlot.label}`
+                    ? ""
+                    : `${timeSlot.label}`;
+                    setTime(timeSelected, `time${index + 1}`);
+                  }}
+                >
+                  {timeSlot.label}
+                </div>
+              ))}
             </div>
           </div>
         </div>
-        <div className="flex_center ">
+        <div className="flex_center " >
           <div
-            className="flex_center  self-center relative top-10 max-[600px]:w-[15rem] w-[45rem] h-20 bg-blue-400 hover:bg-blue-400 transition-colors duration-500 text-center text-white text-3xl rounded-xl shadow-md shadow-blue-900"
+            className="flex_center  self-center relative top-10 max-[600px]:w-[15rem] w-[45rem] h-20 bg-blue-400 hover:bg-blue-400 transition-colors duration-500 text-center text-white text-3xl rounded-xl shadow-md shadow-blue-900 z-30"
             onClick={() => {
               confirmSchedule();
             }}
@@ -381,7 +431,13 @@ const SelectLevel = () => {
             <div className="w-full text-white flex_center text-3xl items-center relative">
               <button
                 className="w-44 h-20  text-2xl absolute right-10 bg-slate-800 rounded-md"
-                onClick={handleSubmit}
+                onClick={()=>{
+                  if(userCompleted){
+                    handleSubmitActiveStudent();
+                  }else{
+                    handleSubmitForTrial();
+                  }
+                }}
               >
                 confirm schedule
               </button>
@@ -401,7 +457,7 @@ const SelectLevel = () => {
               </div>
             </div>
             <div className="max-[500px]:text-sm text-lg font-semibold mt-4 uppercase">
-              {username}
+              {/* {username} */}
             </div>
             <div className="max-[500px]:text-sm text-lg mt-4 text font-sans">
               1234 5678 9012 3456
@@ -410,14 +466,19 @@ const SelectLevel = () => {
               <div className="max-[500px]:text-sm text-base mt-4 font-sans">
                 {new Date("2023-09-02T15:30:00Z").toLocaleString()}
               </div>
-              <button className="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-lg max-[500px]:text-sm" onClick={async()=>{
-                 const res = await axios
-                 .post(`https://codecampjrbackend.onrender.com/active-user/order/${email}`)
-                 .then((res) => {
-                   console.log(res.data.url);
-                   router.push(`${res.data.url}`)
-                 });
-              }}>
+              <button
+                className="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-lg max-[500px]:text-sm"
+                onClick={async () => {
+                  const res = await axios
+                    .post(
+                      `${server}/active-user/order/${email}`
+                    )
+                    .then((res) => {
+                      console.log(res.data.url);
+                      router.push(`${res.data.url}`);
+                    });
+                }}
+              >
                 Pay Now
               </button>
             </div>

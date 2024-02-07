@@ -1,8 +1,10 @@
-
+import AdminTemplate from "@components/AdminDashBoard";
 const page = () => {
   return (
-    <div>adminpanel</div>
-  )
-}
+    <>
+      <AdminTemplate />
+    </>
+  );
+};
 
 export default page;

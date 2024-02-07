@@ -17,6 +17,10 @@ const Login = () => {
   });
 
   const router = useRouter();
+
+
+  const server=`https://codecampjrbackend.onrender.com`;
+// const server=`http://localhost:5000`;
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUser({
@@ -33,7 +37,7 @@ const Login = () => {
         alert("please fill all the data");
       } else {
         const res = await axios
-          .post("https://codecampjrbackend.onrender.com/user/login", user)
+          .post(`${server}/user/login`, user)
           .then((res) => {
             console.log(res.data);
 
@@ -61,7 +65,7 @@ const Login = () => {
                   })
                 );
 
-                if (email === "admin@gmail.com") {
+                if (email === "codecampjr@gmail.com") {
                   router.push("/adminDashboard");
                 } else {
                   let userEmail;
@@ -132,7 +136,7 @@ const Login = () => {
 
     try {
       const res = await fetch(
-        "https://codecampjrbackend.onrender.com/auth/registration",
+        `${server}/auth/registration`,
         {
           method: "POST",
           headers: {

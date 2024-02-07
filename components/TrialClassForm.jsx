@@ -20,6 +20,10 @@ const TrialClassForm = () => {
   const [resData, setResData] = useState("");
 
   const router = useRouter();
+
+
+  const server=`https://codecampjrbackend.onrender.com`;
+// const server=`http://localhost:5000`;
   console.log(user);
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -63,7 +67,7 @@ const TrialClassForm = () => {
         setLoader(true);
         const res = await axios
           .post(
-            "https://codecampjrbackend.onrender.com/learner/trial-registration",
+           `${server}/learner/trial-registration`,
             user
           )
           .then((res) => {

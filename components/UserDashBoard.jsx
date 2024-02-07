@@ -22,6 +22,10 @@ const UserDashBoard = () => {
   const emailId = searchParams.get("userEmail");
   const router=useRouter();
 
+const server=`https://codecampjrbackend.onrender.com`;
+// const server=`http://localhost:5000`;
+
+
   const handleFileChange = (event) => {
     setSelectedFile(event.target.files[0]);
   };
@@ -32,7 +36,7 @@ const UserDashBoard = () => {
 
       try {
         const response = await axios.post(
-          "https://codecampjrbackend.onrender.com/upload",
+          `${server}/upload`,
           formData,
           {
             headers: {
@@ -52,7 +56,7 @@ const UserDashBoard = () => {
   useEffect(() => {
     const res = async () => {
       const data = await axios
-        .get(`https://codecampjrbackend.onrender.com/active-user/info/${emailId}`)
+        .get(`${server}/active-user/info/${emailId}`)
         .then((res) => {
           console.log(res.data);
           setUserData(res.data);
@@ -117,6 +121,7 @@ const UserDashBoard = () => {
                   width={300}
                   height={300}
                   className=" self-center"
+                  alt="web-img"
                 />
               </div>
             </div>
