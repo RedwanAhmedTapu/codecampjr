@@ -58,7 +58,7 @@ const Nav = () => {
           height={50}
         ></Image> */}
           <ImSpinner9 className=" w-16 h-8 animate" />
-          <p className=" orange_gradient max-[420px]:text-[0.97rem]">
+          <p className=" orange_gradient text-[1.5rem] max-[420px]:text-[0.97rem]">
             CodecampJr.
           </p>
         </Link>

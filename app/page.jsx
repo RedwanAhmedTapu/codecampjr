@@ -28,17 +28,7 @@ import QuestionAndAnswer from "@components/QuestionAndAnswer";
 
 
 const Home = () => {
-  const data = [
-    {
-      description: "Why Choose CodeCamp Junior?",
-    },
-    {
-      description: "Why Choose CodeCamp Junior?",
-    },
-    {
-      description: "Why Choose CodeCamp Junior?",
-    },
-  ];
+  
 
 
   
