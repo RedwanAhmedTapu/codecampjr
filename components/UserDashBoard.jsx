@@ -23,8 +23,8 @@ const UserDashBoard = () => {
   const router=useRouter();
   
 
-// const server=`https://codecampjrbackend.onrender.com`;
-const server=`http://localhost:5000`;
+const server=`https://codecampjrbackend.onrender.com`;
+// const server=`http://localhost:5000`;
 
 
   const handleFileChange = (event) => {
