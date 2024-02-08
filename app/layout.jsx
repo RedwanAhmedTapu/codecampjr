@@ -15,9 +15,10 @@ export const metadata = {
   title: "codecampJr",
   description: "A site to empower the youth's skill in technologies",
   openGraph: {
-    title: 'codecampjr Home',
+    title: 'codecampjr ',
     description:
-      'coding platform',
+      'coding platform.Founder-Mehedi,Tapu',
+      
     url: 'https://codecampjr.vercel.app', //pending mark as canonical
     siteName: 'codecampjr',
     locale: 'es-CO',
@@ -31,7 +32,7 @@ export const metadata = {
     'coding for children',
     'higher coding knoledge'
   ],
-  icons: '/assets/images/Black Modern Hackathon Instagram Post (4).png',
+  icons: '/assets/images/Black Modern Hackathon Instagram Post (6).png',
 };
 const Rootlayout = ({ children }) => {
   return (
