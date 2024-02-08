@@ -155,7 +155,7 @@
 
   /* style for footer */
   .containerFooter {
-    @apply grid relative top-10 bottom-0 grid-cols-4 max-[850px]:grid-cols-2 max-[850px]:place-items-center  max-[850px]:pb-20 w-screen h-screen pt-20 pb-20 min-[1300px]:pl-32 min-[1300px]:pr-32 pl-10 pr-10  max-[450px]:pl-4 max-[450px]:pr-0 max-[850px]:gap-y-4;
+    @apply grid relative top-10 bottom-0 grid-cols-4 max-[850px]:grid-cols-2 max-[850px]:place-items-center   max-[850px]:pb-20 w-screen h-screen pt-20 pb-20 min-[1300px]:pl-16 min-[1300px]:pr-2 pl-10 pr-10  max-[450px]:pl-4 max-[450px]:pr-0 max-[850px]:gap-y-4;
   }
   .ItemFooter {
     @apply flex flex-col h-full gap-y-4 text-slate-400 hover:text-slate-50;
