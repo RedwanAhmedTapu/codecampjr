@@ -9,25 +9,24 @@ import LightModeIcon from "@mui/icons-material/LightMode";
 import HoverableDropdown from "./HoverableDropdown";
 import { useRouter } from "next/navigation";
 
-
 const Nav = () => {
   const [user, setuser] = useState({});
   const [providers, setProviders] = useState(null);
   const [toggle, setToggle] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
-  
+
   console.log(toggle);
 
   const isLoggedIn = true;
-  const router=useRouter();
+  const router = useRouter();
   useEffect(() => {
     const storedTheme = localStorage.getItem("theme");
     if (storedTheme === "dark") {
       applyDarkMode();
     }
-    if (typeof localStorage !== 'undefined') {
+    if (typeof localStorage !== "undefined") {
       setuser(JSON.parse(localStorage.getItem("loggedUser")));
-      }
+    }
   }, []);
 
   //  apply dark mode
@@ -43,13 +42,13 @@ const Nav = () => {
     localStorage.setItem("theme", "light");
     setIsDarkMode(false);
   };
-  
+
   return (
     <>
       <nav className="bg-[#fffcfc] dark:bg_color   flex justify-around sm:justify-evenly  items-center w-full h-16 dark:shadow-lg  py-8 max-[551px]:pr-10 fixed top-0 z-50">
         <Link
           href="/"
-          className="flex justify-center items-center gap-2 text-orange-600  dark:text-white"
+          className="flex justify-center items-center  text-orange-600  dark:text-white"
         >
           {/* <Image
           src="/assets/images/logo.svg"
@@ -57,10 +56,102 @@ const Nav = () => {
           width={80}
           height={50}
         ></Image> */}
-          <ImSpinner9 className=" w-16 h-8 animate" />
-          <p className=" orange_gradient text-[1.5rem] max-[420px]:text-[0.97rem]">
-            CodecampJr.
-          </p>
+          <svg
+            width="215"
+            height="25"
+            viewBox="0 0 215 25"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g clip-path="url(#clip0_529_2373)">
+              <path
+                d="M3.46244 12.6514L11.4057 16.1283V20.4743L0 14.8089V11.7047L3.46244 12.6514ZM11.4057 9.81099L3.46244 13.3499L0 14.2346V11.1458L11.4057 5.48047V9.81099Z"
+                fill="#0297D0"
+              />
+              <path
+                d="M200.962 0L194.084 24.5396H190.857L197.766 0H200.962Z"
+                fill="#0297D0"
+              />
+              <path
+                d="M211.475 13.2723L203.453 9.79544V5.48047L215 11.1614V14.2657L211.475 13.2723ZM203.453 16.1438L211.475 12.6049L215 11.7047V14.8089L203.453 20.4588V16.1438Z"
+                fill="#0297D0"
+              />
+              <path
+                d="M15.9546 13.7134C15.9546 11.7108 16.3589 9.92749 17.1675 8.36352C17.9953 6.79951 19.1696 5.58838 20.6906 4.73009C22.2114 3.85274 24.0018 3.41406 26.0617 3.41406C27.833 3.41406 29.4116 3.74784 30.7977 4.41539C32.2031 5.06387 33.339 5.9889 34.2053 7.1905C35.0908 8.39206 35.6781 9.79393 35.9669 11.3961H29.2095C28.9014 10.7285 28.4586 10.2135 27.8811 9.85117C27.3228 9.46974 26.6779 9.27902 25.9463 9.27902C24.8682 9.27902 24.0114 9.67953 23.3762 10.4806C22.7601 11.2817 22.4521 12.3593 22.4521 13.7134C22.4521 15.0676 22.7601 16.1453 23.3762 16.9463C24.0114 17.7474 24.8682 18.1479 25.9463 18.1479C26.6779 18.1479 27.3228 17.9667 27.8811 17.6043C28.4586 17.2229 28.9014 16.6983 29.2095 16.0308H35.9669C35.6781 17.6329 35.0908 19.0348 34.2053 20.2364C33.339 21.4379 32.2031 22.3725 30.7977 23.0401C29.4116 23.6886 27.833 24.0128 26.0617 24.0128C24.0018 24.0128 22.2114 23.5837 20.6906 22.7254C19.1696 21.8481 17.9953 20.6274 17.1675 19.0634C16.3589 17.4994 15.9546 15.7161 15.9546 13.7134Z"
+                fill="#3F3D56"
+              />
+              <path
+                d="M48.2376 24.0725C46.3124 24.0725 44.5412 23.6243 42.9241 22.7278C41.3262 21.8314 40.0555 20.5916 39.1122 19.0086C38.1689 17.4256 37.6973 15.6423 37.6973 13.6586C37.6973 11.6751 38.1689 9.89175 39.1122 8.30871C40.0555 6.72564 41.3262 5.49543 42.9241 4.61808C44.5412 3.72165 46.3124 3.27344 48.2376 3.27344C50.1628 3.27344 51.9243 3.72165 53.5222 4.61808C55.1201 5.49543 56.3811 6.72564 57.3052 8.30871C58.2485 9.89175 58.7202 11.6751 58.7202 13.6586C58.7202 15.6423 58.2485 17.4256 57.3052 19.0086C56.3811 20.5916 55.1104 21.8314 53.4933 22.7278C51.8954 23.6243 50.1435 24.0725 48.2376 24.0725ZM48.2376 18.1503C49.5082 18.1503 50.49 17.7498 51.1831 16.9487C51.8761 16.1286 52.2227 15.0319 52.2227 13.6586C52.2227 12.2663 51.8761 11.1696 51.1831 10.3686C50.49 9.5484 49.5082 9.13835 48.2376 9.13835C46.9477 9.13835 45.9563 9.5484 45.2632 10.3686C44.5701 11.1696 44.2236 12.2663 44.2236 13.6586C44.2236 15.0319 44.5701 16.1286 45.2632 16.9487C45.9563 17.7498 46.9477 18.1503 48.2376 18.1503Z"
+                fill="#3F3D56"
+              />
+              <path
+                d="M69.5522 3.61719C71.6891 3.61719 73.5565 4.04633 75.1544 4.90461C76.7715 5.76289 78.0133 6.95495 78.8796 8.48078C79.7459 10.0066 80.1791 11.7423 80.1791 13.6877C80.1791 15.6141 79.7459 17.3497 78.8796 18.8946C78.0133 20.4395 76.7715 21.6601 75.1544 22.5566C73.5565 23.434 71.6891 23.8727 69.5522 23.8727H61.0332V3.61719H69.5522ZM68.9746 18.208C70.4185 18.208 71.564 17.817 72.411 17.035C73.2582 16.253 73.6817 15.1372 73.6817 13.6877C73.6817 12.2382 73.2582 11.1223 72.411 10.3404C71.564 9.55838 70.4185 9.16741 68.9746 9.16741H67.4441V18.208H68.9746Z"
+                fill="#3F3D56"
+              />
+              <path
+                d="M88.9048 8.68104V11.17H95.2577V15.9478H88.9048V18.8088H96.1243V23.8727H82.4941V3.61719H96.1243V8.68104H88.9048Z"
+                fill="#3F3D56"
+              />
+              <path
+                d="M102.87 13.7134C102.87 11.7108 103.274 9.92749 104.082 8.36352C104.91 6.79951 106.085 5.58838 107.605 4.73009C109.126 3.85274 110.917 3.41406 112.977 3.41406C114.748 3.41406 116.327 3.74784 117.713 4.41539C119.118 5.06387 120.254 5.9889 121.121 7.1905C122.005 8.39206 122.593 9.79393 122.882 11.3961H116.124C115.816 10.7285 115.374 10.2135 114.796 9.85117C114.238 9.46974 113.593 9.27902 112.861 9.27902C111.783 9.27902 110.927 9.67953 110.291 10.4806C109.675 11.2817 109.367 12.3593 109.367 13.7134C109.367 15.0676 109.675 16.1453 110.291 16.9463C110.927 17.7474 111.783 18.1479 112.861 18.1479C113.593 18.1479 114.238 17.9667 114.796 17.6043C115.374 17.2229 115.816 16.6983 116.124 16.0308H122.882C122.593 17.6329 122.005 19.0348 121.121 20.2364C120.254 21.4379 119.118 22.3725 117.713 23.0401C116.327 23.6886 114.748 24.0128 112.977 24.0128C110.917 24.0128 109.126 23.5837 107.605 22.7254C106.085 21.8481 104.91 20.6274 104.082 19.0634C103.274 17.4994 102.87 15.7161 102.87 13.7134Z"
+                fill="#3F3D56"
+              />
+              <path
+                d="M169.393 3.61719V23.8727H163.011V13.7735L159.863 23.8727H154.376L151.229 13.7735V23.8727H144.818V3.61719H152.672L157.177 15.7762L161.567 3.61719H169.393Z"
+                fill="#3F3D56"
+              />
+             
+              <path
+                d="M189.006 10.5693C189.006 11.8471 188.707 13.0106 188.11 14.0596C187.513 15.0895 186.628 15.9097 185.454 16.52C184.298 17.1303 182.893 17.4355 181.238 17.4355H178.697V23.8727H172.286V3.61719H181.238C183.74 3.61719 185.655 4.24659 186.985 5.5054C188.332 6.76422 189.006 8.45216 189.006 10.5693ZM180.515 12.4289C181.844 12.4289 182.508 11.809 182.508 10.5693C182.508 9.3295 181.844 8.70966 180.515 8.70966H178.697V12.4289H180.515Z"
+                fill="#3F3D56"
+              />
+
+            
+
+              <path
+                d="M131.679 7.13281L121.649 22.8713H128.267L131.679 18.3396V7.13281Z"
+                fill="#06A9A9"
+              />
+              <path
+                d="M131.677 7.52734L141.823 23.2984H135.206L131.677 18.6403V7.52734Z"
+                fill="#0297D0"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M131.795 5.96875L120.332 23.7894H143.258L131.795 5.96875ZM131.795 8.45419L122.776 22.4757H140.814L131.795 8.45419Z"
+                fill="#3F3D56"
+              />
+              <path
+                d="M131.677 18.2969L135.932 23.7882H127.423L131.677 18.2969Z"
+                fill="#E9FE84"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M131.677 18.2969L127.423 23.7882H135.932L131.677 18.2969ZM131.677 20.1825L129.729 22.6974H133.626L131.677 20.1825Z"
+                fill="#3F3D56"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M133.967 4.06146L130.851 9.56261L129.918 9.06753L133.035 3.56641L133.967 4.06146Z"
+                fill="#3F3D56"
+              />
+
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M129.208 4.22335L132.582 9.58076L133.49 9.04488L130.117 3.6875L129.208 4.22335Z"
+                fill="#3F3D56"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0_529_2373">
+                <rect width="215" height="24.6721" fill="white" />
+              </clipPath>
+            </defs>
+          </svg>
         </Link>
         <div className="w-8 h-8 rounded-lg min-[900px]:hidden   relative -right-10">
           {isDarkMode ? (
@@ -84,10 +175,7 @@ const Nav = () => {
             </div>
           )}
         </div>
-        <div
-          className="relative -top-10 -right-0  text-white  w-4 h-full  min-[900px]:hidden"
-        
-        >
+        <div className="relative -top-10 -right-0  text-white  w-4 h-full  min-[900px]:hidden">
           <Menubar className="bg-slate-950" setToggle={setToggle} />
         </div>
 
@@ -101,8 +189,6 @@ const Nav = () => {
             </Link>
           </li>
           <HoverableDropdown className="z-10 h-76" />
-
-       
         </ul>
         <div className="w-8 h-8 rounded-lg max-[901px]:hidden   relative -right-10">
           {isDarkMode ? (
@@ -126,28 +212,31 @@ const Nav = () => {
             </div>
           )}
         </div>
-      
-        {user &&
-          <div className="max-[500px]:w-10 max-[500px]:h-10 w-16 h-16 max-[900px]:hidden bg-gradient-to-r from-gray-700 via-gray-900 to-black rounded-full text-white flex_center" onClick={()=>{
-            router.push(`/user-dashboard?userEmail=${user.email}`);
 
-          }}>
-           profile
+        {user && (
+          <div
+            className="max-[500px]:w-10 max-[500px]:h-10 w-16 h-16 max-[900px]:hidden bg-gradient-to-r from-gray-700 via-gray-900 to-black rounded-full text-white flex_center"
+            onClick={() => {
+              router.push(`/user-dashboard?userEmail=${user.email}`);
+            }}
+          >
+            profile
           </div>
-        }
-
+        )}
       </nav>
       {/* mobile responsive */}
 
       {toggle && (
         <>
-         
- 
-  
-        <div id="Main" className={`${toggle ? "rounded-r     flex justify-start items-start bg-gray-900 flex-col min-[900px]:hidden w-full h-screen  absolute top-16 z-50  transition-all duration-1000 ease-in-out " : " h-0"}`}>
-
-  
-  {/* <div className="mt-6 flex flex-col justify-start items-center  pl-4 w-full border-gray-600 border-b space-y-3 pb-5 ">
+          <div
+            id="Main"
+            className={`${
+              toggle
+                ? "rounded-r     flex justify-start items-start bg-gray-900 flex-col min-[900px]:hidden w-full h-screen  absolute top-16 z-50  transition-all duration-1000 ease-in-out "
+                : " h-0"
+            }`}
+          >
+            {/* <div className="mt-6 flex flex-col justify-start items-center  pl-4 w-full border-gray-600 border-b space-y-3 pb-5 ">
     <button className="flex jusitfy-start items-center space-x-6 w-full  focus:outline-none  focus:text-indigo-400  text-white rounded ">
       <svg className="fill-stroke " width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M9 4H5C4.44772 4 4 4.44772 4 5V9C4 9.55228 4.44772 10 5 10H9C9.55228 10 10 9.55228 10 9V5C10 4.44772 9.55228 4 9 4Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -165,17 +254,17 @@ const Nav = () => {
       <p className="text-base leading-4 ">Users</p>
     </button>
   </div> */}
-  <div className="flex flex-col justify-start items-center   px-6 border-b border-gray-600 w-full  ">
-     <ul className="fixed top-[4.2rem] min-[900px]:hidden w-full h-64 z-20 bg-slate-900 flex flex-col justify-evenly items-center ">
-            <li className="navlist list text-white">
-              {" "}
-              <Link href="/">About</Link>
-            </li>
-            <HoverableDropdown className="navlist list" />
-            <li className="navlist list"></li>
-          </ul>
-        
-    {/* <button onclick="showMenu1(true)" className="focus:outline-none focus:text-indigo-400 text-left  text-white flex justify-between items-center w-full py-5 space-x-14  ">
+            <div className="flex flex-col justify-start items-center   px-6 border-b border-gray-600 w-full  ">
+              <ul className="fixed top-[4.2rem] min-[900px]:hidden w-full h-64 z-20 bg-slate-900 flex flex-col justify-evenly items-center ">
+                <li className="navlist list text-white">
+                  {" "}
+                  <Link href="/">About</Link>
+                </li>
+                <HoverableDropdown className="navlist list" />
+                <li className="navlist list"></li>
+              </ul>
+
+              {/* <button onclick="showMenu1(true)" className="focus:outline-none focus:text-indigo-400 text-left  text-white flex justify-between items-center w-full py-5 space-x-14  ">
       <p className="text-sm leading-5  uppercase">Profile Overview</p>
       <svg id="icon1" className="transform" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M18 15L12 9L6 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -342,7 +431,7 @@ const Nav = () => {
         </svg>
         <p className="text-base leading-4  ">Notifications</p>
       </button> */}
-      {/* <button className="flex justify-start items-center space-x-6 hover:text-white focus:bg-gray-700 focus:text-white hover:bg-gray-700 text-gray-400 rounded px-3 py-2  w-52">
+              {/* <button className="flex justify-start items-center space-x-6 hover:text-white focus:bg-gray-700 focus:text-white hover:bg-gray-700 text-gray-400 rounded px-3 py-2  w-52">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M17 11H7C5.89543 11 5 11.8955 5 13V19C5 20.1046 5.89543 21 7 21H17C18.1046 21 19 20.1046 19 19V13C19 11.8955 18.1046 11 17 11Z" stroke="#9CA3AF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
           <path d="M12 17C12.5523 17 13 16.5523 13 16C13 15.4477 12.5523 15 12 15C11.4477 15 11 15.4477 11 16C11 16.5523 11.4477 17 12 17Z" stroke="#9CA3AF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -375,10 +464,8 @@ const Nav = () => {
       </svg>
 
     </div> */}
-  </div>
-
-</div>
-          
+            </div>
+          </div>
         </>
       )}
       <hr className="" />

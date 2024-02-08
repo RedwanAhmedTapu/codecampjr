@@ -49,6 +49,7 @@ const ActiveStudent = () => {
   return (
     <>
       <div className="activeStudentContainer" >
+        
         <div className="activeStudentItemDiv">
           <div className="absolute w-8 h-8 rounded-full bg-gray-500 bottom-96 left-[20%]"></div>
 
