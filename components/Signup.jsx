@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState,useMemo } from "react";
 import { useRouter } from "next/navigation";
 import { ImSpinner9 } from "react-icons/im";
 import { AiFillApple } from "react-icons/ai";
@@ -155,10 +155,10 @@ const Signup = () => {
     }
   };
 
-  return (
+  const memoizedComponent = useMemo(() => (
     <>
       <div
-        className={`flex_center bg-slate-800 dark:bg-black   
+        className={`flex_center relative top-10 dark:bg-black   
         `}
       >
         <div className=" w-[50rem] flex flex-col self-center  h-full max-[560px]:p-6 min-[849px]:p-10 p-20 bg-slate-800 dark:bg-[#030303] blur-1  rounded-lg shadow-md gap-y-6 relative  top-10">
@@ -236,7 +236,7 @@ const Signup = () => {
             <p className="text-white text-2xl font-semibold">or</p>
             <div className="w-2/3 bg-slate-300 h-[0.25px]"></div>
           </div>
-          <div className="flex flex-col gap-y-8">
+          {/* <div className="flex flex-col gap-y-8">
             <div className="flex_center w-full h-10 gap-x-2 border-2 border-slate-300 rounded-lg">
               <GoogleOAuthProvider clientId="652975357008-sut0t0e8g66jbjaqbnouk0im5ofi3a5o.apps.googleusercontent.com">
                 <div className="w-full h-full flex_center bg-white rounded-lg">
@@ -274,7 +274,7 @@ const Signup = () => {
                 &nbsp;Sign In With Apple
               </p>
             </div>
-          </div>
+          </div> */}
           <div className="flex justify-between">
             <div className="flex_center gap-x-2">
               <input
@@ -320,7 +320,10 @@ const Signup = () => {
         </div>
       )} */}
     </>
-  );
-};
+      ), [user]);
+
+      return memoizedComponent;
+    };
+  
 
 export default Signup;

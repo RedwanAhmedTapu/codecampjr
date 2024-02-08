@@ -2,7 +2,7 @@
 import { ImSpinner9 } from "react-icons/im";
 import { AiFillApple } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
-import { useState } from "react";
+import { useState,useMemo } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import GlobeInnerRay from "./GlobeInnerRay";
@@ -156,8 +156,9 @@ const Login = () => {
     }
   };
 
-  return (
-    <div className="flex_center bg-slate-800 dark:bg-black h-screen">
+   const memoizedComponent = useMemo(() => (
+    <>
+    <div className="flex_center  relative top-10 dark:bg-black h-full">
       <div className=" w-[50rem] flex flex-col    h-full max-[560px]:p-6 min-[849px]:p-10 p-20 bg-slate-800 dark:bg-[#030303] blur-1  rounded-lg shadow-md gap-y-6 relative top-10 ">
         <div className="flex flex-col gap-y-4">
           <h1 className="text-xl flex justify-start items-center gap-x-2 text-white font-bold">
@@ -203,7 +204,7 @@ const Login = () => {
           <p className="text-white text-2xl font-semibold">or</p>
           <div className="w-2/3 bg-slate-300 h-[0.25px]"></div>
         </div>
-        <div className="flex flex-col gap-y-8">
+        {/* <div className="flex flex-col gap-y-8">
           <div className="flex_center w-full h-10 gap-x-2 border-2 border-slate-300 rounded-lg">
             <GoogleOAuthProvider clientId="652975357008-sut0t0e8g66jbjaqbnouk0im5ofi3a5o.apps.googleusercontent.com">
               <div className="w-full h-full flex_center bg-white rounded-lg">
@@ -242,7 +243,7 @@ const Login = () => {
               &nbsp;Sign In With Apple
             </p>
           </div>
-        </div>
+        </div> */}
         <div className="flex justify-between">
           <div className="flex_center gap-x-2">
             <input
@@ -261,7 +262,10 @@ const Login = () => {
         </div>
       </div>
     </div>
-  );
+    </>
+  ), [user]);
+
+  return memoizedComponent;
 };
 
 export default Login;

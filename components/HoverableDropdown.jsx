@@ -8,29 +8,55 @@ const HoverableDropdown = () => {
       </button>
       <div className="absolute top-8 min-[900px]:-left-48 hidden min-[900px]:bg-black bg-slate-900 min-[500px]:w-[30rem] w-[20rem]  border-4 border-bg-gradient-to-r border-from-pink-500 border-via-red-500 border-to-yellow-500  border-gray-700 rounded-md shadow-md group-hover:block  flex_center divide-y divide-gray-200">
         <a
-          href="#"
+          href="/free-trial-class"
           className="dropdownMenu"
         >
-         Web Courses 
+        Html 
         </a>
         <a
-          href="#"
+          href="/free-trial-class"
           className="dropdownMenu"
         >
-          Web Automation
+        Css3 
         </a>
         <a
-          href="#"
+          href="/free-trial-class"
           className="dropdownMenu"
         >
-         AI Intelligence
+        Javascript 
         </a>
         <a
-          href="#"
+          href="/free-trial-class"
           className="dropdownMenu"
         >
-        Data Science
+        Python 
         </a>
+        <a
+          href="/free-trial-class"
+          className="dropdownMenu"
+        >
+        Reactjs 
+        </a>
+        <a
+          href="/free-trial-class"
+          className="dropdownMenu"
+        >
+        Tailwindcss 
+        </a>
+        <a
+          href="/free-trial-class"
+          className="dropdownMenu"
+        >
+        NodeJs 
+        </a>
+        <a
+          href="/free-trial-class"
+          className="dropdownMenu"
+        >
+        MongoDB 
+        </a>
+       
+       
       </div>
     </div>
   );

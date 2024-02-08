@@ -22,10 +22,8 @@ import Svg from "@components/Svg";
 import BlinkingCard from "@components/BlinkingCard";
 import CoursesSchedule from "@components/CoursesSchedule";
 import Level from "@components/Level";
-import GlobeInnerRay from "@components/GlobeInnerRay";
-import { HiOutlineRocketLaunch } from "react-icons/hi2";
-import CodeDivDesignforHomePage from "@components/CodeDivDesignforHomePage";
-import FingerprintLogin from "@components/FingerprintLogin";
+import QuestionAndAnswer from "@components/QuestionAndAnswer";
+// import { HiOutlineRocketLaunch } from "react-icons/hi2";
 // import SelectLevel from "@components/SelectLevel";
 
 
@@ -91,6 +89,7 @@ const Home = () => {
              width={300}
               height={300}
               className="max-[500px]:w-[20rem] max-[500px]:h-[20rem] max-[1000px]:w-[30rem] max-[1000px]:h-[30rem] w-[40rem] h-[40rem]   text-black   overflow-hidden"
+              alt="section-img"
             />
           </div>
       </section>
@@ -106,6 +105,7 @@ const Home = () => {
         <BlinkingCard />
         <ActiveStudent />
         <ProPracticeCard />
+        <QuestionAndAnswer/>
         {/* <SelectLevel/> */}
         {/* <FooterJr /> */}
         {/* <CoursesSchedule/> */}

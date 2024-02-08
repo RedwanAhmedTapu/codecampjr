@@ -67,10 +67,10 @@
     @apply font-serif p-4 font-extrabold text-transparent text-xl bg-clip-text bg-gradient-to-r from-white to-cyan-50 opacity-100 leading-8;
   }
   .navlist {
-    @apply bg-slate-300 hover:bg-white hover:transition-colors hover:ease-in  hover:font-semibold bg-clip-text text-transparent text-[1.2rem];
+    @apply max-[899px]:bg-slate-700 max-[899px]:hover:bg-slate-500 hover:transition-colors hover:ease-in  hover:font-semibold   text-[1.2rem];
   }
   .list {
-    @apply border min-[900px]:border-none border-dashed w-full flex justify-center items-center;
+    @apply  min-[900px]:border-none  w-full flex justify-center items-center;
   }
   /* .card_color {
     @apply bg-black opacity-10;
@@ -121,10 +121,10 @@
     @apply max-[500px]:w-[19rem] max-[500px]:h-[18rem] w-[25rem] h-[22rem] bg-[#fcfafa] dark:inner_div_light dark:opacity-90  relative shadow-lg rounded-lg transition-all duration-300 ease-in max-[500px]:hover:h-[23rem] hover:h-[24rem];
   }
   .inner_image {
-    @apply max-[500px]:w-[19rem] max-[500px]:h-[16rem] w-[25rem] h-[20rem] absolute -top-4 -left-4 max-[500px]:hover:w-[17rem] hover:w-[23rem] hover:top-2 hover:left-4 transition-all duration-300 ease-in shadow-lg rounded-lg object-cover;
+    @apply max-[500px]:w-[19rem] max-[500px]:h-[16rem] w-[25rem] h-[20rem] absolute -top-4 -left-4 max-[500px]:hover:w-[17rem] hover:w-[23rem] hover:top-2 hover:left-4 transition-all duration-300 ease-in shadow-lg rounded-lg object-contain;
   }
   .inner_text {
-    @apply text-[1.5rem]  align-text-bottom text-slate-800  dark:bg-gradient-to-br dark:from-slate-400 dark:to-slate-50 dark:bg-clip-text dark:text-transparent   font-semibold absolute bottom-3 left-4;
+    @apply text-[1.5rem] max-[503px]:text-[1rem]  align-text-bottom text-slate-800  dark:bg-gradient-to-br dark:from-slate-400 dark:to-slate-50 dark:bg-clip-text dark:text-transparent   font-semibold absolute bottom-3 left-4;
   }
   /* end of styling Card.jsx */
 

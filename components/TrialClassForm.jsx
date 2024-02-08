@@ -1,6 +1,6 @@
 "use client";
 import axios from "axios";
-import { useState } from "react";
+import { useState,useMemo } from "react";
 import { useRouter } from "next/navigation";
 import { Blocks } from "react-loader-spinner";
 
@@ -20,6 +20,7 @@ const TrialClassForm = () => {
   const [resData, setResData] = useState("");
 
   const router = useRouter();
+  console.log("trial")
 
 
   const server=`https://codecampjrbackend.onrender.com`;
@@ -99,7 +100,8 @@ const TrialClassForm = () => {
       months: "6 months",
     },
   ];
-  return (
+  
+    const memoizedComponent = useMemo(() => (
     <>
       <div
         className={`flex flex-col w-full  h-full  mt-16 gap-y-8 ${
@@ -340,7 +342,12 @@ const TrialClassForm = () => {
         </div>
       )}
     </>
-  );
-};
+     ), [isOpen,loader,user,resData]);
+
+     return memoizedComponent;
+   };
+   
+  
+
 
 export default TrialClassForm;

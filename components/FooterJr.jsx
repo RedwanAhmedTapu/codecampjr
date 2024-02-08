@@ -168,8 +168,8 @@ const FooterJr = () => {
           </Link>
         </div>
       </div>
-      <Payment setPayment={setPayment} />
-      {payment && (
+      {/* <Payment setPayment={setPayment} /> */}
+      {/* {payment && (
         <div className="relative  w-full h-full flex_center">
           <div className="bg-gradient-to-br from-black via-gray-800 to-gray-900 rounded-md p-8 max-[470px]:w[15rem] max-[600px]:w[20rem]  w-[30rem] h-[20rem] shadow-md flex flex-col justify-between text-white  mt-20">
             <div className="flex justify-between">
@@ -203,7 +203,7 @@ const FooterJr = () => {
             </div>
           </div>
         </div>
-      )}
+      )} */}
     </>
   );
 };

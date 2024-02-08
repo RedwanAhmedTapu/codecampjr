@@ -16,7 +16,7 @@ const Nav = () => {
   const [toggle, setToggle] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
   
-  console.log(toggle)
+  console.log(toggle);
 
   const isLoggedIn = true;
   const router=useRouter();
@@ -141,18 +141,10 @@ const Nav = () => {
 
       {toggle && (
         <>
-          {/* <ul className="fixed top-[4.2rem] min-[900px]:hidden w-full h-64 z-20 bg-slate-900 flex flex-col justify-evenly items-center ">
-            <li className="navlist list">
-              {" "}
-              <Link href="/">Home</Link>
-            </li>
-            <HoverableDropdown className="navlist list" />
-            <li className="navlist list"></li>
-          </ul> */}
-        
+         
  
   
-<div id="Main" className="rounded-r transform  translate-x-0  ease-in-out transition duration-500 flex justify-start items-start h-full  w-full   bg-gray-900 flex-col min-[900px]:hidden fixed top-16 z-50">
+        <div id="Main" className={`${toggle ? "rounded-r     flex justify-start items-start bg-gray-900 flex-col min-[900px]:hidden w-full h-screen  absolute top-16 z-50  transition-all duration-1000 ease-in-out " : " h-0"}`}>
 
   
   {/* <div className="mt-6 flex flex-col justify-start items-center  pl-4 w-full border-gray-600 border-b space-y-3 pb-5 ">
@@ -174,7 +166,16 @@ const Nav = () => {
     </button>
   </div> */}
   <div className="flex flex-col justify-start items-center   px-6 border-b border-gray-600 w-full  ">
-    <button onclick="showMenu1(true)" className="focus:outline-none focus:text-indigo-400 text-left  text-white flex justify-between items-center w-full py-5 space-x-14  ">
+     <ul className="fixed top-[4.2rem] min-[900px]:hidden w-full h-64 z-20 bg-slate-900 flex flex-col justify-evenly items-center ">
+            <li className="navlist list text-white">
+              {" "}
+              <Link href="/">About</Link>
+            </li>
+            <HoverableDropdown className="navlist list" />
+            <li className="navlist list"></li>
+          </ul>
+        
+    {/* <button onclick="showMenu1(true)" className="focus:outline-none focus:text-indigo-400 text-left  text-white flex justify-between items-center w-full py-5 space-x-14  ">
       <p className="text-sm leading-5  uppercase">Profile Overview</p>
       <svg id="icon1" className="transform" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M18 15L12 9L6 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -340,8 +341,8 @@ const Nav = () => {
           <path d="M17 10C18.6569 10 20 8.65685 20 7C20 5.34314 18.6569 4 17 4C15.3431 4 14 5.34314 14 7C14 8.65685 15.3431 10 17 10Z" stroke="#9CA3AF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
         <p className="text-base leading-4  ">Notifications</p>
-      </button>
-      <button className="flex justify-start items-center space-x-6 hover:text-white focus:bg-gray-700 focus:text-white hover:bg-gray-700 text-gray-400 rounded px-3 py-2  w-52">
+      </button> */}
+      {/* <button className="flex justify-start items-center space-x-6 hover:text-white focus:bg-gray-700 focus:text-white hover:bg-gray-700 text-gray-400 rounded px-3 py-2  w-52">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M17 11H7C5.89543 11 5 11.8955 5 13V19C5 20.1046 5.89543 21 7 21H17C18.1046 21 19 20.1046 19 19V13C19 11.8955 18.1046 11 17 11Z" stroke="#9CA3AF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
           <path d="M12 17C12.5523 17 13 16.5523 13 16C13 15.4477 12.5523 15 12 15C11.4477 15 11 15.4477 11 16C11 16.5523 11.4477 17 12 17Z" stroke="#9CA3AF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -373,7 +374,7 @@ const Nav = () => {
         <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
       </svg>
 
-    </div>
+    </div> */}
   </div>
 
 </div>

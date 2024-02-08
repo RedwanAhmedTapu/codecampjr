@@ -59,6 +59,7 @@ const ActiveStudent = () => {
             height={300}
             layout="fixed"
             className="relative w-[4.5rem] h-[4.5rem] rounded-full top-52 left-[60%]"
+            alt="support-community-img"
           />
           <Image
             src={`${images[currentImageIndex2]}`}
@@ -66,6 +67,8 @@ const ActiveStudent = () => {
             height={300}
             layout="fixed"
             className="relative w-[5.7rem] h-[5.7rem] rounded-full top-72 left-[12%]"
+            alt="support-community-img"
+
           />
           <Image
             src={`${images[currentImageIndex3]}`}
@@ -73,6 +76,8 @@ const ActiveStudent = () => {
             height={300}
             layout="fixed"
             className="relative w-[6rem] h-[6rem] rounded-full top-96 left-[55%]"
+            alt="support-community-img"
+
           />
           <Image
             src={`${images[currentImageIndex4]}`}
@@ -80,6 +85,8 @@ const ActiveStudent = () => {
             height={300}
             layout="fixed"
             className="relative w-[10rem] h-[10rem] rounded-full top-96 left-[8%] "
+            alt="support-community-img"
+
           />
         </div>
         <div className="activeStudentTextDiv">
@@ -112,6 +119,8 @@ const ActiveStudent = () => {
             height={300}
             layout="fixed"
             className="relative w-[4.5rem] h-[4.5rem] rounded-full top-52 left-[60%]"
+            alt="support-community-img"
+
           />
           <Image
             src={`${images[currentImageIndex2]}`}
@@ -119,6 +128,8 @@ const ActiveStudent = () => {
             height={300}
             layout="fixed"
             className="relative w-[5.7rem] h-[5.7rem] rounded-full top-72 left-[12%]"
+            alt="support-community-img"
+
           />
           <Image
             src={`${images[currentImageIndex3]}`}
@@ -126,6 +137,8 @@ const ActiveStudent = () => {
             height={300}
             layout="fixed"
             className="relative w-[6rem] h-[6rem] rounded-full top-96 left-[55%]"
+            alt="support-community-img"
+
           />
           <Image
             src={`${images[currentImageIndex4]}`}
@@ -133,6 +146,8 @@ const ActiveStudent = () => {
             height={300}
             layout="fixed"
             className="relative w-[10rem] h-[10rem] rounded-full top-96 left-[8%] "
+            alt="support-community-img"
+
           />
         </div>
       </div>
@@ -171,6 +186,8 @@ const ActiveStudent = () => {
             height={300}
             layout="fixed"
             className="relative w-[4.5rem] h-[4.5rem] rounded-full top-52 left-[30%]"
+            alt="support-community-img"
+
           />
           <Image
             src={`${images[currentImageIndex2]}`}
@@ -178,6 +195,8 @@ const ActiveStudent = () => {
             height={300}
             layout="fixed"
             className="relative w-[5.7rem] h-[5.7rem] rounded-full min-[663px]:top-44 min-[663px]:left-[12%] left-48 top-18"
+            alt="support-community-img"
+
           />
           <Image
             src={`${images[currentImageIndex3]}`}
@@ -185,6 +204,8 @@ const ActiveStudent = () => {
             height={300}
             layout="fixed"
             className="relative w-[6rem] h-[6rem] rounded-full top-10 min-[663px]:left-[55%] -right-[65%]"
+            alt="support-community-img"
+
           />
           <Image
             src={`${images[currentImageIndex4]}`}
@@ -192,6 +213,8 @@ const ActiveStudent = () => {
             height={300}
             layout="fixed"
             className="relative min-[663px]:w-[10rem] object-fit  min-[663px]:h-[10rem] w-[6rem] h-[6rem] rounded-full -top-24 min-[663px]:-right-[75%] right-10% "
+            alt="support-community-img"
+
           />
         </div>
       </div>

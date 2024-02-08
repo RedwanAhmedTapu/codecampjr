@@ -17,7 +17,7 @@ const Card = () => {
     {
       data.map((curElem,index)=>{
         return(<>
-          <div className="inner_div">
+          <div className="inner_div" key={index}>
         <Image
           src={curElem.img}
           width={300}

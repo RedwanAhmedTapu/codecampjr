@@ -21,9 +21,10 @@ const UserDashBoard = () => {
   const searchParams = useSearchParams();
   const emailId = searchParams.get("userEmail");
   const router=useRouter();
+  
 
-const server=`https://codecampjrbackend.onrender.com`;
-// const server=`http://localhost:5000`;
+// const server=`https://codecampjrbackend.onrender.com`;
+const server=`http://localhost:5000`;
 
 
   const handleFileChange = (event) => {
@@ -44,8 +45,8 @@ const server=`https://codecampjrbackend.onrender.com`;
             },
           }
         );
-        // localStorage.setItem("storedUrl", response.data.imageUrl);
-        setImageUrl(response.data.imageUrl);
+        localStorage.setItem("storedUrl", response.data.imageUrl);
+        // setImageUrl(localStorage.getItem("storedUrl"));
         console.log("File uploaded successfully!");
       } catch (error) {
         console.error("Error uploading file:", error);
@@ -135,10 +136,10 @@ const server=`https://codecampjrbackend.onrender.com`;
                 </p>
                 <div className="flex_center flex-col space-y-2 uppercase">
                   <p className="text-slate-900 dark:text-white text-center text-xl uppercase">
-                    {/* {userData.schedule.days[0]} */}
+                    {userData.schedule.days[0]}
                   </p>
                   <p className="text-slate-900 dark:text-white text-center text-xl uppercase">
-                    {/* {userData.schedule.days[1]} */}
+                    {userData.schedule.days[1]}
                   </p>
                 </div>
               </div>
@@ -147,24 +148,24 @@ const server=`https://codecampjrbackend.onrender.com`;
                   Time
                 </p>
                 <p className="text-white text-center text-xl uppercase">
-                  {/* {userData.schedule.time} */}
+                  {userData.schedule.time}
                 </p>
               </div>
             </div>
           </div>
           <div className="w-[20%] max-[1029px]:w-full h-full bg-white dark:bg-[#060606] flex items-center gap-y-12 flex-col overflow-hidden">
             <div className="w-64 mx-auto ">
-              {imageUrl && (
-                <div className="mt-4 ml-8 flex_center">
+             <div className="w-full flex_center">
+                <div className="  w-44 h-44 border-[0.2rem] border-slate-400 rounded-full flex_center bg-white">
                   <Image
-                    src={imageUrl}
+                    src={localStorage.getItem("storedUrl")}
                     alt="Uploaded"
-                    className="rounded-full w-44 h-44"
+                    className="rounded-full w-full h-full"
                     width={300}
                     height={300}
                   />
                 </div>
-              )}
+                </div>
               <input
                 type="file"
                 className="file-input rounded-full p-2"
