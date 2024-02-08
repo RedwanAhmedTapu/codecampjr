@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Menubar from "./Menubar";
-import { useState, useEffect } from "react";
+import { useState, useEffect,useMemo } from "react";
 import { ImSpinner9 } from "react-icons/im";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";
@@ -43,7 +43,7 @@ const Nav = () => {
     setIsDarkMode(false);
   };
 
-  return (
+  const memoizedComponent = useMemo(() => (
     <>
       <nav className="bg-[#fffcfc] dark:bg_color   flex justify-around sm:justify-evenly  items-center w-full h-16 dark:shadow-lg  py-8 max-[551px]:pr-10 fixed top-0 z-50">
         <Link
@@ -470,7 +470,9 @@ const Nav = () => {
       )}
       <hr className="" />
     </>
-  );
+  ), [user,toggle,isDarkMode]);
+
+  return memoizedComponent;
 };
 
 export default Nav;

@@ -1,7 +1,9 @@
 "use client"
+import { useMemo } from "react";
 import {AiOutlineRight} from "react-icons/ai";
 const HoverableDropdown = () => {
-  return (
+
+const memoizedComponent = useMemo(() => (
     <div className="relative group  max-w-full   w-full flex_center">
       <button className="navlist  list text-slate-800  dark:text-white">
         Courses&nbsp;<AiOutlineRight className="text-slate-800  dark:text-white transform rotate-90 group-hover:rotate-[450deg] transition-transform duration-700"  />
@@ -59,7 +61,9 @@ const HoverableDropdown = () => {
        
       </div>
     </div>
-  );
+  ), []);
+
+  return memoizedComponent;
 };
 
 export default HoverableDropdown;

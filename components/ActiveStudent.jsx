@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect,useMemo } from "react";
 import CodeEditor from "./CodeEditor";
 
 const ActiveStudent = () => {
@@ -46,7 +46,7 @@ const ActiveStudent = () => {
 
     return () => clearInterval(interval);
   }, [images.length]);
-  return (
+  const memoizedComponent = useMemo(() => (
     <>
       <div className="activeStudentContainer" >
         
@@ -220,7 +220,9 @@ const ActiveStudent = () => {
         </div>
       </div>
     </>
-  );
+  ), [currentImageIndex1,currentImageIndex2,currentImageIndex3,currentImageIndex4,hovered,number,images]);
+
+  return memoizedComponent;
 };
 
 export default ActiveStudent;

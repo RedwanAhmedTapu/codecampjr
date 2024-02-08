@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState,useMemo } from "react";
 import { AiFillHtml5 } from "react-icons/ai";
 import { ImCss3 } from "react-icons/im";
 import { SiExpress } from "react-icons/si";
@@ -30,7 +30,7 @@ const SlidingComponent = () => {
 
   const Slider_Item_Info = [];
 
-  return (
+  const memoizedComponent = useMemo(() => (
     <>
       <div className=" max-[900px]:hidden w-full h-[20rem] bg-white dark:bg-[#000000]   box-border   flex justify-center items-center ">
         <div className="w-[54rem] h-[15rem]    flex justify-center items-center  gap-4 ">
@@ -281,7 +281,9 @@ const SlidingComponent = () => {
         </div>
       </div>
     </>
-  );
+  ), []);
+
+  return memoizedComponent;
 };
 
 export default SlidingComponent;
