@@ -56,8 +56,9 @@ const Nav = () => {
               <Image
                 src="/assets/images/codecamplogo.svg"
                 alt="logo"
-                width={80}
-                height={50}
+                width={300}
+                height={300}
+                className="w-full h-full object-contain"
               />
             </div>
           </Link>
