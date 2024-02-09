@@ -54,7 +54,7 @@ const Nav = () => {
           >
             <div className=" max-[600px]:w-32 w-44  h-auto self-center  overflow-hidden">
               <Image
-                src="/assets/images/logo.svg"
+                src="/assets/images/codecamplogo.svg"
                 alt="logo"
                 width={80}
                 height={50}
