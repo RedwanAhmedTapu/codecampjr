@@ -323,7 +323,7 @@ const TrialClassForm = () => {
                <p className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-green-600">
               {resData==="registration completed for the class"?`success!`:resData}
              </p> 
-            {!resData==="registration completed for the class"&&(
+            {resData==="registration completed for the class"&&(
               <div className="w-full h-16 flex_center items-end">
                 {/* Animation */}
                 <div className="relative">
