@@ -45,11 +45,9 @@ const Login = () => {
               alert("wrong password and email");
             } else {
               if (res.data.token) {
-                localStorage.setItem("accessToken", res.data.token);
-
-                axios.defaults.headers.common[
-                  "Authorization"
-                ] = ` ${localStorage.getItem("accessToken")}`;
+                const token = `Bearer ${res.data.token}`;
+                localStorage.setItem("accessToken", token);
+                axios.defaults.headers.common["Authorization"] = token;
                 // setToken(true);
                 const logintTime=Date.now();
                 localStorage.setItem("logintTime", logintTime);
