@@ -23,8 +23,8 @@ const TrialClassForm = () => {
   console.log("trial")
 
 
-  const server=`https://codecampjrbackend.onrender.com`;
-// const server=`http://localhost:5000`;
+  const server=process.env.SERVER_URL;
+
   console.log(user);
   const handleChange = (e) => {
     const { name, value } = e.target;

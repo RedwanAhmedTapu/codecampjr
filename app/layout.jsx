@@ -44,7 +44,7 @@ const Rootlayout = ({ children }) => {
         <Nav />
        
 
-        <main className="app">{children}</main>
+        <main className="app ">{children}</main>
 
         <FooterJr/>
         

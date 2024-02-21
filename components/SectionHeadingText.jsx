@@ -4,7 +4,7 @@ import GlobeInnerRay from "./GlobeInnerRay";
 import Link from "next/link";
 const SectionHeadingText = () => {
   return (
-    <div className="w-full flex flex-col gap-y-8 justify-start max-[800px]:justify-center text-start max-[800px]:pl-4 pl-20">
+    <div className="w-full h-full flex flex-col gap-y-8 justify-start max-[800px]:justify-center text-start max-[800px]:pl-4 pl-20">
       <div className="flex flex-col justify-evenly -gap-2">
       <p className="head_text_light dark:head_text text-start dark:text-start">
         Unlock the

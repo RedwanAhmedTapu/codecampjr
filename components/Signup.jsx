@@ -20,8 +20,8 @@ const Signup = () => {
   // const [code, setCode] = useState("");
   // const [isOtp, setIsOtp] = useState(false);
 
-  const server=`https://codecampjrbackend.onrender.com`;
-// const server=`http://localhost:5000`;
+  const server=process.env.SERVER_URL;
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;

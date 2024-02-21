@@ -4,6 +4,7 @@ import { useSearchParams } from "next/navigation";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { FcSimCardChip } from "react-icons/fc";
+import isAuth from "./IsAuth";
 const SelectLevel = () => {
   const [studentSchedule, setStudentSchedule] = useState({
     level: "",
@@ -121,8 +122,8 @@ const SelectLevel = () => {
   const [isActive, setIsActive] = useState(false);
   const [payment, setPayment] = useState(false);
 
-  const server=`https://codecampjrbackend.onrender.com`;
-  // const server=`http://localhost:5000`;
+  const server=process.env.SERVER_URL;
+
 
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -489,4 +490,4 @@ const SelectLevel = () => {
   );
 };
 
-export default SelectLevel;
+export default isAuth(SelectLevel);

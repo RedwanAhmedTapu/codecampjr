@@ -10,6 +10,7 @@ import { ImSpinner9 } from "react-icons/im";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import isAuth from "./IsAuth";
 
 const UserDashBoard = () => {
   const [userData, setUserData] = useState();
@@ -23,8 +24,8 @@ const UserDashBoard = () => {
   const router=useRouter();
   
 
-const server=`https://codecampjrbackend.onrender.com`;
-// const server=`http://localhost:5000`;
+  const server=process.env.SERVER_URL;
+
 
 
   const handleFileChange = (event) => {
@@ -198,4 +199,4 @@ const server=`https://codecampjrbackend.onrender.com`;
   );
 };
 
-export default UserDashBoard;
+export default isAuth(UserDashBoard);

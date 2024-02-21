@@ -6,6 +6,7 @@ import "../styles/bootstrap.min.css";
 import Image from "next/image";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import isAuth from "./IsAuth";
 
 const AdminDashboard = () => {
   const [learnerData, setLearnerData] = useState([]);
@@ -29,8 +30,8 @@ const AdminDashboard = () => {
   ];
   const [currentDate, setCurrentDate] = useState(new Date());
 
-  const server=`https://codecampjrbackend.onrender.com`;
-  // const server = `http://localhost:5000`;
+  const server=process.env.SERVER_URL;
+
 
   const router = useRouter();
 
@@ -864,4 +865,4 @@ const AdminDashboard = () => {
   );
 };
 
-export default AdminDashboard;
+export default isAuth(AdminDashboard);

@@ -23,6 +23,7 @@ import BlinkingCard from "@components/BlinkingCard";
 import CoursesSchedule from "@components/CoursesSchedule";
 import Level from "@components/Level";
 import QuestionAndAnswer from "@components/QuestionAndAnswer";
+// import CodeSuggestion from "@components/CodeSuggestion";
 // import { HiOutlineRocketLaunch } from "react-icons/hi2";
 // import SelectLevel from "@components/SelectLevel";
 
@@ -95,6 +96,7 @@ const Home = () => {
         <BlinkingCard />
         <ActiveStudent />
         <ProPracticeCard />
+        {/* <CodeSuggestion/> */}
         <QuestionAndAnswer/>
         {/* <SelectLevel/> */}
         {/* <FooterJr /> */}
