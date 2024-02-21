@@ -51,18 +51,18 @@ const Login = () => {
                 localStorage.setItem("logintTime", logintTime);
                 localStorage.setItem("accessToken", token);
                 
-                // const { email, fname, isLoggedin, isVerified, lname } =res.data.user;
-                // console.log({ email, fname, isLoggedin, isVerified, lname });
-                // localStorage.setItem(
-                //   "loggedUser",
-                //   JSON.stringify({
-                //     email,
-                //     fname,
-                //     isLoggedin,
-                //     isVerified,
-                //     lname,
-                //   })
-                // );
+                const { email, fname, isLoggedin, isVerified, lname } =res.data.user;
+                console.log({ email, fname, isLoggedin, isVerified, lname });
+                localStorage.setItem(
+                  "loggedUser",
+                  JSON.stringify({
+                    email,
+                    fname,
+                    isLoggedin,
+                    isVerified,
+                    lname,
+                  })
+                );
 
                 if (email === "codecampjr@gmail.com") {
                   router.push("/adminDashboard");
