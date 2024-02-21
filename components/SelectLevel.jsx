@@ -211,15 +211,22 @@ const SelectLevel = () => {
   const handleSubmitForTrial = async () => {
     // setPayment(true);
     // setIsActive(false);
+    
     const res = await axios
-      .put(
-        `${server}/update-trial-learner-data`,
-        studentSchedule
-      )
-      .then((res) => {
-        console.log(res);
-        router.push(`/adminDashboard`);
-      });
+    .put(
+      `${server}/update-trial-learner-data`,
+      studentSchedule, 
+      {
+        headers: {
+          "Authorization": ` ${localStorage.getItem('accessToken')}`
+        }
+      }
+    )
+    .then((res) => {
+      console.log(res);
+      router.push(`/adminDashboard`);
+    });
+  
   };
   // handleSubmit for active-student
   const handleSubmitActiveStudent = async () => {
@@ -228,7 +235,12 @@ const SelectLevel = () => {
     const res = await axios
       .put(
         `${server}/update-trial-to-active-learner-data`,
-        studentSchedule
+        studentSchedule,
+        {
+          headers: {
+            "Authorization": ` ${localStorage.getItem('accessToken')}`
+          }
+        }
       )
       .then((res) => {
         console.log(res);
@@ -475,7 +487,7 @@ const SelectLevel = () => {
                       `${server}/active-user/order/${email}`,
                       {
                         headers: {
-                          Authorization: `Bearer ${localStorage.getItem('token')}`
+                          "Authorization": ` ${localStorage.getItem('accessToken')}`
                         }
                       }
                     )

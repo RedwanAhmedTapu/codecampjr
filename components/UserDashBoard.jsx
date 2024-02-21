@@ -35,6 +35,7 @@ const UserDashBoard = () => {
     if (selectedFile) {
       const formData = new FormData();
       formData.append("photo", selectedFile);
+      console.log(localStorage.getItem('accessToken'))
 
       try {
         const response = await axios.post(
@@ -44,7 +45,7 @@ const UserDashBoard = () => {
           {
             headers: {
               "Content-Type": "multipart/form-data",
-              "Authorization": `Bearer ${localStorage.getItem('token')}`
+              "Authorization": ` ${localStorage.getItem('accessToken')}`
 
             },
           }
@@ -63,7 +64,7 @@ const UserDashBoard = () => {
       const data = await axios
         .get(`${server}/active-user/info/${emailId}`,{
           headers: {
-            Authorization: `Bearer ${localStorage.getItem('token')}`
+            Authorization: ` ${localStorage.getItem('accessToken')}`
           }
         })
         .then((res) => {

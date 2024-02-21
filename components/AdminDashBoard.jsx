@@ -40,7 +40,7 @@ const AdminDashboard = () => {
       try {
         const response = await axios.get(`${server}/learner-data`, {
           headers: {
-            Authorization: `Bearer ${localStorage.getItem('token')}`
+            "Authorization": ` ${localStorage.getItem('accessToken')}`
           }
         });
         setLearnerData(response.data);
@@ -282,7 +282,7 @@ const AdminDashboard = () => {
                 {learnerData.map(
                   (item) =>
                     item.active && (
-                      <tr key={item.id} className="border-b">
+                      <tr key={item._id} className="border-b">
                         <td className="p-2 uppercase">{item.learnerName}</td>
                         <td className="p-2">{item.phone}</td>
                         <td className="p-2">{item.level}</td>
@@ -325,7 +325,7 @@ const AdminDashboard = () => {
                 {learnerData &&
                   learnerData.map((item) => (
                     <div
-                      key={item}
+                      key={item._id}
                       className="flex items-center justify-center  py-3"
                     >
                       {/* <Image
@@ -362,10 +362,15 @@ const AdminDashboard = () => {
                                     `${server}/learner-delete/${item.learnerEmail}`,
                                     {
                                       headers: {
-                                        Authorization: `Bearer ${localStorage.getItem('token')}`
+                                        "Authorization": `${localStorage.getItem('accessToken')}`
                                       }
                                     }
                                   );
+                                  if(res.data.message==="Learner deleted successfully"){
+                                    router.push(
+                                      `/adminDashboard`
+                                    );
+                                  }
                                   alert(res.data.message);
                                 } catch (error) {
                                   console.log(error);
@@ -431,12 +436,20 @@ const AdminDashboard = () => {
                                   onClick={async () => {
                                     try {
                                       const res = await axios.put(
-                                        `${server}/learner-update/${item.learnerEmail}`,{
+                                        `${server}/learner-update/${item.learnerEmail}`,
+                                        {}, // Empty object as data, assuming you don't need to send any data
+                                        {
                                           headers: {
-                                            Authorization: `Bearer ${localStorage.getItem('token')}`
+                                            "Authorization": localStorage.getItem('accessToken')
                                           }
                                         }
                                       );
+                                      if(res.data.message==="Completed status updated successfully"){
+                                        router.push(
+                                          `/adminDashboard`
+                                        );
+                                      }
+                                      
                                       alert(res.data.message);
                                     } catch (error) {
                                       console.log(error);
@@ -501,12 +514,20 @@ const AdminDashboard = () => {
                                   onClick={async () => {
                                     try {
                                       const res = await axios.put(
-                                        `${server}/learner-update/${item.learnerEmail}`,{
+                                        `${server}/learner-update/${item.learnerEmail}`,
+                                        {}, // Empty object as data, assuming you don't need to send any data
+                                        {
                                           headers: {
-                                            Authorization: `Bearer ${localStorage.getItem('token')}`
+                                            "Authorization": localStorage.getItem('accessToken')
                                           }
                                         }
                                       );
+                                      if(res.data.message==="Completed status updated successfully"){
+                                        router.push(
+                                          `/adminDashboard`
+                                        );
+                                      }
+                                      
                                       alert(res.data.message);
                                     } catch (error) {
                                       console.log(error);
@@ -571,12 +592,19 @@ const AdminDashboard = () => {
                                   onClick={async () => {
                                     try {
                                       const res = await axios.put(
-                                        `${server}/learner-update/${item.learnerEmail}`,{
+                                        `${server}/learner-update/${item.learnerEmail}`,
+                                        {}, // Empty object as data, assuming you don't need to send any data
+                                        {
                                           headers: {
-                                            Authorization: `Bearer ${localStorage.getItem('token')}`
+                                            "Authorization": localStorage.getItem('accessToken')
                                           }
                                         }
                                       );
+                                      if(res.data.message==="Completed status updated successfully"){
+                                        router.push(
+                                          `/adminDashboard`
+                                        );
+                                      }
                                       alert(res.data.message);
                                     } catch (error) {
                                       console.log(error);
@@ -615,7 +643,7 @@ const AdminDashboard = () => {
                       item.completed === true &&
                       item.level === "level-A" && (
                         <div
-                          key={item}
+                          key={item._id}
                           className="flex items-center justify-center  py-3"
                         >
                           {/* <Image
@@ -676,7 +704,7 @@ const AdminDashboard = () => {
                       item.completed === true &&
                       item.level === "level-B" && (
                         <div
-                          key={item}
+                          key={item._id}
                           className="flex items-center justify-center  py-3"
                         >
                           {/* <Image
@@ -737,7 +765,7 @@ const AdminDashboard = () => {
                       item.completed === true &&
                       item.level === "level-C" && (
                         <div
-                          key={item}
+                          key={item._id}
                           className="flex items-center justify-center  py-3"
                         >
                           {/* <Image
@@ -838,8 +866,8 @@ const AdminDashboard = () => {
               </div>
 
               {/* To Do Items */}
-              {[1, 2, 3, 4, 5, 6].map((item) => (
-                <div key={item} className="flex items-center border-b py-2">
+              {[1, 2, 3, 4, 5, 6].map((item,index) => (
+                <div key={index} className="flex items-center border-b py-2">
                   <input className="form-checkbox m-0" type="checkbox" />
                   <div className="w-3/4 ms-3">
                     <div className="flex items-center justify-between">

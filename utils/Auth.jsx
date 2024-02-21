@@ -2,12 +2,13 @@ export const authState = () => {
   let isAuthenticated = false;
   const token = localStorage.getItem("accessToken");
   const logintTime = localStorage.getItem("logintTime");
-  if (token && logintTime + 10000 > Date.now()) {
+  const logintTimeInteger = parseInt(logintTime, 10);
+  console.log(logintTimeInteger + 10);
+  if (token && (logintTimeInteger + 60000) > Date.now()) {
     isAuthenticated = true;
+  } else {
+    isAuthenticated = false;
   }
- else{
-    isAuthenticated=false;
- }
-  console.log(isAuthenticated)
+  console.log(isAuthenticated);
   return isAuthenticated;
 };
