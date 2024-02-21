@@ -1,4 +1,4 @@
-import { authState } from "@/Utils/Auth";
+import { authState } from "@/utils/Auth";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 

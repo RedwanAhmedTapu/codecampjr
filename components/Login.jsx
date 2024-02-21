@@ -10,7 +10,6 @@ import { ConstructionOutlined } from "@mui/icons-material";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { GoogleLogin } from "@react-oauth/google";
 import jwt_decode from "jwt-decode";
-import { isAuthenticated } from "@utils/Auth";
 const Login = () => {
   const [user, setUser] = useState({
     email: "",
