@@ -472,7 +472,12 @@ const SelectLevel = () => {
                 onClick={async () => {
                   const res = await axios
                     .post(
-                      `${server}/active-user/order/${email}`
+                      `${server}/active-user/order/${email}`,
+                      {
+                        headers: {
+                          Authorization: `Bearer ${localStorage.getItem('token')}`
+                        }
+                      }
                     )
                     .then((res) => {
                       console.log(res.data.url);

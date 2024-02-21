@@ -40,9 +40,12 @@ const UserDashBoard = () => {
         const response = await axios.post(
           `${server}/upload`,
           formData,
+          
           {
             headers: {
               "Content-Type": "multipart/form-data",
+              "Authorization": `Bearer ${localStorage.getItem('token')}`
+
             },
           }
         );
@@ -58,7 +61,11 @@ const UserDashBoard = () => {
   useEffect(() => {
     const res = async () => {
       const data = await axios
-        .get(`${server}/active-user/info/${emailId}`)
+        .get(`${server}/active-user/info/${emailId}`,{
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`
+          }
+        })
         .then((res) => {
           console.log(res.data);
           setUserData(res.data);

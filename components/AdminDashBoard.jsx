@@ -38,7 +38,11 @@ const AdminDashboard = () => {
   useEffect(() => {
     const fetchLearnerInfo = async () => {
       try {
-        const response = await axios.get(`${server}/learner-data`);
+        const response = await axios.get(`${server}/learner-data`, {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`
+          }
+        });
         setLearnerData(response.data);
         const totalTrialStudent = response.data.reduce((acc, cur) => {
           return acc + (cur.active ? 0 : 1);
@@ -355,7 +359,12 @@ const AdminDashboard = () => {
                               onClick={async () => {
                                 try {
                                   const res = await axios.delete(
-                                    `${server}/learner-delete/${item.learnerEmail}`
+                                    `${server}/learner-delete/${item.learnerEmail}`,
+                                    {
+                                      headers: {
+                                        Authorization: `Bearer ${localStorage.getItem('token')}`
+                                      }
+                                    }
                                   );
                                   alert(res.data.message);
                                 } catch (error) {
@@ -422,7 +431,11 @@ const AdminDashboard = () => {
                                   onClick={async () => {
                                     try {
                                       const res = await axios.put(
-                                        `${server}/learner-update/${item.learnerEmail}`
+                                        `${server}/learner-update/${item.learnerEmail}`,{
+                                          headers: {
+                                            Authorization: `Bearer ${localStorage.getItem('token')}`
+                                          }
+                                        }
                                       );
                                       alert(res.data.message);
                                     } catch (error) {
@@ -488,7 +501,11 @@ const AdminDashboard = () => {
                                   onClick={async () => {
                                     try {
                                       const res = await axios.put(
-                                        `${server}/learner-update/${item.learnerEmail}`
+                                        `${server}/learner-update/${item.learnerEmail}`,{
+                                          headers: {
+                                            Authorization: `Bearer ${localStorage.getItem('token')}`
+                                          }
+                                        }
                                       );
                                       alert(res.data.message);
                                     } catch (error) {
@@ -554,7 +571,11 @@ const AdminDashboard = () => {
                                   onClick={async () => {
                                     try {
                                       const res = await axios.put(
-                                        `${server}/learner-update/${item.learnerEmail}`
+                                        `${server}/learner-update/${item.learnerEmail}`,{
+                                          headers: {
+                                            Authorization: `Bearer ${localStorage.getItem('token')}`
+                                          }
+                                        }
                                       );
                                       alert(res.data.message);
                                     } catch (error) {
