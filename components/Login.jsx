@@ -45,13 +45,13 @@ const Login = () => {
               alert("wrong password and email");
             } else {
               if (res.data.token) {
-                console.log(res.data.token);
+                localStorage.setItem("accessToken", res.data.token);
+
                 axios.defaults.headers.common[
                   "Authorization"
-                ] = ` ${res.data.token}`;
+                ] = ` ${localStorage.getItem("accessToken")}`;
                 // setToken(true);
                 const logintTime=Date.now();
-                localStorage.setItem("accessToken", res.data.token);
                 localStorage.setItem("logintTime", logintTime);
                 
                 // const { email, fname, isLoggedin, isVerified, lname } =res.data.user;
