@@ -296,7 +296,7 @@ const TrialClassForm = () => {
             Register For Trial Class
           </div>
         </div>
-        {!isOpen && (
+        {isOpen && (
           <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center">
             <div className="bg-white p-8 rounded shadow-md w-64 h-52">
               <div className="flex justify-end">
