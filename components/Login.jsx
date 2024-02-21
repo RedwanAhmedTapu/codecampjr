@@ -45,7 +45,7 @@ const Login = () => {
               alert("wrong password and email");
             } else {
               if (res.data.token) {
-              
+              const token=res.data.token;
                 // setToken(true);
                 const logintTime=Date.now();
                 localStorage.setItem("logintTime", logintTime);
