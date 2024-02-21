@@ -169,7 +169,7 @@ const Signup = () => {
             </h1>
             <h1 className="flex flex-col gap-y-2">
               <p className="text-white text-2xl font-bold">Welcome back</p>
-              <p className="text-slate-50">
+              <p className="text-slate-50 text-2xl max-[600px]:text-xl">
                 Unlock Your Coding Potential with CodeCampJR! Sign Up Today and
                 Let the Coding Adventures Begin 🚀
               </p>

@@ -163,7 +163,7 @@ const Login = () => {
               </h1>
               <h1 className="flex flex-col gap-y-2">
                 <p className="text-white text-2xl font-bold">Welcome back</p>
-                <p className="text-slate-50">
+                <p className="text-slate-50 text-2xl max-[600px]:text-xl">
                   Unlock Your Coding Potential with CodeCampJR! Sign Up Today
                   and Let the Coding Adventures Begin 🚀
                 </p>
@@ -251,7 +251,7 @@ const Login = () => {
               <div className="text-blue-600">Forgot password?</div>
             </div>
             <div
-              className=" max-w-full w-full h-12 flex_center bg-blue-700 rounded-lg text-white text-xl font-semibold"
+              className=" max-w-full w-full h-12 flex_center bg-blue-700 rounded-lg text-white text-xl  cursor-pointer font-semibold"
               onClick={handleSubmit}
             >
               Sign in to your account

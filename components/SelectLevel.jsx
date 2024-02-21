@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import axios from "axios";
 import { useRouter } from "next/navigation";
@@ -122,8 +122,7 @@ const SelectLevel = () => {
   const [isActive, setIsActive] = useState(false);
   const [payment, setPayment] = useState(false);
 
-  const server=process.env.SERVER_URL;
-
+  const server = process.env.SERVER_URL;
 
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -207,41 +206,42 @@ const SelectLevel = () => {
       setIsActive(true);
     }
   };
-// handlesubmit for trialstudent
+
+  useEffect(() => {
+    // Scroll to the schedulemodal when isActive becomes true
+    if (isActive) {
+      const schedulemodal = document.getElementById("schedulemodal");
+      if (schedulemodal) {
+        schedulemodal.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [isActive]);
+  // handlesubmit for trialstudent
   const handleSubmitForTrial = async () => {
     // setPayment(true);
     // setIsActive(false);
-    
+
     const res = await axios
-    .put(
-      `${server}/update-trial-learner-data`,
-      studentSchedule, 
-      {
+      .put(`${server}/update-trial-learner-data`, studentSchedule, {
         headers: {
-          "Authorization": ` ${localStorage.getItem('accessToken')}`
-        }
-      }
-    )
-    .then((res) => {
-      console.log(res);
-      router.push(`/adminDashboard`);
-    });
-  
+          Authorization: ` ${localStorage.getItem("accessToken")}`,
+        },
+      })
+      .then((res) => {
+        console.log(res);
+        router.push(`/adminDashboard`);
+      });
   };
   // handleSubmit for active-student
   const handleSubmitActiveStudent = async () => {
     // setPayment(true);
     // setIsActive(false);
     const res = await axios
-      .put(
-        `${server}/update-trial-to-active-learner-data`,
-        studentSchedule,
-        {
-          headers: {
-            "Authorization": ` ${localStorage.getItem('accessToken')}`
-          }
-        }
-      )
+      .put(`${server}/update-trial-to-active-learner-data`, studentSchedule, {
+        headers: {
+          Authorization: ` ${localStorage.getItem("accessToken")}`,
+        },
+      })
       .then((res) => {
         console.log(res);
         router.push(`/adminDashboard`);
@@ -380,24 +380,24 @@ const SelectLevel = () => {
                   id={`time${index + 1}`}
                   onClick={() => {
                     const updatedLevels = timeSlots.map((div) =>
-                    timeSlot.id === div.id
-                      ? {
-                          ...div,
-                          selected: !div.selected,
-                          color: div.selected ? "bg-[#183D3D]" : "bg-red-500",
-                        }
-                      : {
-                          ...div,
-                          selected: false, // Reset other levels to not selected
-                          color: "bg-[#183D3D]",
-                        }
-                  );
+                      timeSlot.id === div.id
+                        ? {
+                            ...div,
+                            selected: !div.selected,
+                            color: div.selected ? "bg-[#183D3D]" : "bg-red-500",
+                          }
+                        : {
+                            ...div,
+                            selected: false, // Reset other levels to not selected
+                            color: "bg-[#183D3D]",
+                          }
+                    );
 
-                  setTimeSlots(updatedLevels);
-                  const timeSelected =
-                  studentSchedule.schedule.time === `${timeSlot.label}`
-                    ? ""
-                    : `${timeSlot.label}`;
+                    setTimeSlots(updatedLevels);
+                    const timeSelected =
+                      studentSchedule.schedule.time === `${timeSlot.label}`
+                        ? ""
+                        : `${timeSlot.label}`;
                     setTime(timeSelected, `time${index + 1}`);
                   }}
                 >
@@ -407,7 +407,7 @@ const SelectLevel = () => {
             </div>
           </div>
         </div>
-        <div className="flex_center " >
+        <div className="flex_center ">
           <div
             className="flex_center  self-center relative top-10 max-[600px]:w-[15rem] w-[45rem] h-20 bg-blue-400 hover:bg-blue-400 transition-colors duration-500 text-center text-white text-3xl rounded-xl shadow-md shadow-blue-900 z-30"
             onClick={() => {
@@ -421,6 +421,7 @@ const SelectLevel = () => {
           <div className="grid grid-rows-5 w-[45rem] h-[30rem] max-[410px]:w-[20rem] max-[510px]:w-[25rem] max-[510px]:h-[28rem] max-[1100px]:w-[30rem] max-[1100px]:w-[20rem] bg-slate-950 absolute top-24 left-[25%] max-[1260px]:left-[20%] max-[600px]:left-[6%] max-[370px]:left-[4%] max-[430px]:left-[2%] px-12 rounded-md">
             <div
               className="flex justify-end text-white text-6xl font-bold"
+              id="schedulemodal"
               onClick={() => {
                 setIsActive(false);
               }}
@@ -444,10 +445,10 @@ const SelectLevel = () => {
             <div className="w-full text-white flex_center text-3xl items-center relative">
               <button
                 className="w-44 h-20  text-2xl absolute right-10 bg-slate-800 rounded-md"
-                onClick={()=>{
-                  if(userCompleted){
+                onClick={() => {
+                  if (userCompleted) {
                     handleSubmitActiveStudent();
-                  }else{
+                  } else {
                     handleSubmitForTrial();
                   }
                 }}
@@ -483,14 +484,13 @@ const SelectLevel = () => {
                 className="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-lg max-[500px]:text-sm"
                 onClick={async () => {
                   const res = await axios
-                    .post(
-                      `${server}/active-user/order/${email}`,
-                      {
-                        headers: {
-                          "Authorization": ` ${localStorage.getItem('accessToken')}`
-                        }
-                      }
-                    )
+                    .post(`${server}/active-user/order/${email}`, {
+                      headers: {
+                        Authorization: ` ${localStorage.getItem(
+                          "accessToken"
+                        )}`,
+                      },
+                    })
                     .then((res) => {
                       console.log(res.data.url);
                       router.push(`${res.data.url}`);

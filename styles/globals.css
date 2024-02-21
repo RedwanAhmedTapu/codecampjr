@@ -35,6 +35,21 @@
     text-size-adjust: 100%;
     -webkit-font-smoothing: antialiased;
   }
+  @keyframes tick {
+    0% {
+      stroke-dashoffset: 40;
+    }
+    100% {
+      stroke-dashoffset: 0;
+    }
+  }
+  
+  .animate-tick path {
+    stroke-dasharray: 40;
+    stroke-dashoffset: 40;
+    animation: tick 0.5s ease-in-out forwards;
+  }
+  
   body {
     background-color: white;
     font-family: "Poppins", sans-serif;
@@ -47,7 +62,7 @@
     @apply mt-5 text-3xl font-extrabold leading-[1.15] bg-gradient-to-br from-slate-400 to-slate-50 bg-clip-text text-transparent text-center text-[3rem] min-[1000px]:text-6xl;
   }
   .head_text_light {
-    @apply mt-5 text-3xl font-extrabold leading-[1.15] bg-gradient-to-br from-[#242323] to-[#232323] bg-clip-text text-transparent text-center text-[3rem] min-[1000px]:text-6xl;
+    @apply mt-5 text-3xl font-extrabold  bg-gradient-to-br from-[#242323] to-[#232323] bg-clip-text text-transparent text-center text-[3rem] min-[1000px]:text-6xl;
   }
   /* .bg_color {
   @apply   bg-black opacity-[0.98] ;
