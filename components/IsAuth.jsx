@@ -14,6 +14,15 @@ export default function isAuth(Component) {
         if (!isAuthenticated) {
           router.push("/login");
         }
+
+        const initializeAxios = () => {
+          const token = localStorage.getItem("accessToken");
+          if (token) {
+            axios.defaults.headers.common["Authorization"] = token;
+          }
+        };
+
+        initializeAxios();
       };
 
       checkAuth();
