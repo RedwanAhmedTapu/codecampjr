@@ -64,7 +64,6 @@ const UserDashBoard = () => {
         })
         .then((res) => {
           console.log(res.data);
-          alert(res.data);
           setUserData(res.data);
           if (res.data.schedule && res.data.schedule.days) {
             setUserAvailable(true);
