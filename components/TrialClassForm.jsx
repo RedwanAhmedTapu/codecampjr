@@ -307,7 +307,7 @@ const TrialClasshtmlForm = () => {
         </div>
         {isOpen && (
           <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50">
-            <div className="bg-white rounded shadow-md w-96 h-72 max-[600px]:w-64 max-[600px]:h-52 relative" id="modal">
+            <div className="bg-white rounded shadow-md w-96 h-72 max-[600px]:w-64 max-[600px]:h-64 relative" id="modal">
               <button
                 className="text-gray-600 hover:text-gray-800 w-10 h-10 absolute top-2 right-2"
                 onClick={closeModal}
@@ -334,7 +334,6 @@ const TrialClasshtmlForm = () => {
                     : resData}
                 </p>
 
-                <p className="text-center text-green-600 text-xl">Success!</p>
                 <div className="w-full h-16 flex items-center justify-center">
                   {/* Animation */}
                   {resData==="registration completed for the class"&&(
