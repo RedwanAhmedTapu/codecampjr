@@ -16,7 +16,6 @@ const Nav = () => {
   const [toggle, setToggle] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
 
-  console.log(toggle);
 
   const isLoggedIn = true;
   const router = useRouter();
@@ -97,7 +96,7 @@ const Nav = () => {
                 Home
               </Link>
             </li>
-            <HoverableDropdown className="z-10 h-76" />
+            <HoverableDropdown className="z-10 h-76" toggle={toggle} setToggle={setToggle}/>
           </ul>
           <div className="w-8 h-8 rounded-lg max-[901px]:hidden   relative -right-10">
             {isDarkMode ? (
@@ -141,7 +140,7 @@ const Nav = () => {
               id="Main"
               className={`${
                 toggle
-                  ? "rounded-r     flex justify-start items-start bg-gray-900 flex-col min-[900px]:hidden w-full h-screen  absolute top-16 z-50  transition-all duration-1000 ease-in-out "
+                  ? "rounded-r flex justify-start items-start bg-gray-900 flex-col min-[900px]:hidden w-full h-screen  absolute top-16 z-50  transition-all duration-1000 ease-in-out "
                   : " h-0"
               }`}
             >

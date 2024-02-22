@@ -19,7 +19,6 @@ const Login = () => {
   const router = useRouter();
 
   const server = process.env.SERVER_URL;
-  console.log(server)
 
   const handleChange = (e) => {
     const { name, value } = e.target;

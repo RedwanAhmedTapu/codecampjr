@@ -2,7 +2,10 @@
 import { useMemo } from "react";
 import {AiOutlineRight} from "react-icons/ai";
 import Link from "next/link";
-const HoverableDropdown = () => {
+const HoverableDropdown = ({props}) => {
+  const toggle=()=>{
+    props.setToggle(!props.toggle);
+  }
 
 const memoizedComponent = useMemo(() => (
     <div className="relative group  max-w-full   w-full flex_center">
@@ -13,6 +16,7 @@ const memoizedComponent = useMemo(() => (
         <Link
           href="/free-trial-class"
           className="dropdownMenu"
+          onClick={toggle}
         >
         Html 
         </Link>
