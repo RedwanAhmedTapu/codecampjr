@@ -329,7 +329,7 @@ const TrialClasshtmlForm = () => {
               </button>
               <div className="flex flex-col justify-center h-full gap-y-4">
                 <p className="text-center text-green-600 text-xl">
-                  {resData === "registration completed htmlFor the class"
+                  {resData === "registration completed for the class"
                     ? `success!`
                     : resData}
                 </p>
@@ -337,7 +337,7 @@ const TrialClasshtmlForm = () => {
                 <p className="text-center text-green-600 text-xl">Success!</p>
                 <div className="w-full h-16 flex items-center justify-center">
                   {/* Animation */}
-                  {resData==="registration completed htmlFor the class"&&(
+                  {resData==="registration completed for the class"&&(
                   <div className="relative">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
