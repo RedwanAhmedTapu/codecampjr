@@ -48,6 +48,15 @@ const TrialClassForm = () => {
       }
     }
   }, [loader]);
+  useEffect(() => {
+    // You can scroll down to a specific div after the modal is closed
+    if (isOpen) {
+      const targetDiv = document.getElementById("modal");
+      if (targetDiv) {
+        targetDiv.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [isOpen]);
 
   const handleSubmit = async (e) => {
     const {
@@ -297,64 +306,67 @@ const TrialClassForm = () => {
           </div>
         </div>
         {isOpen && (
-          <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center">
-            <div className="bg-white p-8 rounded shadow-md w-64 h-52">
-              <div className="flex justify-end">
-                <button
-                  className="text-gray-600 hover:text-gray-800"
-                  onClick={closeModal}
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6 relative -top-2 -right-2"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
-                </button>
-              </div>
-               <p className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-green-600">
-              {resData==="registration completed for the class"?`success!`:resData}
-             </p> 
-            {resData==="registration completed for the class"&&(
-              <div className="w-full h-16 flex_center items-end">
-                {/* Animation */}
-                <div className="relative">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-16 w-16 animate-tick"
-                    viewBox="0 0 25 25"
-                    fill="none"
-                  >
-                    <path
-                       d="M4 14 L10 18 L20 6"
-                      stroke="#34d364"
-                      strokeWidth="4"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                  {/* <p className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-green-600">
-               Success!
-             </p> */}
-                </div>
-                {/* End Animation */}
-              </div>)}
+          <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50">
+            <div className="bg-white rounded shadow-md w-96 h-72 max-[600px]:w-64 max-[600px]:h-52 relative" id="modal">
               <button
-                className="w-full h-12 bg-blue-500 hover:bg-blue-400 shadow-xl rounded-md flex_center text-white font-extralight mt-4"
-                onClick={() => {
-                  router.push("/");
-                  setIsOpen(false);
-                }}
+                className="text-gray-600 hover:text-gray-800 w-10 h-10 absolute top-2 right-2"
+                onClick={closeModal}
               >
-                Ok
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-10 w-10"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
               </button>
+              <div className="flex flex-col justify-center h-full gap-y-4">
+                <p className="text-center text-green-600 text-xl">
+                  {resData === "registration completed for the class"
+                    ? `success!`
+                    : resData}
+                </p>
+
+                <p className="text-center text-green-600 text-xl">Success!</p>
+                <div className="w-full h-16 flex items-center justify-center">
+                  {/* Animation */}
+                  {resData==="registration completed for the class"&&(
+                  <div className="relative">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-16 w-16 animate-tick"
+                      viewBox="0 0 25 25"
+                      fill="none"
+                    >
+                      <path
+                        d="M4 14 L10 18 L20 6"
+                        stroke="#34d364"
+                        strokeWidth="4"
+                        strokeLinecap="round"
+                      />
+                    </svg>
+                  </div>)}
+                  {/* End Animation */}
+                </div>
+                <div className="flex justify-center">
+                  <button
+                    className="w-32 h-12 bg-blue-500 hover:bg-blue-400 shadow-xl rounded-md text-white font-extralight"
+                    onClick={() => {
+                      router.push("/");
+                      setIsOpen(false);
+                    }}
+                  >
+                    Ok
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         )}
