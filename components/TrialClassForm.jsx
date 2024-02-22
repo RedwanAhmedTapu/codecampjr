@@ -4,7 +4,7 @@ import { useState, useMemo, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Blocks } from "react-loader-spinner";
 
-const TrialClassForm = () => {
+const TrialClasshtmlForm = () => {
   const [user, setUser] = useState({
     learnerName: "",
     age: "",
@@ -128,10 +128,10 @@ const TrialClassForm = () => {
           </h1>
 
           <div className="w-full h-[40%]  max-[890px]:h-full  flex_center max-[890px]:flex-col p-8 gap-x-4 max-[890px]:gap-y-12">
-            {data.map((curElem, index) => {
+            {data.map((curElem,index) => {
               return (
                 <>
-                  <div className="trialDiv w-[33.33%] max-[890px]:w-full h-full  flex flex-col justify-between bg-gradient-to-r from-sky-400 to-blue-500 dark:bg-gradient-to-r dark:from-black dark:to-black  relative border-0 dark:border-2 border-slate-600 p-8 rounded-sm">
+                  <div  key={index} className="trialDiv w-[33.33%] max-[890px]:w-full h-full  flex flex-col justify-between bg-gradient-to-r from-sky-400 to-blue-500 dark:bg-gradient-to-r dark:from-black dark:to-black  relative border-0 dark:border-2 border-slate-600 p-8 rounded-sm">
                     <h2 className="w-[80%] self-center text-white text-2xl text-start absolute top-0 bg-gradient-to-r from-blue-500 to-blue-600 dark:bg-gradient-to-r dark:from-slate-700 dark:to-slate-700 pl-4">
                       {curElem.level}
                     </h2>
@@ -169,7 +169,7 @@ const TrialClassForm = () => {
             <div className="flex_center gap-x-2 max-[560px]:flex-col gap-10">
               <div className="flex flex-col w-[25%] max-[560px]:w-[90%] h-16 gap-y-2">
                 <label
-                  for="parentname"
+                  htmlFor="parentname"
                   className="text-xl text-slate-900 dark:text-white"
                 >
                   parent name:
@@ -185,7 +185,7 @@ const TrialClassForm = () => {
               </div>
               <div className="flex flex-col w-[25%]  max-[560px]:w-[90%] h-16 gap-y-2">
                 <label
-                  for="phone"
+                  htmlFor="phone"
                   className="text-xl text-slate-900 dark:text-white"
                 >
                   contact:
@@ -203,7 +203,7 @@ const TrialClassForm = () => {
 
               <div className="flex flex-col w-[25%] max-[560px]:w-[90%] h-16 gap-y-2">
                 <label
-                  for="learnerEmail"
+                  htmlFor="learnerEmail"
                   className="text-xl text-slate-900 dark:text-white"
                 >
                   email:
@@ -221,7 +221,7 @@ const TrialClassForm = () => {
 
               <div className="flex flex-col w-[25%] max-[560px]:w-[90%] h-16 gap-y-2">
                 <label
-                  for="profession"
+                  htmlFor="profession"
                   className="text-xl text-slate-900 dark:text-white"
                 >
                   profession:
@@ -245,7 +245,7 @@ const TrialClassForm = () => {
             <div className="flex gap-x-4 max-[560px]:flex-col max-[560px]:flex_center gap-10">
               <div className="flex flex-col w-[33.33%] max-[560px]:w-[90%] h-16 gap-y-2">
                 <label
-                  for="learnerName"
+                  htmlFor="learnerName"
                   className="text-xl text-slate-900 dark:text-white"
                 >
                   name:
@@ -262,7 +262,7 @@ const TrialClassForm = () => {
               </div>
               <div className="flex flex-col w-[33.33%] max-[560px]:w-[90%] h-16 gap-y-2">
                 <label
-                  for="age"
+                  htmlFor="age"
                   className="text-xl text-slate-900 placeholder-slate-950 dark:text-white"
                 >
                   age:
@@ -279,7 +279,7 @@ const TrialClassForm = () => {
               </div>
               <div className="flex flex-col w-[33.33%] max-[560px]:w-[90%] h-16 gap-y-2">
                 <label
-                  for="school"
+                  htmlFor="school"
                   className="text-xl text-slate-900 dark:text-white"
                 >
                   school:
@@ -302,7 +302,7 @@ const TrialClassForm = () => {
               handleSubmit();
             }}
           >
-            Register For Trial Class
+            Register htmlFor Trial Class
           </div>
         </div>
         {isOpen && (
@@ -329,7 +329,7 @@ const TrialClassForm = () => {
               </button>
               <div className="flex flex-col justify-center h-full gap-y-4">
                 <p className="text-center text-green-600 text-xl">
-                  {resData === "registration completed for the class"
+                  {resData === "registration completed htmlFor the class"
                     ? `success!`
                     : resData}
                 </p>
@@ -337,7 +337,7 @@ const TrialClassForm = () => {
                 <p className="text-center text-green-600 text-xl">Success!</p>
                 <div className="w-full h-16 flex items-center justify-center">
                   {/* Animation */}
-                  {resData==="registration completed for the class"&&(
+                  {resData==="registration completed htmlFor the class"&&(
                   <div className="relative">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -395,4 +395,4 @@ const TrialClassForm = () => {
   return memoizedComponent;
 };
 
-export default TrialClassForm;
+export default TrialClasshtmlForm;

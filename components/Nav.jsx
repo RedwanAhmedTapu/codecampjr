@@ -9,6 +9,7 @@ import LightModeIcon from "@mui/icons-material/LightMode";
 import HoverableDropdown from "./HoverableDropdown";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import { CgProfile } from "react-icons/cg";
 
 const Nav = () => {
   const [user, setuser] = useState({});
@@ -16,8 +17,8 @@ const Nav = () => {
   const [toggle, setToggle] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
 
-
   const isLoggedIn = true;
+
   const router = useRouter();
   useEffect(() => {
     const storedTheme = localStorage.getItem("theme");
@@ -51,7 +52,7 @@ const Nav = () => {
             href="/"
             className="flex justify-center items-center  text-orange-600  dark:text-white"
           >
-            <div className=" max-[600px]:w-32 w-44  h-auto self-center  overflow-hidden">
+            <div className=" max-[600px]:w-32 w-44   h-auto self-center  overflow-hidden">
               <Image
                 src="/assets/images/codecamplogo.svg"
                 alt="logo"
@@ -96,7 +97,11 @@ const Nav = () => {
                 Home
               </Link>
             </li>
-            <HoverableDropdown className="z-10 h-76" toggle={toggle} setToggle={setToggle}/>
+            <HoverableDropdown
+              className="z-10 h-76"
+              toggle={toggle}
+              setToggle={setToggle}
+            />
           </ul>
           <div className="w-8 h-8 rounded-lg max-[901px]:hidden   relative -right-10">
             {isDarkMode ? (
@@ -123,12 +128,12 @@ const Nav = () => {
 
           {user && (
             <div
-              className="max-[500px]:w-10 max-[500px]:h-10 w-16 h-16 max-[900px]:hidden bg-gradient-to-r from-gray-700 via-gray-900 to-black rounded-full text-white flex_center"
+              className="max-[500px]:w-10 max-[500px]:h-10 w-16 h-16 max-[900px]:hidden text-slate-900 dark:text-white bg-transparent rounded-full cursor-pointer flex items-center justify-center"
               onClick={() => {
                 router.push(`/user-dashboard?userEmail=${user.email}`);
               }}
             >
-              profile
+              <CgProfile size={30} />
             </div>
           )}
         </nav>
@@ -168,8 +173,30 @@ const Nav = () => {
                     {" "}
                     <Link href="/">About</Link>
                   </li>
-                  <HoverableDropdown className="navlist list" />
+                  <HoverableDropdown
+                    className="z-10 h-76"
+                    toggle={toggle}
+                    setToggle={setToggle}
+                  />
+
                   <li className="navlist list"></li>
+                  <li className="navlist list">
+                    {user && (
+                      <div
+                        className=" text-slate-900 dark:text-white cursor-pointer "
+                        onClick={() => {
+                          router.push(
+                            `/user-dashboard?userEmail=${user.email}`
+                          );
+                          setToggle((prev)=>{
+                            !prev;
+                          })
+                        }}
+                      >
+                        <CgProfile size={30} />
+                      </div>
+                    )}
+                  </li>
                 </ul>
 
                 {/* <button onclick="showMenu1(true)" className="focus:outline-none focus:text-indigo-400 text-left  text-white flex justify-between items-center w-full py-5 space-x-14  ">

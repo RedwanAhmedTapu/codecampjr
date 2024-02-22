@@ -2,10 +2,10 @@
 import { useMemo } from "react";
 import {AiOutlineRight} from "react-icons/ai";
 import Link from "next/link";
-const HoverableDropdown = ({props}) => {
-  const toggle=()=>{
-    props.setToggle(!props.toggle);
-  }
+const HoverableDropdown = ({setToggle}) => {
+  const navigate = () => {
+    setToggle((prevToggle) => !prevToggle);
+  };
 
 const memoizedComponent = useMemo(() => (
     <div className="relative group  max-w-full   w-full flex_center">
@@ -16,49 +16,63 @@ const memoizedComponent = useMemo(() => (
         <Link
           href="/free-trial-class"
           className="dropdownMenu"
-          onClick={toggle}
+          onClick={navigate}
         >
         Html 
         </Link>
         <Link
           href="/free-trial-class"
           className="dropdownMenu"
+          onClick={navigate}
+
         >
         Css3 
         </Link>
         <Link
           href="/free-trial-class"
           className="dropdownMenu"
+          onClick={navigate}
+
         >
         Javascript 
         </Link>
         <Link
           href="/free-trial-class"
           className="dropdownMenu"
+          onClick={navigate}
+
         >
         Python 
         </Link>
         <Link
           href="/free-trial-class"
           className="dropdownMenu"
+          onClick={navigate}
+
         >
         Reactjs 
         </Link>
         <Link
           href="/free-trial-class"
           className="dropdownMenu"
+          onClick={navigate}
+
         >
         Tailwindcss 
         </Link>
         <Link
           href="/free-trial-class"
           className="dropdownMenu"
+          onClick={navigate}
+
         >
         NodeJs 
         </Link>
         <Link
           href="/free-trial-class"
           className="dropdownMenu"
+          onClick={navigate}
+
         >
         MongoDB 
         </Link>
