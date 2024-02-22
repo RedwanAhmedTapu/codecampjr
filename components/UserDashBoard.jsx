@@ -45,7 +45,7 @@ const UserDashBoard = () => {
             },
           }
         );
-        localStorage.setItem("storedUrl", response.data.imageUrl);
+        localStorage.setItem("imageurl", response.data.imageUrl);
         // setImageUrl(localStorage.getItem("storedUrl"));
         console.log("File uploaded successfully!");
       } catch (error) {
@@ -64,10 +64,14 @@ const UserDashBoard = () => {
         })
         .then((res) => {
           console.log(res.data);
+          alert(res.data);
           setUserData(res.data);
           if (res.data.schedule && res.data.schedule.days) {
             setUserAvailable(true);
           }
+
+          const img = localStorage.getItem("imageurl");
+          setImageUrl(img);
         });
     };
     res();
@@ -175,7 +179,7 @@ const UserDashBoard = () => {
               <div className="w-full flex_center">
                 <div className="  w-44 h-44 border-[0.2rem] border-slate-400 rounded-full flex_center bg-white">
                   <Image
-                    src={localStorage.getItem("storedUrl")}
+                    src={imageUrl && imageUrl}
                     alt="Uploaded"
                     className="rounded-full w-full h-full"
                     width={300}
@@ -211,31 +215,33 @@ const UserDashBoard = () => {
         </div>
       ) : (
         <div className="w-full h-screen flex_center">
-        <div className="w-96 h-72 max-[500px]:w-72 max-[500px]:h-64 bg-slate-800  dark:bg-blue-300 shadow-md rounded-md flex flex-col justify-center items-center gap-y-6 relative">
-          {/* Different Cartoon SVG Icon Animation */}
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-24 w-24 animate-bounce"
-            viewBox="0 0 20 20"
-            fill="white"
-          >
-            <path
-              fillRule="evenodd"
-              d="M10 0c-1.884 0-3.57.678-4.9 1.789C4.35 2.896 4 4.348 4 6v.586A8 8 0 0 0 2 14v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-2c0-1.654 1.346-3 3-3h.586c.343 0 .672-.137.912-.382L12.23 9.05c.183-.193.27-.447.228-.704A4.004 4.004 0 0 0 10 2a4 4 0 0 0-2.355.79c-.046.037-.092.074-.134.114A3.99 3.99 0 0 0 5 6v2c0 .65.254 1.263.715 1.723.461.459 1.075.724 1.735.727L8 10h2l.283-.55c.66-.003 1.273-.268 1.734-.727.461-.459.715-1.072.715-1.723V6c0-1.651-.349-3.104-1.1-4.211C13.571.678 11.884 0 10 0zm-1 17a1 1 0 1 1 0-2 1 1 0 0 1 0 2zM7 6a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm6 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"
-            />
-          </svg>
-          <p className="text-xl text-slate-50 dark:text-slate-950 font-serif font-extralight text-center">
-            You haven{`'`}t bought any course
-          </p>
-          {/* Awesome OK Button */}
-          <button className="w-24 h-10 bg-blue-500 hover:bg-blue-400 shadow-xl rounded-md text-white font-semibold" onClick={()=>{
-            router.push("/free-trial-class");
-          }}>
-            OK
-          </button>
+          <div className="w-96 h-72 max-[500px]:w-72 max-[500px]:h-64 bg-slate-800  dark:bg-blue-300 shadow-md rounded-md flex flex-col justify-center items-center gap-y-6 relative">
+            {/* Different Cartoon SVG Icon Animation */}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-24 w-24 animate-bounce"
+              viewBox="0 0 20 20"
+              fill="white"
+            >
+              <path
+                fillRule="evenodd"
+                d="M10 0c-1.884 0-3.57.678-4.9 1.789C4.35 2.896 4 4.348 4 6v.586A8 8 0 0 0 2 14v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-2c0-1.654 1.346-3 3-3h.586c.343 0 .672-.137.912-.382L12.23 9.05c.183-.193.27-.447.228-.704A4.004 4.004 0 0 0 10 2a4 4 0 0 0-2.355.79c-.046.037-.092.074-.134.114A3.99 3.99 0 0 0 5 6v2c0 .65.254 1.263.715 1.723.461.459 1.075.724 1.735.727L8 10h2l.283-.55c.66-.003 1.273-.268 1.734-.727.461-.459.715-1.072.715-1.723V6c0-1.651-.349-3.104-1.1-4.211C13.571.678 11.884 0 10 0zm-1 17a1 1 0 1 1 0-2 1 1 0 0 1 0 2zM7 6a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm6 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"
+              />
+            </svg>
+            <p className="text-xl text-slate-50 dark:text-slate-950 font-serif font-extralight text-center">
+              You haven{`'`}t bought any course
+            </p>
+            {/* Awesome OK Button */}
+            <button
+              className="w-24 h-10 bg-blue-500 hover:bg-blue-400 shadow-xl rounded-md text-white font-semibold"
+              onClick={() => {
+                router.push("/free-trial-class");
+              }}
+            >
+              OK
+            </button>
+          </div>
         </div>
-      </div>
-      
       )}
     </>
   );

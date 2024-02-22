@@ -62,7 +62,7 @@
     @apply mt-5 text-3xl font-extrabold leading-[1.15] bg-gradient-to-br from-slate-400 to-slate-50 bg-clip-text text-transparent text-center text-[3rem] min-[1000px]:text-6xl;
   }
   .head_text_light {
-    @apply mt-5 text-3xl font-extrabold  bg-gradient-to-br from-[#242323] to-[#232323] bg-clip-text text-transparent text-center text-[3rem] min-[1000px]:text-6xl;
+    @apply mt-5 text-3xl font-extrabold leading-[1.15] bg-gradient-to-br from-[#242323] to-[#232323] bg-clip-text text-transparent text-center text-[3rem] min-[1000px]:text-6xl;
   }
   /* .bg_color {
   @apply   bg-black opacity-[0.98] ;
