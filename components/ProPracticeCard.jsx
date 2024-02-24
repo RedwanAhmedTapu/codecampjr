@@ -18,7 +18,7 @@ const data = [
   },
   {
     heading: "Group-C",
-    speed: "7999",
+    speed: "5000",
     class: "1 FREE Trial class",
     liveClass: "2 weekly Live Classes",
     maxStudent: "Maximum 1 Student",
@@ -41,8 +41,8 @@ const ProPracticeCard = () => {
             <>
               <div className="proPracticeCardBg bg-slate-100  dark:bg-black  max-[449px]:w-[20rem] w-[25rem] h-96 flex flex-col gap-y-8 pl-14 pt-6 border-0  dark:border-2 dark:border-slate-600 rounded-lg shadow-slate-300 dark:shadow-none shadow-2xl">
                 <h1 className="bg-[conic-gradient(at_left,_var(--tw-gradient-stops))] from-rose-500 to-indigo-700 bg-clip-text text-transparent font-bold dark:text-white text-4xl">{curElem.heading}</h1>
-                <p className="bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900 bg-clip-text text-transparent dark:text-orange-300 text-5xl font-bold ">
-                  ৳{curElem.speed}
+                <p className="bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900 bg-clip-text text-transparent dark:text-orange-300 text-5xl font-bold  gap-2">
+                  ৳{curElem.speed}<span className="text-[1.3rem]">/month</span>
                 </p>
                 <p className="text-slate-900 dark:text-slate-100 text-xl hover:text-slate-700 group transition-colors duration-500 flex_center justify-start gap-x-2">
 
