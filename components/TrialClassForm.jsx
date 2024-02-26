@@ -297,12 +297,12 @@ const TrialClasshtmlForm = () => {
             </div>
           </div>
           <div
-            className=" register_btn self-center flex_center rounded-sm dark:text-white dark:bg-slate-950 text-xl border-2 mb-2 shadow-lg "
+            className=" register_btn self-center flex_center rounded-sm dark:text-white dark:bg-slate-700 text-xl border-2 mb-2 shadow-lg "
             onClick={() => {
               handleSubmit();
             }}
           >
-            Register htmlFor Trial Class
+            Register For Trial Class
           </div>
         </div>
         {isOpen && (
