@@ -5,11 +5,6 @@ import { FcGoogle } from "react-icons/fc";
 import { useState, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
-import GlobeInnerRay from "./GlobeInnerRay";
-import { ConstructionOutlined } from "@mui/icons-material";
-import { GoogleOAuthProvider } from "@react-oauth/google";
-import { GoogleLogin } from "@react-oauth/google";
-import jwt_decode from "jwt-decode";
 const Login = () => {
   const [user, setUser] = useState({
     email: "",

@@ -2,13 +2,7 @@
 import { useState,useMemo } from "react";
 import { useRouter } from "next/navigation";
 import { ImSpinner9 } from "react-icons/im";
-import { AiFillApple } from "react-icons/ai";
-import { FcGoogle } from "react-icons/fc";
-import CountdownTimer from "./CountdownTimer";
-import { GoogleOAuthProvider } from "@react-oauth/google";
-import { GoogleLogin } from "@react-oauth/google";
-import jwt_decode from "jwt-decode";
-import { Center } from "@react-three/drei";
+
 const Signup = () => {
   const [user, setUser] = useState({
     fname: "",
